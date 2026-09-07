@@ -114,6 +114,16 @@
       "import": "./dist/Breadcrumb.js",
       "require": "./dist/Breadcrumb.cjs"
     },
+    "./BackButton": {
+      "types": "./dist/BackButton/index.d.ts",
+      "import": "./dist/BackButton.js",
+      "require": "./dist/BackButton.cjs"
+    },
+    "./ActionCateg": {
+      "types": "./dist/ActionCateg/index.d.ts",
+      "import": "./dist/ActionCateg.js",
+      "require": "./dist/ActionCateg.cjs"
+    },
     
     "./style.css": "./dist/style.css"
   },

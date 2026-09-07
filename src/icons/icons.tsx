@@ -94,6 +94,29 @@ export const ChevronDownIcon = ({ size = 20, ...props }: IconProps) => (
   </svg>
 );
 
+
+
+/** Chevron left — used for back buttons and navigation. */
+export const ChevronLeftIcon = ({ size = 24, ...props }: IconProps) => (
+  <svg
+    width={size}
+    height={size}
+    viewBox="0 0 30 36"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    aria-hidden="true"
+    {...props}
+  >
+    <path
+      d="M21 30L9 18L21 6"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+  </svg>
+);
+
 /** Arrow right — used for action buttons and navigation. */
 export const ArrowRight = ({ size = 14, ...props }: IconProps) => (
   <svg

@@ -22,8 +22,8 @@
   --bsr-color-surface-alt: #f0f1f2; /* searchbar / service card background */
   --bsr-color-surface-hover: #edeeef; /* textfield disabled / hover surface */
   --bsr-color-surface-muted: #e9eaec; /* searchbar resting background */
-  --bsr-color-surface-navhover: #e9ebef; /* navbar link hover/active background */
-  --bsr-color-surface-texthover: #e0e1e2; /* text-variant button hover */
+  --bsr-color-surface-navhover: #e9ebef; /* navbar link hover/active background / actionCateg hover */
+  --bsr-color-surface-texthover: #e0e1e2; /* text-variant button hover | ActionCateg border */
   --bsr-color-surface-card-hover: #f8f8f8; /* course card hover background */
   --bsr-color-selected: #dde1e7;
   /*dropdown option selected / hover background */
@@ -51,9 +51,11 @@
   --bsr-color-text-subtle: #707071; /* property card address */
   --bsr-color-text-faint: #30333a; /* property card name */
   --bsr-color-text-faq-answer: #40444d; /* FAQ answer copy */
-  --bsr-color-text-inverse: #ffffff; /* text on dark/brand backgrounds */
+  --bsr-color-text-inverse: #ffffff; /* text on dark/brand backgrounds / actionCateg hover icon */
   --bsr-color-quote-icon: #e4e6e8; /* testimonial decorative quote mark */
   --bsr-color-text-soft-white: #575858; /*Breadcrumb */
+
+  --bsr-color-text-dark-black: #000000; /* back button*/
 
   /* ── Status ────────────────────────────────────────────────────── */
   --bsr-color-error: #dc2626;

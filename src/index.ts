@@ -31,6 +31,8 @@ export * from "./components/AppStoreButton";
 export * from "./components/SocialIcon";
 export * from "./components/Dropdown";
 export * from "./components/Breadcrumb";
+export * from "./components/BackButton";
+export * from "./components/ActionCateg";
 
 // Icons
 export * from "./icons";

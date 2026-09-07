@@ -71,6 +71,9 @@ export default defineConfig({
         SocialIcon: resolve(__dirname, "src/SocialIcon/index.ts"),
         Dropdown: resolve(__dirname, "src/Dropdown/index.ts"),
         Breadcrumb: resolve(__dirname, "src/Breadcrumb/index.ts"),
+        BackButton: resolve(__dirname, "src/BackButton/index.ts"),
+        ActionCateg: resolve(__dirname, "src/ActionCateg/index.ts"),
+
         // src/types/index.ts is type-only (interfaces are erased at build
         // time) — deliberately NOT a lib entry, it would emit an empty JS
         // chunk. Its .d.ts still ships via the main `index.ts` barrel, so
