@@ -31,7 +31,7 @@
   /* ── Borders ───────────────────────────────────────────────────── */
   --bsr-color-border: #c7c8c9; /* property card divider/stroke */
   --bsr-color-border-muted: #e5e7eb; /* textfield/password disabled border */
-  --bsr-color-border-strong: #959697; /* password field default border */
+  --bsr-color-border-strong: #959697; /* password field default border / foundation border */
   --bsr-color-border-trust: #1e3a5f; /*dropdown selected border*/
 
   /* ── Disabled ──────────────────────────────────────────────────── */
@@ -46,7 +46,7 @@
   --bsr-color-text-heading: #111827; /* headings, prices, numbers */
   --bsr-color-text-body: #25282d; /* primary body/label text */
   --bsr-color-text-secondary: #4b5563; /* typography secondary */
-  --bsr-color-text-muted: #6b7280; /* secondary button, muted labels */
+  --bsr-color-text-muted: #6b7280; /* secondary button, muted labels / foundation description text */
   --bsr-color-text-muted-alt: #505660; /* searchbar, service/testimonial copy */
   --bsr-color-text-subtle: #707071; /* property card address */
   --bsr-color-text-faint: #30333a; /* property card name */
