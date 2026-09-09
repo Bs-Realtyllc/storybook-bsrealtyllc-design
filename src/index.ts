@@ -36,6 +36,7 @@ export * from "./components/ActionCateg";
 export * from "./components/EvolutionCard";
 export * from "./components/FilterItem";
 export * from "./components/Foundation";
+export * from "./components/CourseCard2";
 
 // Icons
 export * from "./icons";

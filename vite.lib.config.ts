@@ -76,6 +76,7 @@ export default defineConfig({
         EvolutionCard: resolve(__dirname, "src/EvolutionCard/index.ts"),
         FilterItem: resolve(__dirname, "src/FilterItem/index.ts"),
         Foundation: resolve(__dirname, "src/Foundation/index.ts"),
+        CourseCard2: resolve(__dirname, "src/CourseCard2/index.ts"),
 
         // src/types/index.ts is type-only (interfaces are erased at build
         // time) — deliberately NOT a lib entry, it would emit an empty JS

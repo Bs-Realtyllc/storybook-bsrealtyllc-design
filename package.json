@@ -139,6 +139,11 @@
       "import": "./dist/Foundation.js",
       "require": "./dist/Foundation.cjs"
     },
+    "./CourseCard2": {
+      "types": "./dist/CourseCard2/index.d.ts",
+      "import": "./dist/CourseCard2.js",
+      "require": "./dist/CourseCard2.cjs"
+    },
     
     "./style.css": "./dist/style.css"
   },

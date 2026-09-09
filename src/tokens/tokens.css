@@ -28,6 +28,8 @@
   --bsr-color-selected: #dde1e7;
   /*dropdown option selected / hover background */
 
+  --bsr-color-green-light: #dcf1e4; /* course card 2 with lerner background*/
+
   /* ── Borders ───────────────────────────────────────────────────── */
   --bsr-color-border: #c7c8c9; /* property card divider/stroke */
   --bsr-color-border-muted: #e5e7eb; /* textfield/password disabled border */
@@ -56,6 +58,9 @@
   --bsr-color-text-soft-white: #575858; /*Breadcrumb */
 
   --bsr-color-text-dark-black: #000000; /* back button*/
+
+  --bsr-color-text-trust-blue-active: #0b1421; /* FilterItem text*/
+  --bsr-color-text-muted-gray: #38404a; /* Course card 2 text*/
 
   /* ── Status ────────────────────────────────────────────────────── */
   --bsr-color-error: #dc2626;

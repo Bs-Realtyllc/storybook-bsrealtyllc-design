@@ -19,10 +19,10 @@
 
 /* Primary */
 .bsr-filter-item--primary {
-  color: #b9c2cd;
+  color: var(--bsr-color-disabled-bg-primary);
 }
 
 /* Active */
 .bsr-filter-item--active {
-  color: #0b1421;
+  color: var(--bsr-color-text-trust-blue-active);
 }
