@@ -124,6 +124,21 @@
       "import": "./dist/ActionCateg.js",
       "require": "./dist/ActionCateg.cjs"
     },
+    "./EvolutionCard": {
+      "types": "./dist/EvolutionCard/index.d.ts",
+      "import": "./dist/EvolutionCard.js",
+      "require": "./dist/EvolutionCard.cjs"
+    },
+    "./FilterItem": {
+      "types": "./dist/FilterItem/index.d.ts",
+      "import": "./dist/FilterItem.js",
+      "require": "./dist/FilterItem.cjs"
+    },
+    "./Foundation": {
+      "types": "./dist/Foundation/index.d.ts",
+      "import": "./dist/Foundation.js",
+      "require": "./dist/Foundation.cjs"
+    },
     
     "./style.css": "./dist/style.css"
   },

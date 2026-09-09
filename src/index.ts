@@ -33,6 +33,9 @@ export * from "./components/Dropdown";
 export * from "./components/Breadcrumb";
 export * from "./components/BackButton";
 export * from "./components/ActionCateg";
+export * from "./components/EvolutionCard";
+export * from "./components/FilterItem";
+export * from "./components/Foundation";
 
 // Icons
 export * from "./icons";

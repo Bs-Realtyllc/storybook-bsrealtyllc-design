@@ -73,6 +73,9 @@ export default defineConfig({
         Breadcrumb: resolve(__dirname, "src/Breadcrumb/index.ts"),
         BackButton: resolve(__dirname, "src/BackButton/index.ts"),
         ActionCateg: resolve(__dirname, "src/ActionCateg/index.ts"),
+        EvolutionCard: resolve(__dirname, "src/EvolutionCard/index.ts"),
+        FilterItem: resolve(__dirname, "src/FilterItem/index.ts"),
+        Foundation: resolve(__dirname, "src/Foundation/index.ts"),
 
         // src/types/index.ts is type-only (interfaces are erased at build
         // time) — deliberately NOT a lib entry, it would emit an empty JS
