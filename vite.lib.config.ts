@@ -1,5 +1,5 @@
 /**
- * Library build config for @bsrealty/design-system.
+ * Library build config for @bsrealtyllc/design-system.
  *
  * Separate from vite.config.ts (which builds/serves the Storybook demo
  * app). Run via `npm run build:lib` — produces dist/ with:
@@ -54,10 +54,6 @@ export default defineConfig({
           __dirname,
           "src/components/PasswordField/index.ts",
         ),
-        PropertyCard: resolve(
-          __dirname,
-          "src/components/PropertyCard/index.ts",
-        ),
         SearchBar: resolve(__dirname, "src/components/SearchBar/index.ts"),
         ServiceCard: resolve(__dirname, "src/components/ServiceCard/index.ts"),
         StarRating: resolve(__dirname, "src/components/StarRating/index.ts"),
@@ -65,23 +61,31 @@ export default defineConfig({
         TextField: resolve(__dirname, "src/components/TextField/index.ts"),
         Typography: resolve(__dirname, "src/components/Typography/index.ts"),
         icons: resolve(__dirname, "src/icons/index.ts"),
-        CourseCard: resolve(__dirname, "src/CourseCard/index.ts"),
-        GooglePlayButton: resolve(__dirname, "src/GooglePlayButton/index.ts"),
-        AppStoreButton: resolve(__dirname, "src/AppStoreButton/index.ts"),
-        SocialIcon: resolve(__dirname, "src/SocialIcon/index.ts"),
-        Dropdown: resolve(__dirname, "src/Dropdown/index.ts"),
-        Breadcrumb: resolve(__dirname, "src/Breadcrumb/index.ts"),
-        BackButton: resolve(__dirname, "src/BackButton/index.ts"),
-        ActionCateg: resolve(__dirname, "src/ActionCateg/index.ts"),
-        EvolutionCard: resolve(__dirname, "src/EvolutionCard/index.ts"),
-        FilterItem: resolve(__dirname, "src/FilterItem/index.ts"),
-        Foundation: resolve(__dirname, "src/Foundation/index.ts"),
-        CourseCard2: resolve(__dirname, "src/CourseCard2/index.ts"),
+        CourseCard: resolve(__dirname, "src/components/CourseCard/index.ts"),
+        GooglePlayButton: resolve(
+          __dirname,
+          "src/components/GooglePlayButton/index.ts",
+        ),
+        AppStoreButton: resolve(
+          __dirname,
+          "src/components/AppStoreButton/index.ts",
+        ),
+        SocialIcon: resolve(__dirname, "src/components/SocialIcon/index.ts"),
+        Dropdown: resolve(__dirname, "src/components/Dropdown/index.ts"),
+        Breadcrumb: resolve(__dirname, "src/components/Breadcrumb/index.ts"),
+        BackButton: resolve(__dirname, "src/components/BackButton/index.ts"),
+        ActionCateg: resolve(__dirname, "src/components/ActionCateg/index.ts"),
+        EvolutionCard: resolve(
+          __dirname,
+          "src/components/EvolutionCard/index.ts",
+        ),
+        FilterItem: resolve(__dirname, "src/components/FilterItem/index.ts"),
+        CourseCard2: resolve(__dirname, "src/components/CourseCard2/index.ts"),
 
         // src/types/index.ts is type-only (interfaces are erased at build
         // time) — deliberately NOT a lib entry, it would emit an empty JS
         // chunk. Its .d.ts still ships via the main `index.ts` barrel, so
-        // `import type { Disableable } from '@bsrealty/design-system'`
+        // `import type { Disableable } from '@bsrealtyllc/design-system'`
         // keeps working; there's just no `./types` deep-import subpath.
       },
       formats: ["es", "cjs"],

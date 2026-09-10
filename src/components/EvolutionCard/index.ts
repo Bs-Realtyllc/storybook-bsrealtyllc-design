@@ -1,3 +1,3 @@
-import { BSRealtyEvolutionCard } from "./BSRealtyEvolutionCard";
+export { BSRealtyEvolutionCard } from "./BSRealtyEvolutionCard";
 
-import type { BSRealtyEvolutionCardProps } from "./BSRealtyEvolutionCard";
+export type { BSRealtyEvolutionCardProps } from "./BSRealtyEvolutionCard";

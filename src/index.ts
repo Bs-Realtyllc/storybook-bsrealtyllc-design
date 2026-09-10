@@ -1,11 +1,11 @@
 /**
- * @bsrealty/design-system — public entry point.
+ * @bsrealtyllc/design-system — public entry point.
  *
  * Consumers can import from here directly:
- *   import { BSRealtyButton, BSRealtyTextField } from '@bsrealty/design-system';
+ *   import { BSRealtyButton, BSRealtyTextField } from '@bsrealtyllc/design-system';
  *
  * ...or deep-import a single component (see package.json "exports"):
- *   import { BSRealtyButton } from '@bsrealty/design-system/Button';
+ *   import { BSRealtyButton } from '@bsrealtyllc/design-system/Button';
  *
  * Both paths are backed by the same per-component barrel files below, so
  * there is exactly one place (each component's own index.ts) that decides
@@ -18,7 +18,6 @@ export * from "./components/Button";
 export * from "./components/FAQ";
 export * from "./components/Navbar";
 export * from "./components/PasswordField";
-export * from "./components/PropertyCard";
 export * from "./components/SearchBar";
 export * from "./components/ServiceCard";
 export * from "./components/StarRating";
@@ -35,7 +34,6 @@ export * from "./components/BackButton";
 export * from "./components/ActionCateg";
 export * from "./components/EvolutionCard";
 export * from "./components/FilterItem";
-export * from "./components/Foundation";
 export * from "./components/CourseCard2";
 
 // Icons

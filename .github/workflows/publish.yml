@@ -1,0 +1,38 @@
+name: Publish package to npm
+
+# Publishes @bsrealtyllc/design-system to the public npm registry whenever a
+# GitHub Release is published. See docs/DESIGN_SYSTEM_GUIDE.md section 6 for
+# the full publish/consume flow.
+#
+# Uses npm Trusted Publishing (OIDC) — no NPM_TOKEN secret needed. This repo +
+# this exact workflow file must be registered as a Trusted Publisher on the
+# @bsrealtyllc/design-system package's settings page on npmjs.com first.
+on:
+  release:
+    types: [published]
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write # required for npm Trusted Publishing (OIDC)
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          registry-url: https://registry.npmjs.org
+
+      - run: npm ci
+
+      # Trusted Publishing needs a recent npm CLI (bundled versions on
+      # setup-node's Node 20 image may predate OIDC support).
+      - run: npm install -g npm@latest
+
+      # npm publish triggers `prepublishOnly` (npm run build:lib) automatically,
+      # so dist/ is always built fresh from the tagged commit before publishing.
+      # No auth token/env var needed — npm exchanges GitHub's OIDC token for a
+      # short-lived publish credential automatically.
+      - run: npm publish

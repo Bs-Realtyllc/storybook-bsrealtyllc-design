@@ -1,8 +1,16 @@
 {
-  "name": "@bsrealty/design-system",
+  "name": "@bsrealtyllc/design-system",
   "version": "0.1.0",
   "description": "BSRealty design system — shared React components, icons, and design tokens.",
   "private": false,
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bsr2023/storybook-bsrealtyllc-design.git"
+  },
   "type": "module",
   "sideEffects": [
     "**/*.css"
@@ -43,11 +51,6 @@
       "types": "./dist/components/PasswordField/index.d.ts",
       "import": "./dist/PasswordField.js",
       "require": "./dist/PasswordField.cjs"
-    },
-    "./PropertyCard": {
-      "types": "./dist/components/PropertyCard/index.d.ts",
-      "import": "./dist/PropertyCard.js",
-      "require": "./dist/PropertyCard.cjs"
     },
     "./SearchBar": {
       "types": "./dist/components/SearchBar/index.d.ts",
@@ -133,11 +136,6 @@
       "types": "./dist/FilterItem/index.d.ts",
       "import": "./dist/FilterItem.js",
       "require": "./dist/FilterItem.cjs"
-    },
-    "./Foundation": {
-      "types": "./dist/Foundation/index.d.ts",
-      "import": "./dist/Foundation.js",
-      "require": "./dist/Foundation.cjs"
     },
     "./CourseCard2": {
       "types": "./dist/CourseCard2/index.d.ts",

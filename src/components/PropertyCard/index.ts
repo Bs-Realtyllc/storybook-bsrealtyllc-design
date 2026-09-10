@@ -1,1 +1,0 @@
-export { BSRealtyPropertyCard } from './BSRealtyPropertyCard';
