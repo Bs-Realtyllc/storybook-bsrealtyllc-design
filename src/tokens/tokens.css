@@ -10,45 +10,57 @@
 
 :root {
   /* ── Brand ─────────────────────────────────────────────────────── */
-  --bsr-color-primary: #1e3a5f;          /* BSRealtyButton, Navbar, TextField focus */
-  --bsr-color-primary-hover: #182e4c;    /* Button primary hover */
-  --bsr-color-primary-active: #172c47;   /* Navbar login button active */
-  --bsr-color-primary-subtle: #253f66;   /* Navbar login button hover */
-  --bsr-color-accent-gold: #c9a24d;      /* Typography accent */
+  --bsr-color-primary: #1e3a5f; /* BSRealtyButton, Navbar, TextField focus */
+  --bsr-color-primary-hover: #182e4c; /* Button primary hover */
+  --bsr-color-primary-active: #172c47; /* Navbar login button active */
+  --bsr-color-primary-subtle: #253f66; /* Navbar login button hover */
+  --bsr-color-accent-gold: #c9a24d; /* Typography accent */
 
   /* ── Neutral surfaces ──────────────────────────────────────────── */
-  --bsr-color-white: #feffff;            /* was #feffff / #fefffe / #ffffff */
-  --bsr-color-surface: #f9fafb;          /* light card/section background */
-  --bsr-color-surface-alt: #f0f1f2;      /* searchbar / service card background */
-  --bsr-color-surface-hover: #edeeef;    /* textfield disabled / hover surface */
-  --bsr-color-surface-muted: #e9eaec;    /* searchbar resting background */
-  --bsr-color-surface-navhover: #e9ebef; /* navbar link hover/active background */
-  --bsr-color-surface-texthover: #e0e1e2;/* text-variant button hover */
+  --bsr-color-white: #feffff; /* was #feffff / #fefffe / #ffffff */
+  --bsr-color-surface: #f9fafb; /* light card/section background */
+  --bsr-color-surface-alt: #f0f1f2; /* searchbar / service card background */
+  --bsr-color-surface-hover: #edeeef; /* textfield disabled / hover surface */
+  --bsr-color-surface-muted: #e9eaec; /* searchbar resting background */
+  --bsr-color-surface-navhover: #e9ebef; /* navbar link hover/active background / actionCateg hover */
+  --bsr-color-surface-texthover: #e0e1e2; /* text-variant button hover | ActionCateg border */
+  --bsr-color-surface-card-hover: #f8f8f8; /* course card hover background */
+  --bsr-color-selected: #dde1e7;
+  /*dropdown option selected / hover background */
+
+  --bsr-color-green-light: #dcf1e4; /* course card 2 with lerner background*/
 
   /* ── Borders ───────────────────────────────────────────────────── */
-  --bsr-color-border: #c7c8c9;           /* property card divider/stroke */
-  --bsr-color-border-muted: #e5e7eb;     /* textfield/password disabled border */
-  --bsr-color-border-strong: #959697;    /* password field default border */
+  --bsr-color-border: #c7c8c9; /* property card divider/stroke */
+  --bsr-color-border-muted: #e5e7eb; /* textfield/password disabled border */
+  --bsr-color-border-strong: #959697; /* password field default border / foundation border */
+  --bsr-color-border-trust: #1e3a5f; /*dropdown selected border*/
 
   /* ── Disabled ──────────────────────────────────────────────────── */
-  --bsr-color-disabled-bg-primary: #b9c2cd;   /* primary button disabled bg */
+  --bsr-color-disabled-bg-primary: #b9c2cd; /* primary button disabled bg */
   --bsr-color-disabled-bg-secondary: #d1d3d8; /* secondary button disabled bg */
-  --bsr-color-disabled-bg-text: #efe9ec;      /* text button disabled bg */
-  --bsr-color-disabled-fg: #9ca3af;           /* disabled text/placeholder */
-  --bsr-color-disabled-fg-muted: #d1d5db;     /* disabled icon */
-  --bsr-color-soft-white-dark: #bbbcbc;       /* textfield border/placeholder */
+  --bsr-color-disabled-bg-text: #efe9ec; /* text button disabled bg */
+  --bsr-color-disabled-fg: #9ca3af; /* disabled text/placeholder */
+  --bsr-color-disabled-fg-muted: #d1d5db; /* disabled icon */
+  --bsr-color-soft-white-dark: #bbbcbc; /* textfield border/placeholder */
 
   /* ── Text ──────────────────────────────────────────────────────── */
-  --bsr-color-text-heading: #111827;     /* headings, prices, numbers */
-  --bsr-color-text-body: #25282d;        /* primary body/label text */
-  --bsr-color-text-secondary: #4b5563;   /* typography secondary */
-  --bsr-color-text-muted: #6b7280;       /* secondary button, muted labels */
-  --bsr-color-text-muted-alt: #505660;   /* searchbar, service/testimonial copy */
-  --bsr-color-text-subtle: #707071;      /* property card address */
-  --bsr-color-text-faint: #30333a;       /* property card name */
-  --bsr-color-text-faq-answer: #40444d;  /* FAQ answer copy */
-  --bsr-color-text-inverse: #ffffff;     /* text on dark/brand backgrounds */
-  --bsr-color-quote-icon: #e4e6e8;       /* testimonial decorative quote mark */
+  --bsr-color-text-heading: #111827; /* headings, prices, numbers */
+  --bsr-color-text-body: #25282d; /* primary body/label text */
+  --bsr-color-text-secondary: #4b5563; /* typography secondary */
+  --bsr-color-text-muted: #6b7280; /* secondary button, muted labels / foundation description text */
+  --bsr-color-text-muted-alt: #505660; /* searchbar, service/testimonial copy */
+  --bsr-color-text-subtle: #707071; /* property card address */
+  --bsr-color-text-faint: #30333a; /* property card name */
+  --bsr-color-text-faq-answer: #40444d; /* FAQ answer copy */
+  --bsr-color-text-inverse: #ffffff; /* text on dark/brand backgrounds / actionCateg hover icon */
+  --bsr-color-quote-icon: #e4e6e8; /* testimonial decorative quote mark */
+  --bsr-color-text-soft-white: #575858; /*Breadcrumb */
+
+  --bsr-color-text-dark-black: #000000; /* back button*/
+
+  --bsr-color-text-trust-blue-active: #0b1421; /* FilterItem text*/
+  --bsr-color-text-muted-gray: #38404a; /* Course card 2 text*/
 
   /* ── Status ────────────────────────────────────────────────────── */
   --bsr-color-error: #dc2626;
@@ -65,12 +77,15 @@
   --bsr-focus-ring-success: rgba(22, 163, 74, 0.2);
 
   /* ── Shadows (alpha) ───────────────────────────────────────────── */
-  --bsr-shadow-card: 0 1px 4px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(0, 0, 0, 0.04);
+  --bsr-shadow-card:
+    0 1px 4px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(0, 0, 0, 0.04);
   --bsr-shadow-hover-tint: rgba(0, 0, 0, 0.05);
+  --bsr-shadow-hover-color: rgba(0, 0, 0, 0.1);
 
   /* ── Font family ───────────────────────────────────────────────── */
-  --bsr-font-family-primary: 'Lato', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --bsr-font-family-nav: 'Source Sans 3', 'Source Sans Pro', sans-serif;
+  --bsr-font-family-primary:
+    "Lato", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --bsr-font-family-nav: "Source Sans 3", "Source Sans Pro", sans-serif;
 
   /* ── Font weights ──────────────────────────────────────────────── */
   --bsr-font-weight-light: 300;
@@ -80,49 +95,49 @@
   --bsr-font-weight-bold: 700;
 
   /* ── Font sizes (Material-style scale, from Figma) ────────────── */
-  --bsr-font-size-display-large: 4rem;      /* 64px */
-  --bsr-font-size-display-medium: 3rem;     /* 48px */
-  --bsr-font-size-display-small: 2.5rem;    /* 40px */
-  --bsr-font-size-headline-large: 2rem;     /* 32px */
+  --bsr-font-size-display-large: 4rem; /* 64px */
+  --bsr-font-size-display-medium: 3rem; /* 48px */
+  --bsr-font-size-display-small: 2.5rem; /* 40px */
+  --bsr-font-size-headline-large: 2rem; /* 32px */
   --bsr-font-size-headline-medium: 1.75rem; /* 28px */
-  --bsr-font-size-headline-small: 1.5rem;   /* 24px */
-  --bsr-font-size-title-large: 1.375rem;    /* 22px */
-  --bsr-font-size-title-medium: 1rem;       /* 16px */
-  --bsr-font-size-title-small: 0.875rem;    /* 14px */
-  --bsr-font-size-body-large: 1rem;         /* 16px */
-  --bsr-font-size-body-medium: 0.875rem;    /* 14px */
-  --bsr-font-size-body-small: 0.75rem;      /* 12px */
-  --bsr-font-size-label-large: 0.875rem;    /* 14px */
-  --bsr-font-size-label-medium: 0.75rem;    /* 12px */
-  --bsr-font-size-label-small: 0.6875rem;   /* 11px */
+  --bsr-font-size-headline-small: 1.5rem; /* 24px */
+  --bsr-font-size-title-large: 1.375rem; /* 22px */
+  --bsr-font-size-title-medium: 1rem; /* 16px */
+  --bsr-font-size-title-small: 0.875rem; /* 14px */
+  --bsr-font-size-body-large: 1rem; /* 16px */
+  --bsr-font-size-body-medium: 0.875rem; /* 14px */
+  --bsr-font-size-body-small: 0.75rem; /* 12px */
+  --bsr-font-size-label-large: 0.875rem; /* 14px */
+  --bsr-font-size-label-medium: 0.75rem; /* 12px */
+  --bsr-font-size-label-small: 0.6875rem; /* 11px */
 
   /* Custom 1.25 scale (Figma mathematical scale, base 16px) */
-  --bsr-font-size-figma-9xl: 3.813rem;  /* 61px */
-  --bsr-font-size-figma-8xl: 3.063rem;  /* 49px */
-  --bsr-font-size-figma-7xl: 2.438rem;  /* 39px */
-  --bsr-font-size-figma-6xl: 1.938rem;  /* 31px */
-  --bsr-font-size-figma-5xl: 1.563rem;  /* 25px */
-  --bsr-font-size-figma-4xl: 1.250rem;  /* 20px */
-  --bsr-font-size-figma-base: 1.000rem; /* 16px */
-  --bsr-font-size-figma-sm: 0.813rem;   /* 13px */
-  --bsr-font-size-figma-xs: 0.625rem;   /* 10px */
+  --bsr-font-size-figma-9xl: 3.813rem; /* 61px */
+  --bsr-font-size-figma-8xl: 3.063rem; /* 49px */
+  --bsr-font-size-figma-7xl: 2.438rem; /* 39px */
+  --bsr-font-size-figma-6xl: 1.938rem; /* 31px */
+  --bsr-font-size-figma-5xl: 1.563rem; /* 25px */
+  --bsr-font-size-figma-4xl: 1.25rem; /* 20px */
+  --bsr-font-size-figma-base: 1rem; /* 16px */
+  --bsr-font-size-figma-sm: 0.813rem; /* 13px */
+  --bsr-font-size-figma-xs: 0.625rem; /* 10px */
 
   /* ── Line heights ──────────────────────────────────────────────── */
-  --bsr-line-height-display-large: 4.5rem;    /* 72px */
-  --bsr-line-height-display-medium: 3.5rem;   /* 56px */
-  --bsr-line-height-display-small: 3rem;      /* 48px */
-  --bsr-line-height-headline-large: 2.5rem;   /* 40px */
+  --bsr-line-height-display-large: 4.5rem; /* 72px */
+  --bsr-line-height-display-medium: 3.5rem; /* 56px */
+  --bsr-line-height-display-small: 3rem; /* 48px */
+  --bsr-line-height-headline-large: 2.5rem; /* 40px */
   --bsr-line-height-headline-medium: 2.25rem; /* 36px */
-  --bsr-line-height-headline-small: 2rem;     /* 32px */
-  --bsr-line-height-title-large: 1.75rem;     /* 28px */
-  --bsr-line-height-title-medium: 1.5rem;     /* 24px */
-  --bsr-line-height-title-small: 1.25rem;     /* 20px */
-  --bsr-line-height-body-large: 1.5rem;       /* 24px */
-  --bsr-line-height-body-medium: 1.25rem;     /* 20px */
-  --bsr-line-height-body-small: 1rem;         /* 16px */
-  --bsr-line-height-label-large: 1.25rem;     /* 20px */
-  --bsr-line-height-label-medium: 1rem;       /* 16px */
-  --bsr-line-height-label-small: 1rem;        /* 16px */
+  --bsr-line-height-headline-small: 2rem; /* 32px */
+  --bsr-line-height-title-large: 1.75rem; /* 28px */
+  --bsr-line-height-title-medium: 1.5rem; /* 24px */
+  --bsr-line-height-title-small: 1.25rem; /* 20px */
+  --bsr-line-height-body-large: 1.5rem; /* 24px */
+  --bsr-line-height-body-medium: 1.25rem; /* 20px */
+  --bsr-line-height-body-small: 1rem; /* 16px */
+  --bsr-line-height-label-large: 1.25rem; /* 20px */
+  --bsr-line-height-label-medium: 1rem; /* 16px */
+  --bsr-line-height-label-small: 1rem; /* 16px */
 
   /* ── Radii ─────────────────────────────────────────────────────── */
   --bsr-radius-sm: 4px;

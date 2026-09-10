@@ -1,0 +1,31 @@
+/* BS Realty Back Button */
+
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;500&display=swap");
+
+.bsr-back-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 83px;
+  height: 36px;
+  font-family: "Lato", sans-serif;
+  background: transparent;
+  cursor: pointer;
+  border: none;
+  opacity: 1;
+  color: var(--bsr-color-text-dark-black);
+}
+.bsr-back-button:hover {
+  background: var(--bsr-color-surface-muted);
+  width: 87px;
+  height: 36px;
+  opacity: 1;
+  border-radius: 5px;
+}
+
+.bsr-back-button_label {
+  font-size: 22px;
+  line-height: 28px;
+  font-weight: 400;
+  color: var(--bsr-color-text-dark-black);
+}

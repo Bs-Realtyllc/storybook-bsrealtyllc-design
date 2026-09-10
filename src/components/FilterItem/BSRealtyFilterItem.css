@@ -1,0 +1,28 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;500&display=swap");
+
+.bsr-filter-item {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  font-family: "Lato", sans-serif;
+  width: 197px;
+  height: 44px;
+  padding: 8px 12px;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 28px;
+  border: none;
+  background: transparent;
+}
+
+/* Primary */
+.bsr-filter-item--primary {
+  color: var(--bsr-color-disabled-bg-primary);
+}
+
+/* Active */
+.bsr-filter-item--active {
+  color: var(--bsr-color-text-trust-blue-active);
+}

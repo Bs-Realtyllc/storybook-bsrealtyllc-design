@@ -1,0 +1,41 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;500&display=swap");
+
+.bsr-breadcrumb {
+  width: 100%;
+  font-family: "Lato", sans-serif;
+}
+
+.bsr-breadcrumb_list {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.bsr-breadcrumb_item {
+  display: inline-flex;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+}
+
+.bsr-breadcrumb_item a {
+  color: var(--bsr-color-text-soft-white);
+  text-decoration: none;
+}
+.bsr-breadcrumb_item--active {
+  color: var(--bsr-color-text-soft-white);
+}
+
+.bsr-breadcrumb_item a:hover {
+  text-decoration: underline;
+}
+
+.bsr-breadcrumb_separator {
+  margin: 0 8px;
+  color: var(--bsr-color-text-muted);
+  user-select: none;
+}

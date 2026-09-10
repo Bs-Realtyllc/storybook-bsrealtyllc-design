@@ -1,0 +1,65 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;500&display=swap");
+
+/* BS Realty Action Card */
+.bsr-action-categ {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding: 12px 20px;
+  border-radius: 12px;
+  width: 283px;
+  height: 64px;
+  font-family: "Lato", sans-serif;
+  border: 1px solid var(--bsr-color-surface-texthover);
+  background-color: transparent;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  box-sizing: border-box;
+}
+
+.bsr-action-categ_text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2px;
+  min-width: 0;
+}
+
+.bsr-action-categ__title {
+  margin: 0;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--bsr-color-text-body);
+}
+.bsr-action-categ__description {
+  margin: 0;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--bsr-color-text-soft-white);
+}
+
+/* Icon */
+.bsr-action-categ-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+  border-radius: 4px;
+  background-color: var(--bsr-color-surface-navhover);
+  color: var(--bsr-color-text-heading);
+  transition: all 0.2s ease-in-out;
+}
+
+/* Hover */
+.bsr-action-categ:hover {
+  background-color: var(--bsr-color-surface-navhover);
+}
+
+.bsr-action-categ:hover .bsr-action-categ-wrapper {
+  background-color: #1e3a5f;
+  color: var(--bsr-color-text-inverse);
+}

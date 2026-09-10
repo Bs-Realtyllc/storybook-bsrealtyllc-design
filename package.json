@@ -1,8 +1,16 @@
 {
-  "name": "@bsrealty/design-system",
+  "name": "@bsrealtyllc/design-system",
   "version": "0.1.0",
   "description": "BSRealty design system — shared React components, icons, and design tokens.",
   "private": false,
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bsr2023/storybook-bsrealtyllc-design.git"
+  },
   "type": "module",
   "sideEffects": [
     "**/*.css"
@@ -44,11 +52,6 @@
       "import": "./dist/PasswordField.js",
       "require": "./dist/PasswordField.cjs"
     },
-    "./PropertyCard": {
-      "types": "./dist/components/PropertyCard/index.d.ts",
-      "import": "./dist/PropertyCard.js",
-      "require": "./dist/PropertyCard.cjs"
-    },
     "./SearchBar": {
       "types": "./dist/components/SearchBar/index.d.ts",
       "import": "./dist/SearchBar.js",
@@ -84,6 +87,62 @@
       "import": "./dist/icons.js",
       "require": "./dist/icons.cjs"
     },
+    "./CourseCard": {
+      "types": "./dist/CourseCard/index.d.ts",
+      "import": "./dist/CourseCard.js",
+      "require": "./dist/CourseCard.cjs"
+    },
+    "./GooglePlayButton": {
+      "types": "./dist/GooglePlayButton/index.d.ts",
+      "import": "./dist/GooglePlayButton.js",
+      "require": "./dist/GooglePlayButton.cjs"
+    },
+    "./AppStoreButton": {
+      "types": "./dist/AppStoreButton/index.d.ts",
+      "import": "./dist/AppStoreButton.js",
+      "require": "./dist/AppStoreButton.cjs"
+    },
+    "./SocialIcon": {
+      "types": "./dist/SocialIcon/index.d.ts",
+      "import": "./dist/SocialIcon.js",
+      "require": "./dist/SocialIcon.cjs"
+    },
+    "./Dropdown": {
+      "types": "./dist/Dropdown/index.d.ts",
+      "import": "./dist/Dropdown.js",
+      "require": "./dist/Dropdown.cjs"
+    },
+    "./Breadcrumb": {
+      "types": "./dist/Breadcrumb/index.d.ts",
+      "import": "./dist/Breadcrumb.js",
+      "require": "./dist/Breadcrumb.cjs"
+    },
+    "./BackButton": {
+      "types": "./dist/BackButton/index.d.ts",
+      "import": "./dist/BackButton.js",
+      "require": "./dist/BackButton.cjs"
+    },
+    "./ActionCateg": {
+      "types": "./dist/ActionCateg/index.d.ts",
+      "import": "./dist/ActionCateg.js",
+      "require": "./dist/ActionCateg.cjs"
+    },
+    "./EvolutionCard": {
+      "types": "./dist/EvolutionCard/index.d.ts",
+      "import": "./dist/EvolutionCard.js",
+      "require": "./dist/EvolutionCard.cjs"
+    },
+    "./FilterItem": {
+      "types": "./dist/FilterItem/index.d.ts",
+      "import": "./dist/FilterItem.js",
+      "require": "./dist/FilterItem.cjs"
+    },
+    "./CourseCard2": {
+      "types": "./dist/CourseCard2/index.d.ts",
+      "import": "./dist/CourseCard2.js",
+      "require": "./dist/CourseCard2.cjs"
+    },
+    
     "./style.css": "./dist/style.css"
   },
   "scripts": {

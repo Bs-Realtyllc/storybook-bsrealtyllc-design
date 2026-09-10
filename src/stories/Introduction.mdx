@@ -18,63 +18,25 @@ All components are built from the official Figma designs and are shared across:
 
 ## Installation
 
-### Step 1 — Link the package locally
-
-From the `my-storybook-app` folder, run:
-
-```bash
-npm link
-```
-
-Then inside each project that needs the components:
+The package is public on npm — install it exactly like any other package,
+no login or token required:
 
 ```bash
-# inside bsrealty-web-main
-npm link my-storybook-app
-
-# inside insurance-web
-npm link my-storybook-app
-
-# inside auth-service
-npm link my-storybook-app
+npm install @bsrealtyllc/design-system
 ```
-
-### Step 2 — Import components
 
 ```tsx
-import { BSRealtyButton } from 'my-storybook-app';
-import { BSRealtySearchbar } from 'my-storybook-app';
-import { BSRealtyPropertyCard } from 'my-storybook-app';
+import '@bsrealtyllc/design-system/style.css'; // once, e.g. in your app's root
+
+import { BSRealtyButton } from '@bsrealtyllc/design-system';
+import { BSRealtySearchbar } from '@bsrealtyllc/design-system';
+import { BSRealtyTypography } from '@bsrealtyllc/design-system';
 ```
 
----
-
-## Available Components
-
-<div style={{ display: 'flex', flexDirection: 'column', gap: '8px', maxWidth: '600px', margin: '16px 0' }}>
-  {[
-    { name: 'BSRealtyButton',      desc: 'Primary, Secondary, Text variants', ready: true  },
-    { name: 'BSRealtySearchbar',   desc: 'Search input with icon',            ready: true  },
-    { name: 'BSRealtyTextField',   desc: 'Form text input',                   ready: true  },
-    { name: 'BSRealtyTypography',  desc: 'Heading and text styles',           ready: true  },
-    { name: 'BSRealtyFAQ',         desc: 'Accordion FAQ item',                ready: true  },
-    { name: 'BSRealtyPropertyCard',desc: 'Property listing card',             ready: true  },
-    { name: 'BSRealtyNavbar',      desc: 'Top navigation bar',                ready: false },
-    { name: 'BSRealtyTestimonial', desc: 'Testimonial card',                  ready: false },
-    { name: 'BSRealtyStarRating',  desc: 'Star rating display',               ready: false },
-  ].map(({ name, desc, ready }) => (
-    <div key={name} style={{ display: 'flex', alignItems: 'center', gap: '12px', padding: '10px 14px', borderRadius: '8px', border: `1px solid ${ready ? '#d1fae5' : '#fef3c7'}`, background: ready ? '#f0fdf4' : '#fffbeb' }}>
-      <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: ready ? '#16a34a' : '#f59e0b', flexShrink: 0 }} />
-      <div style={{ flex: 1 }}>
-        <code style={{ fontSize: '13px', fontWeight: 600, color: '#111827', background: 'transparent', padding: 0 }}>{name}</code>
-        <div style={{ fontSize: '12px', color: '#6b7280', marginTop: '2px' }}>{desc}</div>
-      </div>
-      <span style={{ fontSize: '11px', fontWeight: 600, padding: '2px 10px', borderRadius: '20px', background: ready ? '#dcfce7' : '#fef9c3', color: ready ? '#15803d' : '#a16207', whiteSpace: 'nowrap' }}>
-        {ready ? '✅ Ready' : '🔄 In Progress'}
-      </span>
-    </div>
-  ))}
-</div>
+> Browse the sidebar for the full, always-up-to-date list of available components.
+>
+> Full publish/consume details (including CI setup) live in
+> [`docs/DESIGN_SYSTEM_GUIDE.md`](https://github.com/bsr2023/storybook-bsrealtyllc-design/blob/main/docs/DESIGN_SYSTEM_GUIDE.md#6-publishing--consuming).
 
 ---
 
@@ -129,7 +91,7 @@ All components use the following core design values from Figma:
 <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px', margin: '16px 0' }}>
   {[
     { name: 'Button',    radius: '50px',  label: 'Pill-shaped' },
-    { name: 'Card',      radius: '12px',  label: 'Property cards' },
+    { name: 'Card',      radius: '12px',  label: 'Card components' },
     { name: 'FAQ',       radius: '10px',  label: 'FAQ items' },
     { name: 'Searchbar', radius: '24px',  label: 'Search input' },
   ].map(({ name, radius, label }) => (
@@ -149,7 +111,6 @@ All components use the following core design values from Figma:
 ## Figma Reference
 
 All components are built from the official BS Realty Figma file.
-Node reference: `45:180` (Components canvas)
 
 ---
 
@@ -158,11 +119,13 @@ Node reference: `45:180` (Components canvas)
 ```
 my-storybook-app/
 ├── src/
-│   └── stories/
-│       ├── BSRealtyButton.tsx       ← component logic
-│       ├── BSRealtyButton.css       ← component styles
-│       ├── BSRealtyButton.stories.ts ← storybook docs
-│       └── ...
+│   └── components/
+│       └── Button/
+│           ├── BSRealtyButton.tsx        ← component logic
+│           ├── BSRealtyButton.css        ← component styles
+│           ├── BSRealtyButton.stories.ts ← storybook docs
+│           └── index.ts                  ← barrel export
+│       └── ...                           ← one folder per component
 └── package.json
 ```
 

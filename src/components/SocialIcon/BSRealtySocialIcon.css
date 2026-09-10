@@ -1,0 +1,30 @@
+/* BS Realty Social icon — from Figma design  */
+
+.bsr-social-icon {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--bsr-radius-full);
+  gap: 10px;
+  opacity: 1;
+  background: var(--bsr-color-disabled-bg-secondary);
+  transition: background-color 200ms ease;
+}
+
+.bsr-social-icon_image {
+  width: 24px;
+  height: 24px;
+  opacity: 1;
+}
+
+/* Hover */
+.bsr-social-icon:hover {
+  background: var(--bsr-color-primary);
+}
+
+.bsr-social-icon:hover .bsr-social-icon_image {
+  filter: brightness(0) invert(1);
+}

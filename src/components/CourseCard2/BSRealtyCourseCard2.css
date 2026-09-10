@@ -1,0 +1,114 @@
+/* BS Realty course Card 2— Figma */
+
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;500;700&display=swap");
+
+.bsr-course-card2 {
+  display: flex;
+  flex-direction: column;
+  width: 364px;
+  height: 617px;
+  border-radius: 12px;
+  padding: 16px;
+  gap: 8px;
+  overflow: hidden;
+  background: var(--bsr-color-text-inverse);
+  box-shadow: var(--bsr-shadow-card);
+  font-family: "Lato", sans-serif;
+  box-sizing: border-box;
+}
+.bsr-course-card2__image {
+  width: 332px;
+  height: 221px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.bsr-course-card2__content {
+  display: flex;
+  flex-direction: column;
+  width: 332px;
+  height: 356px;
+  gap: 16px;
+}
+.bsr-course-card2__information {
+  display: flex;
+  flex-direction: column;
+  width: 332px;
+  height: 96px;
+  gap: 8px;
+}
+.bsr-course-card2__title {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 28px;
+  color: var(--bsr-color-text-heading);
+  margin: 0;
+}
+.bsr-course-card2__price {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 32px;
+  color: var(--bsr-color-error);
+  margin: 0;
+}
+
+.bsr-course-card2__details {
+  display: flex;
+  flex-direction: column;
+  width: 332px;
+  height: 244px;
+  gap: 16px;
+  color: var(--bsr-color-text-heading);
+}
+.bsr-course-card2__feature-title {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--bsr-color-text-heading);
+  margin: 0;
+}
+.bsr-course-card2__feature-list {
+  display: flex;
+  flex-direction: column;
+  width: 332px;
+  height: 204px;
+  gap: 12px;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0%;
+  color: var(--bsr-color-text-faq-answer);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.bsr-course-card2__feature-list li {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* With Learners */
+
+.bsr-course-card2--withLearners .bsr-course-card2__content {
+  height: 404px;
+}
+.bsr-course-card2__learners {
+  display: flex;
+  width: 238px;
+  height: 40px;
+  border-radius: 8px;
+  padding: 8px;
+  gap: 10px;
+  background: var(--bsr-color-green-light);
+  margin: 0;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--bsr-color-text-muted-gray);
+}
+
+.bsr-course-card2--withLearners .bsr-course-card2__information {
+  height: 144px;
+  margin-bottom: 16px;
+}
