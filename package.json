@@ -1,6 +1,6 @@
 {
   "name": "@bsrealtyllc/design-system",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "BSRealty design system — shared React components, icons, and design tokens.",
   "private": false,
   "license": "MIT",
@@ -88,57 +88,57 @@
       "require": "./dist/icons.cjs"
     },
     "./CourseCard": {
-      "types": "./dist/CourseCard/index.d.ts",
+      "types": "./dist/components/CourseCard/index.d.ts",
       "import": "./dist/CourseCard.js",
       "require": "./dist/CourseCard.cjs"
     },
     "./GooglePlayButton": {
-      "types": "./dist/GooglePlayButton/index.d.ts",
+      "types": "./dist/components/GooglePlayButton/index.d.ts",
       "import": "./dist/GooglePlayButton.js",
       "require": "./dist/GooglePlayButton.cjs"
     },
     "./AppStoreButton": {
-      "types": "./dist/AppStoreButton/index.d.ts",
+      "types": "./dist/components/AppStoreButton/index.d.ts",
       "import": "./dist/AppStoreButton.js",
       "require": "./dist/AppStoreButton.cjs"
     },
     "./SocialIcon": {
-      "types": "./dist/SocialIcon/index.d.ts",
+      "types": "./dist/components/SocialIcon/index.d.ts",
       "import": "./dist/SocialIcon.js",
       "require": "./dist/SocialIcon.cjs"
     },
     "./Dropdown": {
-      "types": "./dist/Dropdown/index.d.ts",
+      "types": "./dist/components/Dropdown/index.d.ts",
       "import": "./dist/Dropdown.js",
       "require": "./dist/Dropdown.cjs"
     },
     "./Breadcrumb": {
-      "types": "./dist/Breadcrumb/index.d.ts",
+      "types": "./dist/components/Breadcrumb/index.d.ts",
       "import": "./dist/Breadcrumb.js",
       "require": "./dist/Breadcrumb.cjs"
     },
     "./BackButton": {
-      "types": "./dist/BackButton/index.d.ts",
+      "types": "./dist/components/BackButton/index.d.ts",
       "import": "./dist/BackButton.js",
       "require": "./dist/BackButton.cjs"
     },
     "./ActionCateg": {
-      "types": "./dist/ActionCateg/index.d.ts",
+      "types": "./dist/components/ActionCateg/index.d.ts",
       "import": "./dist/ActionCateg.js",
       "require": "./dist/ActionCateg.cjs"
     },
     "./EvolutionCard": {
-      "types": "./dist/EvolutionCard/index.d.ts",
+      "types": "./dist/components/EvolutionCard/index.d.ts",
       "import": "./dist/EvolutionCard.js",
       "require": "./dist/EvolutionCard.cjs"
     },
     "./FilterItem": {
-      "types": "./dist/FilterItem/index.d.ts",
+      "types": "./dist/components/FilterItem/index.d.ts",
       "import": "./dist/FilterItem.js",
       "require": "./dist/FilterItem.cjs"
     },
     "./CourseCard2": {
-      "types": "./dist/CourseCard2/index.d.ts",
+      "types": "./dist/components/CourseCard2/index.d.ts",
       "import": "./dist/CourseCard2.js",
       "require": "./dist/CourseCard2.cjs"
     },

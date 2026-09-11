@@ -1,73 +1,109 @@
-# React + TypeScript + Vite
+# @bsrealtyllc/design-system
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Shared React components, icons, and design tokens for BSRealty products —
+published to npm and reusable across projects.
 
-Currently, two official plugins are available:
+Browse all components with live props/controls in [Storybook](https://github.com/bsr2023/storybook-bsrealtyllc-design) (`npm run storybook`), or in the deployed Storybook docs if you host one.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Install
 
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```sh
+npm install @bsrealtyllc/design-system react react-dom
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+`react` and `react-dom` (^18 or ^19) are peer dependencies — install them in
+the consuming app if they aren't already there.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Usage
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+Import the stylesheet **once**, anywhere near your app's root (it carries
+every component's styles plus the shared design tokens — colors,
+typography, radii, etc. that components reference via CSS variables):
+
+```ts
+import '@bsrealtyllc/design-system/style.css';
 ```
+
+Then import components from the package root:
+
+```tsx
+import { BSRealtyButton, BSRealtyTextField } from '@bsrealtyllc/design-system';
+
+function Example() {
+  return (
+    <BSRealtyButton
+      label="Get started"
+      variant="primary"
+      size="medium"
+      onClick={() => console.log('clicked')}
+    />
+  );
+}
+```
+
+...or deep-import a single component, so bundlers only pull in what you use:
+
+```tsx
+import { BSRealtyButton } from '@bsrealtyllc/design-system/Button';
+```
+
+Icons are available the same way:
+
+```tsx
+import { /* icon components */ } from '@bsrealtyllc/design-system/icons';
+```
+
+## Available components
+
+Each entry below is both a named export from the package root and its own
+deep-import subpath (e.g. `@bsrealtyllc/design-system/Avatar`):
+
+| Component | Deep import |
+| --- | --- |
+| Avatar | `@bsrealtyllc/design-system/Avatar` |
+| Button | `@bsrealtyllc/design-system/Button` |
+| FAQ | `@bsrealtyllc/design-system/FAQ` |
+| Navbar | `@bsrealtyllc/design-system/Navbar` |
+| PasswordField | `@bsrealtyllc/design-system/PasswordField` |
+| SearchBar | `@bsrealtyllc/design-system/SearchBar` |
+| ServiceCard | `@bsrealtyllc/design-system/ServiceCard` |
+| StarRating | `@bsrealtyllc/design-system/StarRating` |
+| Testimonial | `@bsrealtyllc/design-system/Testimonial` |
+| TextField | `@bsrealtyllc/design-system/TextField` |
+| Typography | `@bsrealtyllc/design-system/Typography` |
+| CourseCard | `@bsrealtyllc/design-system/CourseCard` |
+| CourseCard2 | `@bsrealtyllc/design-system/CourseCard2` |
+| GooglePlayButton | `@bsrealtyllc/design-system/GooglePlayButton` |
+| AppStoreButton | `@bsrealtyllc/design-system/AppStoreButton` |
+| SocialIcon | `@bsrealtyllc/design-system/SocialIcon` |
+| Dropdown | `@bsrealtyllc/design-system/Dropdown` |
+| Breadcrumb | `@bsrealtyllc/design-system/Breadcrumb` |
+| BackButton | `@bsrealtyllc/design-system/BackButton` |
+| ActionCateg | `@bsrealtyllc/design-system/ActionCateg` |
+| EvolutionCard | `@bsrealtyllc/design-system/EvolutionCard` |
+| FilterItem | `@bsrealtyllc/design-system/FilterItem` |
+
+Every component ships its own TypeScript declarations — props are documented
+inline via JSDoc and show up in your editor's autocomplete.
+
+## Development
+
+This repo is both the component source (built as a library) and a Storybook
+app for developing/previewing components.
+
+```sh
+npm install
+npm run storybook     # develop components with live previews
+npm run build:lib     # build the publishable dist/ (also runs automatically
+                       # before `npm publish`, via prepublishOnly)
+npm run lint
+```
+
+Publishing is automated: pushing a GitHub Release triggers
+[.github/workflows/publish.yml](.github/workflows/publish.yml), which builds
+and publishes to npm via Trusted Publishing (OIDC) — no manual `npm publish`
+or token needed.
+
+## License
+
+MIT © BS Realty
