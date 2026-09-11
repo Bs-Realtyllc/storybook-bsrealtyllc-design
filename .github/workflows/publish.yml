@@ -22,13 +22,16 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
           registry-url: https://registry.npmjs.org
 
       - run: npm ci
 
       # Trusted Publishing needs a recent npm CLI (bundled versions on
-      # setup-node's Node 20 image may predate OIDC support).
+      # setup-node's Node image may predate OIDC support). `npm install -g
+      # npm@latest` needs Node >=20.17/>=22.9 to satisfy its own engines
+      # check — Node 22 (above) covers that; Node 20 does not, which is why
+      # this step failed outright under node-version: 20.
       - run: npm install -g npm@latest
 
       # npm publish triggers `prepublishOnly` (npm run build:lib) automatically,
