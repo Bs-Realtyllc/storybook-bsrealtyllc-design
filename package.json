@@ -1,6 +1,6 @@
 {
   "name": "@bsrealtyllc/design-system",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "BSRealty design system — shared React components, icons, and design tokens.",
   "private": false,
   "license": "MIT",
@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/bsr2023/storybook-bsrealtyllc-design.git"
+    "url": "git+https://github.com/Bs-Realtyllc/storybook-bsrealtyllc-design.git"
   },
   "type": "module",
   "sideEffects": [
