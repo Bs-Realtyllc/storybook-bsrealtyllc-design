@@ -2,11 +2,11 @@ import './BSRealtyActionCateg.css'
 
 export interface BSRealtyActionCategProps {
     /** The main heading of the card */
-    title: string;
+    title?: string;
     /** Subtitle or description text */
-    description: string;
+    description?: string;
     /** Icon element rendered on the left */
-    icon: React.ReactNode;
+    icon?: React.ReactNode;
 
     /** Click handler */
     onClick?: () => void;
