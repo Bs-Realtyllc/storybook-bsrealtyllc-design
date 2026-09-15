@@ -7,7 +7,7 @@
   position: relative;
   width: 413px;
   padding-top: 26px; /* space for the avatar overhang */
-  font-family: 'Lato', sans-serif;
+  font-family: var(--bsr-font-family-primary);
 }
 
 /* ── Avatar ─────────────────────────────────────────────── */
@@ -33,8 +33,8 @@
 }
 
 .bsr-testimonial__avatar-initials {
-  font-size: 16px;
-  font-weight: 700;
+  font-size: var(--bsr-font-size-body-large);
+  font-weight: var(--bsr-font-weight-bold);
   color: var(--bsr-color-surface);
   letter-spacing: 0.5px;
   line-height: 1;
@@ -43,7 +43,7 @@
 /* ── Card ────────────────────────────────────────────────── */
 .bsr-testimonial__card {
   background-color: var(--bsr-color-surface);
-  border-radius: 8px;
+  border-radius: var(--bsr-radius-lg);
   padding: 28px 24px 16px;
   display: flex;
   flex-direction: column;
@@ -53,8 +53,8 @@
 
 /* ── Quote text ──────────────────────────────────────────── */
 .bsr-testimonial__quote {
-  font-size: 16px;
-  font-weight: 400;
+  font-size: var(--bsr-font-size-body-large);
+  font-weight: var(--bsr-font-weight-regular);
   line-height: 1.5;
   color: var(--bsr-color-text-muted-alt);
   margin: 0;
@@ -75,8 +75,8 @@
 }
 
 .bsr-testimonial__name {
-  font-size: 16px;
-  font-weight: 500;
+  font-size: var(--bsr-font-size-body-large);
+  font-weight: var(--bsr-font-weight-medium);
   line-height: 1.5;
   color: var(--bsr-color-text-body);
 }
@@ -85,12 +85,12 @@
 .bsr-testimonial__quote-icon {
   flex-shrink: 0;
   font-family: Georgia, 'Times New Roman', serif;
-  font-size: 52px;
+  font-size: var(--bsr-font-size-quote-mark);
   line-height: 35px;
   height: 35px;
   color: var(--bsr-color-quote-icon);
   letter-spacing: -4px;
-  font-weight: 400;
+  font-weight: var(--bsr-font-weight-regular);
   user-select: none;
   display: inline-block;
   overflow: hidden;

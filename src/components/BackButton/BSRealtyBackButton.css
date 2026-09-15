@@ -8,7 +8,7 @@
   justify-content: center;
   width: 83px;
   height: 36px;
-  font-family: "Lato", sans-serif;
+  font-family: var(--bsr-font-family-primary);
   background: transparent;
   cursor: pointer;
   border: none;
@@ -20,12 +20,12 @@
   width: 87px;
   height: 36px;
   opacity: 1;
-  border-radius: 5px;
+  border-radius: var(--bsr-radius-input);
 }
 
 .bsr-back-button_label {
-  font-size: 22px;
+  font-size: var(--bsr-font-size-title-large);
   line-height: 28px;
-  font-weight: 400;
+  font-weight: var(--bsr-font-weight-regular);
   color: var(--bsr-color-text-dark-black);
 }

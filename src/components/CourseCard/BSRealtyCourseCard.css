@@ -6,7 +6,7 @@
   display: flex;
   flex-direction: column;
   width: 305px;
-  border-radius: 12px;
+  border-radius: var(--bsr-radius-2xl);
   background-color: var(--bsr-color-white);
   gap: 12px;
   padding-bottom: 20px;
@@ -23,7 +23,7 @@
 .bsr-course-card_image-container {
   width: 100%;
   height: 252px;
-  border-radius: 12px;
+  border-radius: var(--bsr-radius-2xl);
   overflow: hidden;
 }
 .bsr-course-card_image {
@@ -42,16 +42,16 @@
 
 .bsr-course-card_title {
   margin: 0;
-  font-size: 20px;
-  font-weight: 600;
+  font-size: var(--bsr-font-size-figma-4xl);
+  font-weight: var(--bsr-font-weight-semibold);
   color: var(--bsr-color-text-heading);
   line-height: 28px;
 }
 
 .bsr-course-card_description {
   margin: 0;
-  font-size: 16px;
-  font-weight: 400;
+  font-size: var(--bsr-font-size-body-large);
+  font-weight: var(--bsr-font-weight-regular);
   line-height: 24px;
   color: var(--bsr-color-text-muted);
 }
@@ -64,8 +64,8 @@
   padding-left: 16px;
   background: none;
   border: none;
-  font-size: 14px;
-  font-weight: 500;
+  font-size: var(--bsr-font-size-body-medium);
+  font-weight: var(--bsr-font-weight-medium);
   line-height: 20px;
   color: var(--bsr-color-text-body);
   cursor: pointer;

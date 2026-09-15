@@ -3,7 +3,7 @@
 .bsr-dropdown {
   position: relative;
   width: 320px;
-  font-family: "Lato", sans-serif;
+  font-family: var(--bsr-font-family-primary);
   box-sizing: border-box;
 }
 
@@ -38,8 +38,8 @@
   outline: none;
   background: transparent;
   color: var(--bsr-color-text-heading);
-  font-size: 16px;
-  font-weight: 500;
+  font-size: var(--bsr-font-size-body-large);
+  font-weight: var(--bsr-font-weight-medium);
   line-height: 24px;
   cursor: pointer;
 }
@@ -100,8 +100,8 @@
   margin: 0;
   padding: 4px 12px;
   color: var(--bsr-color-text-heading);
-  font-size: 14px;
-  font-weight: 500;
+  font-size: var(--bsr-font-size-body-medium);
+  font-weight: var(--bsr-font-weight-medium);
   line-height: 20px;
   cursor: pointer;
   transition: background-color 150ms ease-out;

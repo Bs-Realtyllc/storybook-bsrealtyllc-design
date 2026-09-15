@@ -271,8 +271,8 @@ import path even if the bundle exists on disk.
 2. Generates matching `.d.ts` declaration files via `vite-plugin-dts`,
    mirroring the `src/` folder structure under `dist/` (so
    `src/components/Avatar/index.ts` → `dist/components/Avatar/index.d.ts`).
-   Story files (`**/*.stories.*`) and the local demo app (`src/App.tsx`,
-   `src/main.tsx`) are explicitly excluded — see the `dts()` plugin config.
+   Story files (`**/*.stories.*`) and test files are explicitly excluded
+   — see the `dts()` plugin config.
 3. Bundles **all** component CSS into one `dist/style.css`
    (`cssCodeSplit: false`). Consumers import this once, globally.
 4. Marks `react` / `react-dom` as external (`peerDependencies`, not bundled)

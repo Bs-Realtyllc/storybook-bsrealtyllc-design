@@ -8,8 +8,8 @@
   justify-content: center;
   border: none;
   cursor: pointer;
-  font-family: "Lato", sans-serif;
-  font-weight: 500;
+  font-family: var(--bsr-font-family-primary);
+  font-weight: var(--bsr-font-weight-medium);
   color: var(--bsr-color-surface);
   border-radius: var(--bsr-radius-full);
   transition:
@@ -28,61 +28,61 @@
 .bsr-btn--xs {
   padding: 8px;
   gap: 4px;
-  font-size: 12px;
+  font-size: var(--bsr-font-size-label-medium);
   line-height: 1.33;
 }
 
 .bsr-btn--xs-medium {
   padding: 8px;
   gap: 4px;
-  font-size: 14px;
+  font-size: var(--bsr-font-size-label-large);
   line-height: 1.43;
 }
 
 .bsr-btn--small {
   padding: 12px;
   gap: 4px;
-  font-size: 14px;
+  font-size: var(--bsr-font-size-label-large);
   line-height: 1.43;
 }
 
 .bsr-btn--medium {
   padding: 16px;
   gap: 8px;
-  font-size: 14px;
+  font-size: var(--bsr-font-size-label-large);
   line-height: 1.43;
 }
 
 .bsr-btn--large {
   padding: 16px 20px;
   gap: 8px;
-  font-size: 18px;
+  font-size: var(--bsr-font-size-body-xlarge);
   line-height: 1.56;
 }
 
 .bsr-btn--xl {
   padding: 12px 24px;
   gap: 8px;
-  font-size: 20px;
+  font-size: var(--bsr-font-size-figma-4xl);
   line-height: 1.4;
 }
 
 .bsr-btn--2xl {
   padding: 16px 24px;
   gap: 8px;
-  font-size: 22px;
+  font-size: var(--bsr-font-size-title-large);
   line-height: 1.4;
 }
 
 /* ── Primary ─────────────────────────────────────────────── */
 
 .bsr-btn--primary {
-  background-color: black;
+  background-color: var(--bsr-color-text-dark-black);
   color: var(--bsr-color-surface);
 }
 
 .bsr-btn--primary:hover:not(:disabled) {
-  background-color: black;
+  background-color: var(--bsr-color-text-dark-black);
 }
 
 .bsr-btn--primary:focus-visible:not(:disabled) {

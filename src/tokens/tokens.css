@@ -15,6 +15,7 @@
   --bsr-color-primary-active: #172c47; /* Navbar login button active */
   --bsr-color-primary-subtle: #253f66; /* Navbar login button hover */
   --bsr-color-accent-gold: #c9a24d; /* Typography accent */
+  --bsr-color-rating-star: #ffc500; /* StarRating filled star */
 
   /* ── Neutral surfaces ──────────────────────────────────────────── */
   --bsr-color-white: #feffff; /* was #feffff / #fefffe / #ffffff */
@@ -104,12 +105,14 @@
   --bsr-font-size-title-large: 1.375rem; /* 22px */
   --bsr-font-size-title-medium: 1rem; /* 16px */
   --bsr-font-size-title-small: 0.875rem; /* 14px */
+  --bsr-font-size-body-xlarge: 1.125rem; /* 18px — PasswordField label, Button large, FAQ question, FilterItem */
   --bsr-font-size-body-large: 1rem; /* 16px */
   --bsr-font-size-body-medium: 0.875rem; /* 14px */
   --bsr-font-size-body-small: 0.75rem; /* 12px */
   --bsr-font-size-label-large: 0.875rem; /* 14px */
   --bsr-font-size-label-medium: 0.75rem; /* 12px */
   --bsr-font-size-label-small: 0.6875rem; /* 11px */
+  --bsr-font-size-quote-mark: 3.25rem; /* 52px — Testimonial decorative quote glyph */
 
   /* Custom 1.25 scale (Figma mathematical scale, base 16px) */
   --bsr-font-size-figma-9xl: 3.813rem; /* 61px */
@@ -141,6 +144,7 @@
 
   /* ── Radii ─────────────────────────────────────────────────────── */
   --bsr-radius-sm: 4px;
+  --bsr-radius-input: 5px; /* PasswordField, TextField input wrap, BackButton hover */
   --bsr-radius-md: 6px;
   --bsr-radius-lg: 8px;
   --bsr-radius-xl: 10px;

@@ -472,7 +472,7 @@
   margin-bottom: 2rem;
   padding: 1rem;
   border: 1px solid var(--bsr-color-border-muted);
-  border-radius: 8px;
+  border-radius: var(--bsr-radius-lg);
   background-color: var(--bsr-color-surface);
 }
 
@@ -503,7 +503,7 @@
 
 .color-sample {
   padding: 1rem;
-  border-radius: 8px;
+  border-radius: var(--bsr-radius-lg);
   background-color: var(--bsr-color-surface);
   border: 1px solid var(--bsr-color-border-muted);
 }

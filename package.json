@@ -145,12 +145,10 @@
     "./style.css": "./dist/style.css"
   },
   "scripts": {
-    "dev": "vite",
     "build": "storybook build --output-dir storybook-static",
     "build:lib": "vite build --config vite.lib.config.ts",
     "prepublishOnly": "npm run build:lib",
     "lint": "eslint .",
-    "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build --output-dir storybook-static"
   },

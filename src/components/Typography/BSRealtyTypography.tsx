@@ -10,61 +10,61 @@ export interface BSRealtyTypographyProps {
   sampleText?: string;
 }
 
+const TypographySample = ({ className, label, specs, text }: {
+  className: string;
+  label: string;
+  specs: string;
+  text: string;
+}) => (
+  <div className="typography-sample">
+    <div className="typography-label">{label}</div>
+    <div className={`bs-typography ${className}`}>{text}</div>
+    <div className="typography-specs">{specs}</div>
+  </div>
+);
+
+const ColorSample = ({ className, label, description }: {
+  className: string;
+  label: string;
+  description: string;
+}) => (
+  <div className="color-sample">
+    <div className="typography-label">{label}</div>
+    <div className={`text-headline-medium ${className}`}>Sample Text</div>
+    <div className="typography-specs">{description}</div>
+  </div>
+);
+
 export const BSRealtyTypography: React.FC<BSRealtyTypographyProps> = ({
   category = 'all',
   theme = 'light',
   sampleText = 'The quick brown fox jumps over the lazy dog'
 }) => {
-  
-  const TypographySample = ({ className, label, specs, text = sampleText }: {
-    className: string;
-    label: string;
-    specs: string;
-    text?: string;
-  }) => (
-    <div className="typography-sample">
-      <div className="typography-label">{label}</div>
-      <div className={`bs-typography ${className}`}>{text}</div>
-      <div className="typography-specs">{specs}</div>
-    </div>
-  );
-
-  const ColorSample = ({ className, label, description }: {
-    className: string;
-    label: string;
-    description: string;
-  }) => (
-    <div className="color-sample">
-      <div className="typography-label">{label}</div>
-      <div className={`text-headline-medium ${className}`}>Sample Text</div>
-      <div className="typography-specs">{description}</div>
-    </div>
-  );
 
   return (
     <div className={`typography-showcase ${theme === 'dark' ? 'bg-gray-900 text-white' : ''}`}>
-      
+
       {/* Display Styles */}
       {(category === 'all' || category === 'display') && (
         <div className="typography-category">
           <h2 className="typography-category-title">Display Styles</h2>
           <p className="text-body-medium text-muted mb-6">Large scale text for hero sections and marketing displays</p>
-          
-          <TypographySample 
+
+          <TypographySample
             className="text-display-large"
             label="Display Large"
             specs="Lato • 64px • Regular • 72px line height"
             text="Your Dream Home Awaits"
           />
-          
-          <TypographySample 
+
+          <TypographySample
             className="text-display-medium"
             label="Display Medium"
             specs="Lato • 48px • Regular • 56px line height"
             text="Premium Real Estate Services"
           />
-          
-          <TypographySample 
+
+          <TypographySample
             className="text-display-small"
             label="Display Small"
             specs="Lato • 40px • Regular • 48px line height"
@@ -78,22 +78,22 @@ export const BSRealtyTypography: React.FC<BSRealtyTypographyProps> = ({
         <div className="typography-category">
           <h2 className="typography-category-title">Headline Styles</h2>
           <p className="text-body-medium text-muted mb-6">Section headers, page titles, and major content divisions</p>
-          
-          <TypographySample 
+
+          <TypographySample
             className="text-headline-large"
             label="Headline Large"
             specs="Lato • 32px • Regular • 40px line height"
             text="Featured Properties"
           />
-          
-          <TypographySample 
+
+          <TypographySample
             className="text-headline-medium"
             label="Headline Medium"
             specs="Lato • 28px • Regular • 36px line height"
             text="Market Insights & Analysis"
           />
-          
-          <TypographySample 
+
+          <TypographySample
             className="text-headline-small"
             label="Headline Small"
             specs="Lato • 24px • Regular • 32px line height"
@@ -107,22 +107,22 @@ export const BSRealtyTypography: React.FC<BSRealtyTypographyProps> = ({
         <div className="typography-category">
           <h2 className="typography-category-title">Title Styles</h2>
           <p className="text-body-medium text-muted mb-6">Card headers, subsection titles, and content organization</p>
-          
-          <TypographySample 
+
+          <TypographySample
             className="text-title-large"
             label="Title Large"
             specs="Lato • 22px • Regular • 28px line height"
             text="Luxury Waterfront Villa"
           />
-          
-          <TypographySample 
+
+          <TypographySample
             className="text-title-medium"
             label="Title Medium"
             specs="Lato • 16px • Regular • 24px line height"
             text="Downtown Executive Suite"
           />
-          
-          <TypographySample 
+
+          <TypographySample
             className="text-title-small"
             label="Title Small"
             specs="Lato • 14px • Regular • 20px line height"
@@ -136,22 +136,22 @@ export const BSRealtyTypography: React.FC<BSRealtyTypographyProps> = ({
         <div className="typography-category">
           <h2 className="typography-category-title">Body Styles</h2>
           <p className="text-body-medium text-muted mb-6">Main content, paragraphs, and reading text</p>
-          
-          <TypographySample 
+
+          <TypographySample
             className="text-body-large"
             label="Body Large"
             specs="Lato • 16px • Regular • 24px line height"
             text="This stunning waterfront property offers breathtaking views and luxurious amenities. Perfect for those seeking an exceptional lifestyle with modern conveniences and timeless elegance."
           />
-          
-          <TypographySample 
+
+          <TypographySample
             className="text-body-medium"
             label="Body Medium"
             specs="Lato • 14px • Regular • 20px line height"
             text="Located in the heart of downtown, this executive suite provides easy access to business districts, fine dining, and entertainment venues. Ideal for professionals and investors."
           />
-          
-          <TypographySample 
+
+          <TypographySample
             className="text-body-small"
             label="Body Small"
             specs="Lato • 12px • Regular • 16px line height"
@@ -165,22 +165,22 @@ export const BSRealtyTypography: React.FC<BSRealtyTypographyProps> = ({
         <div className="typography-category">
           <h2 className="typography-category-title">Label Styles</h2>
           <p className="text-body-medium text-muted mb-6">UI labels, buttons, form elements, and interface text</p>
-          
-          <TypographySample 
+
+          <TypographySample
             className="text-label-large"
             label="Label Large"
             specs="Lato • 14px • Medium • 20px line height"
             text="SCHEDULE VIEWING"
           />
-          
-          <TypographySample 
+
+          <TypographySample
             className="text-label-medium"
             label="Label Medium"
             specs="Lato • 12px • Medium • 16px line height"
             text="Contact Agent"
           />
-          
-          <TypographySample 
+
+          <TypographySample
             className="text-label-small"
             label="Label Small"
             specs="Lato • 11px • Medium • 16px line height"
@@ -194,60 +194,69 @@ export const BSRealtyTypography: React.FC<BSRealtyTypographyProps> = ({
         <div className="typography-category">
           <h2 className="typography-category-title">Custom 1.25 Scale System</h2>
           <p className="text-body-medium text-muted mb-6">Mathematical typography scale • Base: 16px • Ratio: 1.25 (Major Third)</p>
-          
+
           <div className="typography-grid">
-            <TypographySample 
+            <TypographySample
               className="text-figma-9xl"
               label="9XL"
               specs="61px • 3.813rem • Scale^6"
+              text={sampleText}
             />
-            
-            <TypographySample 
+
+            <TypographySample
               className="text-figma-8xl"
               label="8XL"
               specs="49px • 3.063rem • Scale^5"
+              text={sampleText}
             />
-            
-            <TypographySample 
+
+            <TypographySample
               className="text-figma-7xl"
               label="7XL"
               specs="39px • 2.438rem • Scale^4"
+              text={sampleText}
             />
-            
-            <TypographySample 
+
+            <TypographySample
               className="text-figma-6xl"
               label="6XL"
               specs="31px • 1.938rem • Scale^3"
+              text={sampleText}
             />
-            
-            <TypographySample 
+
+            <TypographySample
               className="text-figma-5xl"
               label="5XL"
               specs="25px • 1.563rem • Scale^2"
+              text={sampleText}
             />
-            
-            <TypographySample 
+
+            <TypographySample
               className="text-figma-4xl"
               label="4XL"
               specs="20px • 1.250rem • Scale^1"
+              text={sampleText}
             />
-            
-            <TypographySample 
+
+            <TypographySample
               className="text-figma-base"
               label="Base"
               specs="16px • 1.000rem • Base"
+              text={sampleText}
             />
-            
-            <TypographySample 
+
+            <TypographySample
               className="text-figma-sm"
               label="Small"
               specs="13px • 0.813rem • Scale^-1"
+              text={sampleText}
             />
-            
-            <TypographySample 
+
+            <TypographySample
               className="text-figma-xs"
               label="XSmall"
               specs="10px • 0.625rem • Scale^-2"
+              text={sampleText}
             />
           </div>
         </div>
@@ -258,39 +267,39 @@ export const BSRealtyTypography: React.FC<BSRealtyTypographyProps> = ({
         <div className="typography-category">
           <h2 className="typography-category-title">Text Colors</h2>
           <p className="text-body-medium text-muted mb-6">Semantic color variants for content hierarchy and branding</p>
-          
+
           <div className="color-grid">
-            <ColorSample 
+            <ColorSample
               className="text-primary"
               label="Primary Text"
               description="Main content and headings • #111827"
             />
-            
-            <ColorSample 
+
+            <ColorSample
               className="text-secondary"
               label="Secondary Text"
               description="Supporting content • #4b5563"
             />
-            
-            <ColorSample 
+
+            <ColorSample
               className="text-muted"
               label="Muted Text"
               description="Captions and metadata • #6b7280"
             />
-            
-            <ColorSample 
+
+            <ColorSample
               className="text-brand"
               label="Brand Color"
               description="BS Realty brand elements • #1E3A5F"
             />
-            
-            <ColorSample 
+
+            <ColorSample
               className="text-accent"
               label="Accent Color"
               description="Highlights and CTAs • #c9a24d"
             />
-            
-            <ColorSample 
+
+            <ColorSample
               className="text-disabled"
               label="Disabled Text"
               description="Inactive elements • #9ca3af"
@@ -304,7 +313,7 @@ export const BSRealtyTypography: React.FC<BSRealtyTypographyProps> = ({
         <div className="typography-category">
           <h2 className="typography-category-title">Real Estate Examples</h2>
           <p className="text-body-medium text-muted mb-6">Typography in context for real estate applications</p>
-          
+
           {/* Property Card Example */}
           <div className="typography-sample">
             <div className="typography-label">Property Listing Card</div>
