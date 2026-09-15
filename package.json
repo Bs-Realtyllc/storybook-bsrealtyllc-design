@@ -142,7 +142,6 @@
       "import": "./dist/CourseCard2.js",
       "require": "./dist/CourseCard2.cjs"
     },
-    
     "./style.css": "./dist/style.css"
   },
   "scripts": {
@@ -164,7 +163,6 @@
     "@eslint/js": "^9.39.1",
     "@storybook/addon-a11y": "^10.2.17",
     "@storybook/addon-docs": "^10.2.17",
-    "@storybook/addon-onboarding": "^10.2.17",
     "@storybook/addon-vitest": "^10.2.17",
     "@storybook/react-vite": "^10.2.17",
     "@types/node": "^24.10.1",
