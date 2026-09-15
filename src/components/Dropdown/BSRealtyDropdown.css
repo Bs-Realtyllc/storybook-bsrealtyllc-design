@@ -122,3 +122,88 @@
 .bsr-dropdown_option--selected:hover {
   background-color: var(--bsr-color-selected);
 }
+
+/* ─────────────────────────────────────────────
+   Responsive Design
+   ───────────────────────────────────────────── */
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .bsr-dropdown {
+    max-width: 100%;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .bsr-dropdown {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .bsr-dropdown_input-wrapper {
+    height: 48px;
+    padding: 0 14px;
+  }
+
+  .bsr-dropdown_input {
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  .bsr-dropdown_menu {
+    max-height: 220px;
+  }
+
+  .bsr-dropdown_option {
+    min-height: 40px;
+    padding: 8px 12px;
+    font-size: 15px;
+  }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+  .bsr-dropdown_input-wrapper {
+    height: 46px;
+    padding: 0 12px;
+    gap: 8px;
+  }
+
+  .bsr-dropdown_input {
+    font-size: 16px;
+  }
+
+  .bsr-dropdown_option {
+    min-height: 42px;
+    padding: 9px 12px;
+    font-size: 14px;
+  }
+
+  .bsr-dropdown_menu {
+    top: calc(100% + 6px);
+    max-height: 200px;
+  }
+}
+
+/* ─────────────────────────────────────────────
+   Firefox specific styles
+   ───────────────────────────────────────────── */
+
+.bsr-dropdown_input::placeholder {
+  opacity: 1;
+}
+
+/* ─────────────────────────────────────────────
+   High contrast mode support
+   ───────────────────────────────────────────── */
+
+@media (prefers-contrast: high) {
+  .bsr-dropdown_input-wrapper {
+    border-width: 2px;
+  }
+
+  .bsr-dropdown_input-wrapper.bsr-dropdown_trigger--open {
+    border-width: 3px;
+  }
+}
