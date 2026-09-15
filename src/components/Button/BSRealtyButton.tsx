@@ -15,24 +15,18 @@ export interface BSRealtyButtonProps extends Disableable {
   showLeftIcon?: boolean;
   /** Whether to show the right icon */
   showRightIcon?: boolean;
+  /**LeftIcon  */
+  leftIcon?: React.ReactNode;
+  /**RightIcon  */
+  rightIcon?: React.ReactNode;
   /** Click handler */
   onClick?: () => void;
+  /**button type */
+  type?: 'button' | 'submit' | 'reset';
+  /**ClassName */
+  className?: string;
 }
 
-// MessageCircle icon
-const MessageCircleIcon = ({ size }: { size: number }) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
-  </svg>
-);
-
-// ArrowRight icon
-const ArrowRightIcon = ({ size }: { size: number }) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-    <line x1="5" y1="12" x2="19" y2="12" />
-    <polyline points="12 5 19 12 12 19" />
-  </svg>
-);
 
 const iconSizeMap: Record<ButtonSize, number> = {
   'xs': 14,
@@ -45,30 +39,43 @@ const iconSizeMap: Record<ButtonSize, number> = {
 };
 
 export const BSRealtyButton = ({
+  type = 'button',
   label = 'Buttons',
   variant = 'primary',
   size = 'medium',
   showLeftIcon = true,
   showRightIcon = true,
+  leftIcon,
+  rightIcon,
   disabled = false,
   onClick,
+  className = ''
 }: BSRealtyButtonProps) => {
   const iconSize = iconSizeMap[size];
 
   return (
     <button
-      type="button"
+      type={type}
       className={[
         'bsr-btn',
         `bsr-btn--${variant}`,
-        `bsr-btn--${size}`,
-      ].join(' ')}
+        `bsr-btn--${size}`, className,
+      ].filter(Boolean).join(' ')}
       disabled={disabled}
       onClick={onClick}
     >
-      {showLeftIcon && <MessageCircleIcon size={iconSize} />}
+      {showLeftIcon && leftIcon && (
+        <span className="bsr-btn__icon bsr-btn__icon--left" style={{ width: iconSize, height: iconSize }}>
+          {leftIcon}
+        </span>
+      )}
       <span>{label}</span>
-      {showRightIcon && <ArrowRightIcon size={iconSize} />}
+      {showRightIcon && rightIcon
+        && (
+          <span className="bsr-btn__icon bsr-btn__icon--right" style={{ width: iconSize, height: iconSize }}>
+            {rightIcon}
+          </span>
+        )}
     </button>
   );
 };

@@ -1,6 +1,6 @@
 /* BS Realty Button — from Figma design node 7:1911 */
 
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;500&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;500&display=swap");
 
 .bsr-btn {
   display: inline-flex;
@@ -8,11 +8,13 @@
   justify-content: center;
   border: none;
   cursor: pointer;
-  font-family: 'Lato', sans-serif;
+  font-family: "Lato", sans-serif;
   font-weight: 500;
   color: var(--bsr-color-surface);
   border-radius: var(--bsr-radius-full);
-  transition: background-color 0.15s ease, box-shadow 0.15s ease;
+  transition:
+    background-color 0.15s ease,
+    box-shadow 0.15s ease;
   outline: none;
   white-space: nowrap;
 }
@@ -75,12 +77,12 @@
 /* ── Primary ─────────────────────────────────────────────── */
 
 .bsr-btn--primary {
-  background-color: var(--bsr-color-primary);
+  background-color: black;
   color: var(--bsr-color-surface);
 }
 
 .bsr-btn--primary:hover:not(:disabled) {
-  background-color: var(--bsr-color-primary-hover);
+  background-color: black;
 }
 
 .bsr-btn--primary:focus-visible:not(:disabled) {
