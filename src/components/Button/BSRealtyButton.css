@@ -77,12 +77,12 @@
 /* ── Primary ─────────────────────────────────────────────── */
 
 .bsr-btn--primary {
-  background-color: black;
+  background-color: var(--bsr-color-primary);
   color: var(--bsr-color-surface);
 }
 
 .bsr-btn--primary:hover:not(:disabled) {
-  background-color: black;
+  background-color: var(--bsr-color-primary-hover);
 }
 
 .bsr-btn--primary:focus-visible:not(:disabled) {
@@ -104,7 +104,8 @@
 }
 
 .bsr-btn--secondary:hover:not(:disabled) {
-  background-color: var(--bsr-color-secondary-hover);
+  background-color: var(--bsr-color-surface-navhover);
+  color: var(--bsr-color-surface-text);
 }
 
 .bsr-btn--secondary:focus-visible:not(:disabled) {
