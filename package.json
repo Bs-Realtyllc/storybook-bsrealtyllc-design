@@ -142,6 +142,11 @@
       "import": "./dist/CourseCard2.js",
       "require": "./dist/CourseCard2.cjs"
     },
+    "./DatePicker": {
+      "types": "./dist/DatePicker/index.d.ts",
+      "import": "./dist/DatePicker.js",
+      "require": "./dist/DatePicker.cjs"
+    },
     
     "./style.css": "./dist/style.css"
   },
