@@ -6,12 +6,12 @@
   justify-content: center;
   border: none;
   cursor: pointer;
-  font-family: "Lato", sans-serif;
+  font-family: var(--bsr-font-family-primary);
   width: 197px;
   height: 44px;
   padding: 8px 12px;
-  font-weight: 400;
-  font-size: 18px;
+  font-weight: var(--bsr-font-weight-regular);
+  font-size: var(--bsr-font-size-body-xlarge);
   line-height: 28px;
   border: none;
   background: transparent;

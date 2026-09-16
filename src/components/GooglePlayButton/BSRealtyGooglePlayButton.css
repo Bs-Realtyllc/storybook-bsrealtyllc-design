@@ -3,7 +3,7 @@
   height: 59px;
   overflow: hidden;
   opacity: 1;
-  border-radius: 12px;
+  border-radius: var(--bsr-radius-2xl);
 }
 .bsr-google-play-button img {
   width: 100%;

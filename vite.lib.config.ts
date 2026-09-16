@@ -34,10 +34,9 @@ export default defineConfig({
       // referenced by package.json's "exports" map below.
       entryRoot: "src",
       include: ["src"],
-      // App.tsx / main.tsx are the local Storybook-app shell, not part
-      // of the published library — only src/index.ts and its transitive
-      // imports (components/icons/types) should get declarations.
-      exclude: ["**/*.stories.*", "**/*.test.*", "src/App.tsx", "src/main.tsx"],
+      // Only src/index.ts and its transitive imports (components/icons/types)
+      // should get declarations.
+      exclude: ["**/*.stories.*", "**/*.test.*"],
       rollupTypes: false,
     }),
   ],

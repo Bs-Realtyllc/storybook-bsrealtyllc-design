@@ -2,7 +2,7 @@
 
 .bsr-breadcrumb {
   width: 100%;
-  font-family: "Lato", sans-serif;
+  font-family: var(--bsr-font-family-primary);
 }
 
 .bsr-breadcrumb_list {
@@ -17,8 +17,8 @@
 .bsr-breadcrumb_item {
   display: inline-flex;
   align-items: center;
-  font-size: 14px;
-  font-weight: 400;
+  font-size: var(--bsr-font-size-body-medium);
+  font-weight: var(--bsr-font-weight-regular);
   line-height: 20px;
 }
 

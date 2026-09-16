@@ -17,10 +17,12 @@ const StarIcon = ({
   id,
   fill,
   size,
+  onClick,
 }: {
   id: string;
   fill: 'full' | 'half' | 'empty';
   size: number;
+  onClick?: (e: React.MouseEvent<SVGSVGElement>) => void;
 }) => {
   const starPath =
     'M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z';
@@ -35,6 +37,7 @@ const StarIcon = ({
       viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      onClick={onClick}
     >
       {fill === 'half' && (
         <defs>
@@ -45,12 +48,12 @@ const StarIcon = ({
       )}
 
       {/* Empty (gray) base */}
-      <path d={starPath} fill="#D1D5DB" />
+      <path d={starPath} fill="var(--bsr-color-disabled-fg-muted)" />
 
       {/* Filled overlay */}
-      {fill === 'full' && <path d={starPath} fill="#FFC500" />}
+      {fill === 'full' && <path d={starPath} fill="var(--bsr-color-rating-star)" />}
       {fill === 'half' && (
-        <path d={starPath} fill="#FFC500" clipPath={`url(#${clipId})`} />
+        <path d={starPath} fill="var(--bsr-color-rating-star)" clipPath={`url(#${clipId})`} />
       )}
     </svg>
   );
@@ -98,6 +101,7 @@ export const BSRealtyStarRating = ({
           id={`star-${i}`}
           fill={getFill(i)}
           size={size}
+          onClick={readOnly ? undefined : (e) => handleMouseClick(i, e)}
         />
       ))}
     </div>

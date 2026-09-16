@@ -10,8 +10,8 @@
   padding: 20px;
   width: 305px;
   background-color: var(--bsr-color-surface-alt);
-  border-radius: 16px;
-  font-family: 'Lato', sans-serif;
+  border-radius: var(--bsr-radius-3xl);
+  font-family: var(--bsr-font-family-primary);
   box-sizing: border-box;
 }
 
@@ -29,8 +29,8 @@
 }
 
 .bsr-service-card__number {
-  font-size: 22px;
-  font-weight: 700;
+  font-size: var(--bsr-font-size-title-large);
+  font-weight: var(--bsr-font-weight-bold);
   line-height: 1.273;
   color: var(--bsr-color-text-heading);
 }
@@ -45,8 +45,8 @@
 /* Title: Website/Title/largeemphasized — Lato 500 20px */
 .bsr-service-card__title {
   margin: 0;
-  font-size: 20px;
-  font-weight: 500;
+  font-size: var(--bsr-font-size-figma-4xl);
+  font-weight: var(--bsr-font-weight-medium);
   line-height: 1.4;
   color: var(--bsr-color-text-body);
 }
@@ -54,8 +54,8 @@
 /* Description: Website/Body/large — Lato 400 16px */
 .bsr-service-card__description {
   margin: 0;
-  font-size: 16px;
-  font-weight: 400;
+  font-size: var(--bsr-font-size-body-large);
+  font-weight: var(--bsr-font-weight-regular);
   line-height: 1.5;
   color: var(--bsr-color-text-muted-alt);
 }

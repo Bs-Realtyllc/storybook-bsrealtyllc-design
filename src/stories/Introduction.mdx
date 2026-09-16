@@ -42,27 +42,30 @@ import { BSRealtyTypography } from '@bsrealtyllc/design-system';
 
 ## Design Tokens
 
-All components use the following core design values from Figma:
+All components pull from a single CSS custom-property source,
+[`src/tokens/tokens.css`](https://github.com/bsr2023/storybook-bsrealtyllc-design/blob/main/src/tokens/tokens.css).
+Everything below renders live via `var(--bsr-*)`, so it can never drift from what components actually use —
+if a token changes, this page updates with it.
 
 ### Colors
 
 <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', maxWidth: '520px' }}>
   {[
-    { name: 'Primary',        hex: '#1e3a5f', usage: 'Buttons, links',       dark: true  },
-    { name: 'Primary Hover',  hex: '#182e4c', usage: 'Button hover state',   dark: true  },
-    { name: 'Secondary',      hex: '#6b7280', usage: 'Secondary buttons',    dark: true  },
-    { name: 'Text Dark',      hex: '#25282d', usage: 'Headings, labels',     dark: true  },
-    { name: 'Text Muted',     hex: '#707071', usage: 'Addresses, captions',  dark: true  },
-    { name: 'Background',     hex: '#f9fafb', usage: 'Card backgrounds',     dark: false },
-    { name: 'Border',         hex: '#c7c8c9', usage: 'Dividers, borders',    dark: false },
-  ].map(({ name, hex, usage, dark }) => (
-    <div key={hex} style={{ display: 'flex', alignItems: 'center', gap: '12px', padding: '8px 12px', borderRadius: '8px', border: '1px solid #e5e7eb', background: '#fff' }}>
-      <div style={{ width: '36px', height: '36px', borderRadius: '6px', background: hex, flexShrink: 0, border: '1px solid rgba(0,0,0,0.08)' }} />
+    { name: 'Primary',        varName: '--bsr-color-primary',       usage: 'Buttons, links' },
+    { name: 'Primary Hover',  varName: '--bsr-color-primary-hover', usage: 'Button hover state' },
+    { name: 'Secondary',      varName: '--bsr-color-text-muted',    usage: 'Secondary buttons' },
+    { name: 'Text Dark',      varName: '--bsr-color-text-body',     usage: 'Body copy, labels' },
+    { name: 'Text Muted',     varName: '--bsr-color-text-subtle',   usage: 'Addresses, captions' },
+    { name: 'Background',     varName: '--bsr-color-surface',       usage: 'Card backgrounds' },
+    { name: 'Border',         varName: '--bsr-color-border',        usage: 'Dividers, borders' },
+  ].map(({ name, varName, usage }) => (
+    <div key={varName} style={{ display: 'flex', alignItems: 'center', gap: '12px', padding: '8px 12px', borderRadius: '8px', border: '1px solid #e5e7eb', background: '#fff' }}>
+      <div style={{ width: '36px', height: '36px', borderRadius: '6px', background: `var(${varName})`, flexShrink: 0, border: '1px solid rgba(0,0,0,0.08)' }} />
       <div style={{ flex: 1 }}>
         <div style={{ fontWeight: 600, fontSize: '13px', color: '#111827' }}>{name}</div>
         <div style={{ fontSize: '12px', color: '#6b7280' }}>{usage}</div>
       </div>
-      <code style={{ fontSize: '12px', background: '#f3f4f6', padding: '2px 8px', borderRadius: '4px', color: '#374151' }}>{hex}</code>
+      <code style={{ fontSize: '11px', background: '#f3f4f6', padding: '2px 8px', borderRadius: '4px', color: '#374151' }}>{varName}</code>
     </div>
   ))}
 </div>
@@ -70,37 +73,41 @@ All components use the following core design values from Figma:
 ### Typography
 
 <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', margin: '16px 0' }}>
-  <div style={{ fontFamily: 'Lato, sans-serif', fontSize: '24px', fontWeight: 700, color: '#25282d' }}>
-    Heading — 700 weight
-    <span style={{ fontSize: '12px', fontWeight: 400, color: '#6b7280', marginLeft: '12px' }}>Price, titles</span>
-  </div>
-  <div style={{ fontFamily: 'Lato, sans-serif', fontSize: '18px', fontWeight: 500, color: '#25282d' }}>
-    Subheading — 500 weight
-    <span style={{ fontSize: '12px', fontWeight: 400, color: '#6b7280', marginLeft: '12px' }}>Names, labels</span>
-  </div>
-  <div style={{ fontFamily: 'Lato, sans-serif', fontSize: '15px', fontWeight: 400, color: '#25282d' }}>
-    Body — 400 weight
-    <span style={{ fontSize: '12px', color: '#6b7280', marginLeft: '12px' }}>Descriptions, answers</span>
-  </div>
+  {[
+    { label: 'Heading',    sizeVar: '--bsr-font-size-headline-small', px: '24px', weightVar: '--bsr-font-weight-bold',    weight: '700', colorVar: '--bsr-color-text-heading', usage: 'Price, titles' },
+    { label: 'Subheading', sizeVar: '--bsr-font-size-title-large',    px: '22px', weightVar: '--bsr-font-weight-medium',  weight: '500', colorVar: '--bsr-color-text-body',    usage: 'Names, labels' },
+    { label: 'Body',       sizeVar: '--bsr-font-size-body-large',     px: '16px', weightVar: '--bsr-font-weight-regular', weight: '400', colorVar: '--bsr-color-text-body',    usage: 'Descriptions, answers' },
+  ].map(({ label, sizeVar, px, weightVar, weight, colorVar, usage }) => (
+    <div key={label}>
+      <div style={{ fontFamily: 'var(--bsr-font-family-primary)', fontSize: `var(${sizeVar})`, fontWeight: `var(${weightVar})`, color: `var(${colorVar})` }}>
+        {label} — {weight} weight
+        <span style={{ fontSize: '12px', fontWeight: 400, color: '#6b7280', marginLeft: '12px' }}>{usage}</span>
+      </div>
+      <code style={{ fontSize: '11px', color: '#9ca3af' }}>{sizeVar} ({px}) · {colorVar}</code>
+    </div>
+  ))}
 </div>
 
-> Font family: **Lato** — used across all components.
+> Font family: `var(--bsr-font-family-primary)` — **Lato** — used across all components.
+>
+> These three rows are a simplified view of the full type scale (display/headline/title/body/label ×
+> large/medium/small) defined in [`tokens.css`](https://github.com/bsr2023/storybook-bsrealtyllc-design/blob/main/src/tokens/tokens.css).
 
 ### Spacing & Shape
 
 <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px', margin: '16px 0' }}>
   {[
-    { name: 'Button',    radius: '50px',  label: 'Pill-shaped' },
-    { name: 'Card',      radius: '12px',  label: 'Card components' },
-    { name: 'FAQ',       radius: '10px',  label: 'FAQ items' },
-    { name: 'Searchbar', radius: '24px',  label: 'Search input' },
-  ].map(({ name, radius, label }) => (
+    { name: 'Button',    varName: '--bsr-radius-full', px: '50px', label: 'Pill-shaped' },
+    { name: 'Card',      varName: '--bsr-radius-2xl',  px: '12px', label: 'Card components' },
+    { name: 'FAQ',       varName: '--bsr-radius-xl',   px: '10px', label: 'FAQ items' },
+    { name: 'Searchbar', varName: null,                px: '24px', label: 'Search input' },
+  ].map(({ name, varName, px, label }) => (
     <div key={name} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px' }}>
-      <div style={{ width: '64px', height: '36px', background: '#1e3a5f', borderRadius: radius }} />
+      <div style={{ width: '64px', height: '36px', background: 'var(--bsr-color-primary)', borderRadius: varName ? `var(${varName})` : px }} />
       <div style={{ textAlign: 'center' }}>
         <div style={{ fontSize: '12px', fontWeight: 600, color: '#111827' }}>{name}</div>
-        <code style={{ fontSize: '11px', color: '#6b7280' }}>{radius}</code>
-        <div style={{ fontSize: '11px', color: '#9ca3af' }}>{label}</div>
+        <code style={{ fontSize: '11px', color: '#6b7280' }}>{varName || px}</code>
+        <div style={{ fontSize: '11px', color: '#9ca3af' }}>{label}{!varName && ' · not yet tokenized'}</div>
       </div>
     </div>
   ))}

@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { BSRealtyStarRating } from './BSRealtyStarRating';
 
@@ -64,4 +65,13 @@ export const LargeSize: Story = {
 
 export const SmallSize: Story = {
   args: { rating: 4, size: 14 },
+};
+
+/** Click a star (left half for a half-star, right half for a full star) to set the rating. */
+export const Interactive: Story = {
+  args: { rating: 3, readOnly: false, size: 28 },
+  render: (args) => {
+    const [rating, setRating] = useState(args.rating);
+    return <BSRealtyStarRating {...args} rating={rating} onChange={setRating} />;
+  },
 };

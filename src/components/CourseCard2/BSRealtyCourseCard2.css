@@ -7,19 +7,19 @@
   flex-direction: column;
   width: 364px;
   height: 617px;
-  border-radius: 12px;
+  border-radius: var(--bsr-radius-2xl);
   padding: 16px;
   gap: 8px;
   overflow: hidden;
   background: var(--bsr-color-text-inverse);
   box-shadow: var(--bsr-shadow-card);
-  font-family: "Lato", sans-serif;
+  font-family: var(--bsr-font-family-primary);
   box-sizing: border-box;
 }
 .bsr-course-card2__image {
   width: 332px;
   height: 221px;
-  border-radius: 8px;
+  border-radius: var(--bsr-radius-lg);
   overflow: hidden;
 }
 .bsr-course-card2__content {
@@ -37,15 +37,15 @@
   gap: 8px;
 }
 .bsr-course-card2__title {
-  font-weight: 600;
-  font-size: 20px;
+  font-weight: var(--bsr-font-weight-semibold);
+  font-size: var(--bsr-font-size-figma-4xl);
   line-height: 28px;
   color: var(--bsr-color-text-heading);
   margin: 0;
 }
 .bsr-course-card2__price {
-  font-weight: 700;
-  font-size: 24px;
+  font-weight: var(--bsr-font-weight-bold);
+  font-size: var(--bsr-font-size-headline-small);
   line-height: 32px;
   color: var(--bsr-color-error);
   margin: 0;
@@ -60,8 +60,8 @@
   color: var(--bsr-color-text-heading);
 }
 .bsr-course-card2__feature-title {
-  font-weight: 500;
-  font-size: 16px;
+  font-weight: var(--bsr-font-weight-medium);
+  font-size: var(--bsr-font-size-body-large);
   line-height: 24px;
   color: var(--bsr-color-text-heading);
   margin: 0;
@@ -72,8 +72,8 @@
   width: 332px;
   height: 204px;
   gap: 12px;
-  font-weight: 600;
-  font-size: 16px;
+  font-weight: var(--bsr-font-weight-semibold);
+  font-size: var(--bsr-font-size-body-large);
   line-height: 24px;
   letter-spacing: 0%;
   color: var(--bsr-color-text-faq-answer);
@@ -97,13 +97,13 @@
   display: flex;
   width: 238px;
   height: 40px;
-  border-radius: 8px;
+  border-radius: var(--bsr-radius-lg);
   padding: 8px;
   gap: 10px;
   background: var(--bsr-color-green-light);
   margin: 0;
-  font-weight: 600;
-  font-size: 16px;
+  font-weight: var(--bsr-font-weight-semibold);
+  font-size: var(--bsr-font-size-body-large);
   line-height: 24px;
   color: var(--bsr-color-text-muted-gray);
 }
