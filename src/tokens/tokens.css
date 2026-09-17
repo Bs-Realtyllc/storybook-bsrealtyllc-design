@@ -31,6 +31,8 @@
 
   --bsr-color-green-light: #dcf1e4; /* course card 2 with lerner background*/
 
+  --bsr-color-select-date: #6a00e5; /*select date in calander*/
+  --bsr-color-select-range-date: #eeeafc; /*select range date in calander*/
   /* ── Borders ───────────────────────────────────────────────────── */
   --bsr-color-border: #c7c8c9; /* property card divider/stroke */
   --bsr-color-border-muted: #e5e7eb; /* textfield/password disabled border */

@@ -13,7 +13,7 @@ const meta = {
         onChange: fn(),
     },
     argTypes: {
-        value: { control: 'date' },
+        value: { control: 'object' },
         variant: {
             control: 'select',
             options: ['dualMonths', 'dualMonthsSelector', 'singleMonth', 'singleMonthSelector']
@@ -26,28 +26,28 @@ type Story = StoryObj<typeof BSRealtyCalender>;
 
 export const DualMonths: Story = {
     args: {
-        value: 1789582500000,
+        value: { startDate: '2025-01-01', endDate: '2025-09-01' },
         variant: "dualMonths"
     },
 };
 
 export const DualMonthsWithSelector: Story = {
     args: {
-        value: 1789582500000,
+        value: { startDate: '2025-01-01', endDate: '2025-09-01' },
         variant: 'dualMonthsSelector'
     },
 };
 
 export const SingleMonth: Story = {
     args: {
-        value: 1789582500000,
+        value: '2025-09-15',
         variant: "singleMonth"
     },
 };
 
 export const SingleMonthWithSelector: Story = {
     args: {
-        value: 1789582500000,
+        value: '2025-09-15',
         variant: 'singleMonthSelector'
     },
 };
