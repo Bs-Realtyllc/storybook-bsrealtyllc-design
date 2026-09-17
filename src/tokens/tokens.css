@@ -64,6 +64,9 @@
 
   --bsr-color-text-trust-blue-active: #0b1421; /* FilterItem text*/
   --bsr-color-text-muted-gray: #38404a; /* Course card 2 text*/
+  --bsr-color-text-deep-night: #020617; /*calander title*/
+  --bsr-color-text-light-gray: #505152; /*calander day*/
+  --bsr-color-border-white: #e6e6e6; /*calander month selector border*/
 
   /* ── Status ────────────────────────────────────────────────────── */
   --bsr-color-error: #dc2626;

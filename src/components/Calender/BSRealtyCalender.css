@@ -1,104 +1,146 @@
-.bs-calendar-container {
-  background-color: #ffffff;
-  border-radius: 1rem;
-  box-shadow:
-    0 20px 25px -5px rgba(0, 0, 0, 0.1),
-    0 10px 10px -5px rgba(0, 0, 0, 0.04);
-  padding: 1.5rem;
-  border: 1px solid #f3f4f6;
-  max-width: 56rem;
-  width: 100%;
-}
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;500&display=swap");
 
-.bs-calendar-header {
+.bs-calendar {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 1.5rem;
-  padding: 0 0.5rem;
+  flex-direction: column;
+  font-family: var(--bsr-font-family-primary);
+  gap: 8px;
+}
+.bs-calendar-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  background-color: var(--bsr-color-text-inverse);
+  border-radius: 8px;
+  padding: 0 12px;
+  width: 572px;
+  height: 286px;
 }
 
 .bs-calendar-nav-btn {
-  padding: 0.5rem;
-  background: transparent;
-  border: none;
-  border-radius: 9999px;
-  cursor: pointer;
-  transition: background-color 0.2s ease;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.bs-calendar-nav-btn:hover {
-  background-color: #f3f4f6;
+  margin: 28px -5px;
+  color: var(--bsr-color-text-deep-night);
 }
 
 .bs-calendar-grid-container {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 2rem;
-}
-
-@media (min-width: 768px) {
-  .bs-calendar-grid-container {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
+  display: flex;
+  justify-content: center;
+  gap: 4px;
 }
 
 .bs-calendar-month-wrapper {
-  padding: 0 0.5rem;
+  box-sizing: border-box;
+  height: 286px;
+  display: flex;
+  flex-direction: column;
+  padding: 24px 12px;
+  gap: 16px;
 }
 
 .bs-calendar-month-title {
-  font-size: 1.125rem;
-  font-weight: 600;
-  color: #111827;
-  margin-bottom: 1rem;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 28px;
+  color: var(--bsr-color-text-deep-night);
+  margin: 0;
+}
+.bs-calender-week-day {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
 .bs-calendar-weekdays {
+  margin: 0;
   display: grid;
   grid-template-columns: repeat(7, minmax(0, 1fr));
-  text-align: center;
-  font-size: 0.875rem;
-  margin-bottom: 0.5rem;
+  width: 232px;
+  height: 20px;
+  justify-content: space-between;
 }
 
 .bs-calendar-weekday {
-  color: #9ca3af;
   font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  text-align: center;
+  color: var(--bsr-color-text-soft-white);
 }
 
 .bs-calendar-days {
   display: grid;
+  gap: 0;
   grid-template-columns: repeat(7, minmax(0, 1fr));
-  text-align: center;
-  font-size: 0.875rem;
-  row-gap: 0.75rem;
+  width: 232px;
+  height: 166px;
 }
 
 .bs-calendar-day-cell {
-  height: 2rem;
+  width: 100%;
+  height: 32px;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
 }
 
 .bs-calendar-day-btn {
-  width: 2rem;
-  height: 2rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 9999px;
-  border: none;
+  width: 32px;
+  height: 32px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  text-align: center;
+  color: var(--bsr-color-text-light-gray);
   background: transparent;
-  color: #1f2937;
+  border: none;
   cursor: pointer;
-  transition: all 0.2s ease;
+  border-radius: 4px;
 }
 
-.bs-calendar-day-btn:hover {
-  background-color: #f3f4f6;
+/* single calendar */
+.bs-calendar-container-singleMonth,
+.bs-calendar-container-singleMonthSelector {
+  width: 299px;
+  height: 286px;
+  border-radius: 8px;
+  padding-right: 12px;
+  padding-left: 12px;
+}
+
+.bs-calendar-month2-singleMonth,
+.bs-calendar-month2-singleMonthSelector {
+  display: none;
+}
+
+/*month selector*/
+.bs-calendar-monthSelector {
+  height: 44px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.bs-calendar-monthSelector-box {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 44px;
+  gap: 8px;
+  border-radius: 8px;
+  border-width: 1px;
+  padding: 12px;
+  background: var(--bsr-color-text-inverse);
+  border: 1px solid var(--bsr-color-border-white);
+  color: var(--bsr-color-text-deep-night);
+  padding: 12px;
+  cursor: pointer;
+}
+.bs-calendar-chevron {
+  display: inline-flex;
+  align-items: center;
+  transition: transform 0.2s ease-in-out;
+}
+
+.bs-calendar-chevron.open {
+  transform: rotate(180deg);
 }

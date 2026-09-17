@@ -47,6 +47,7 @@ export * from "./components/EvolutionCard";
 export * from "./components/FilterItem";
 export * from "./components/CourseCard2";
 export * from "./components/DatePicker";
+export * from "./components/Calender";
 
 // Icons
 
