@@ -6,9 +6,9 @@ addons.setConfig({
     base: 'light',
 
     // Replace the Storybook icon with your logo
-    brandImage: '/bsrealty-logo.png',
+    brandImage: '/Primary_Logo.png',
     brandTitle: 'BS Realty LLC',
-    brandUrl: 'https://bsrealty.com',   // clicking the logo goes here
+    brandUrl: 'https://bsrealtyllc.com/',   // clicking the logo goes here
 
     // Optional: match your brand colors
     colorPrimary: '#1e3a5f',

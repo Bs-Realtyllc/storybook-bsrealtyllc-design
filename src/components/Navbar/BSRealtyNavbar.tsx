@@ -28,7 +28,7 @@ const DEFAULT_NAV_ITEMS: NavItem[] = [
 ];
 
 export function BSRealtyNavbar({
-  logo = '/logo-new.png',
+  logo = '/Primary_Logo.png',
   navItems = DEFAULT_NAV_ITEMS,
   activeItem,
   onLoginClick,
