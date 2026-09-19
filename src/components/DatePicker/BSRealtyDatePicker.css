@@ -1,0 +1,149 @@
+/* BS Realty DatePicker — Based on the BS Realty design system */
+
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;500&display=swap");
+
+/* ── DatePicker Container ──────────────────────────────────── */
+
+.bst-date-picker {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 400px;
+  font-family: "Lato", sans-serif;
+}
+
+/* ── Label ─────────────────────────────────────────────────── */
+
+.bst-date-picker_label {
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.556;
+  color: var(--bsr-color-text-heading);
+  cursor: default;
+}
+
+/* ── Input Wrapper ─────────────────────────────────────────── */
+
+.bst-date-picker_wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  background-color: var(--bsr-color-white);
+  border: 1px solid var(--bsr-color-soft-white-dark);
+  border-radius: 5px;
+
+  transition:
+    border-color 0.15s ease,
+    background-color 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+/* ── Visible Date Input ────────────────────────────────────── */
+
+.bst-date-picker_input {
+  flex: 1;
+  width: 100%;
+  min-width: 0;
+  padding: 12px 48px 12px 16px;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-family: "Lato", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--bsr-color-text-body);
+  cursor: default;
+}
+
+.bst-date-picker_input::placeholder {
+  color: var(--bsr-color-soft-white-dark);
+  font-weight: 500;
+}
+
+/* ── Calendar Button ───────────────────────────────────────── */
+
+.bst-date-picker_calendar-button {
+  position: absolute;
+  top: 50%;
+  right: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  width: 100%;
+  height: 100%;
+  padding: 6px;
+  margin: 0;
+  transform: translateY(-50%);
+  border: none;
+  border-radius: 4px;
+  background: transparent;
+  color: var(--bsr-color-text-muted);
+  cursor: pointer;
+
+  transition:
+    color 0.15s ease,
+    background-color 0.15s ease;
+}
+
+.bst-date-picker_calendar-button:hover {
+  color: var(--bsr-color-text-body);
+}
+
+/* ── Default / Hover State ─────────────────────────────────── */
+
+.bst-date-picker_wrapper:hover {
+  border-color: var(--bsr-color-text-muted);
+}
+
+/* ── Focus State ───────────────────────────────────────────── */
+
+.bst-date-picker_wrapper:focus-within {
+  border-color: var(--bsr-color-text-muted);
+  box-shadow: 0 0 0 3px var(--bsr-focus-ring);
+}
+
+/* ── Hidden Native Calendar ────────────────────────────────── */
+
+.bst-hidden-date-input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  border: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* ── Responsive Design ────────────────────────────────────── */
+
+@media (max-width: 768px) {
+  .bst-date-picker {
+    max-width: 100%;
+  }
+
+  .bst-date-picker_input {
+    font-size: 16px;
+  }
+}
+
+/* ── Firefox Placeholder ──────────────────────────────────── */
+
+.bst-date-picker_input::-moz-placeholder {
+  opacity: 1;
+}
+
+/* ── High Contrast Mode ────────────────────────────────────── */
+
+@media (prefers-contrast: high) {
+  .bst-date-picker_wrapper {
+    border-width: 2px;
+  }
+
+  .bst-date-picker_wrapper:focus-within {
+    border-width: 3px;
+  }
+}

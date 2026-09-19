@@ -31,6 +31,8 @@
 
   --bsr-color-green-light: #dcf1e4; /* course card 2 with lerner background*/
 
+  --bsr-color-select-date: #6a00e5; /*select date in calander*/
+  --bsr-color-select-range-date: #eeeafc; /*select range date in calander*/
   /* ── Borders ───────────────────────────────────────────────────── */
   --bsr-color-border: #c7c8c9; /* property card divider/stroke */
   --bsr-color-border-muted: #e5e7eb; /* textfield/password disabled border */
@@ -44,6 +46,8 @@
   --bsr-color-disabled-fg: #9ca3af; /* disabled text/placeholder */
   --bsr-color-disabled-fg-muted: #d1d5db; /* disabled icon */
   --bsr-color-soft-white-dark: #bbbcbc; /* textfield border/placeholder */
+
+  --bsr-color-secondary-hover: #565b66; /*secondary btn hover*/
 
   /* ── Text ──────────────────────────────────────────────────────── */
   --bsr-color-text-heading: #111827; /* headings, prices, numbers */
@@ -62,6 +66,9 @@
 
   --bsr-color-text-trust-blue-active: #0b1421; /* FilterItem text*/
   --bsr-color-text-muted-gray: #38404a; /* Course card 2 text*/
+  --bsr-color-text-deep-night: #020617; /*calander title*/
+  --bsr-color-text-light-gray: #505152; /*calander day*/
+  --bsr-color-border-white: #e6e6e6; /*calander month selector border*/
 
   /* ── Status ────────────────────────────────────────────────────── */
   --bsr-color-error: #dc2626;

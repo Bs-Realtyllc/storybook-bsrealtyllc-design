@@ -80,6 +80,8 @@ export default defineConfig({
         ),
         FilterItem: resolve(__dirname, "src/components/FilterItem/index.ts"),
         CourseCard2: resolve(__dirname, "src/components/CourseCard2/index.ts"),
+        DatePicker: resolve(__dirname, "src/components/DatePicker/index.ts"),
+        Calender: resolve(__dirname, "src/components/Calender/index.ts"),
 
         // src/types/index.ts is type-only (interfaces are erased at build
         // time) — deliberately NOT a lib entry, it would emit an empty JS

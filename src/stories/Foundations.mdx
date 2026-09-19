@@ -1,0 +1,222 @@
+{/* Guides/Foundations */}
+
+import { Meta, ColorPalette, ColorItem, Typeset } from '@storybook/addon-docs/blocks';
+
+<Meta title="Guides/Foundations" />
+
+# Foundations
+
+The single source of truth for every color, type, and radius value below is
+[`src/tokens/tokens.css`](https://github.com/bsr2023/storybook-bsrealtyllc-design/blob/main/src/tokens/tokens.css).
+Components consume these as CSS variables (`var(--bsr-color-primary)`, etc.) —
+**never hardcode a hex/rgba value in component CSS.** If you need a color or
+size that isn't here, add a token instead.
+
+---
+
+## Colors
+
+### Brand
+
+<ColorPalette>
+  <ColorItem
+    title="--bsr-color-primary"
+    subtitle="Buttons, Navbar, TextField focus"
+    colors={{ primary: '#1e3a5f' }}
+  />
+  <ColorItem
+    title="--bsr-color-primary-hover"
+    subtitle="Button primary hover"
+    colors={{ 'primary-hover': '#182e4c' }}
+  />
+  <ColorItem
+    title="--bsr-color-primary-active"
+    subtitle="Navbar login button active"
+    colors={{ 'primary-active': '#172c47' }}
+  />
+  <ColorItem
+    title="--bsr-color-primary-subtle"
+    subtitle="Navbar login button hover"
+    colors={{ 'primary-subtle': '#253f66' }}
+  />
+  <ColorItem
+    title="--bsr-color-accent-gold"
+    subtitle="Typography accent"
+    colors={{ 'accent-gold': '#c9a24d' }}
+  />
+  <ColorItem
+    title="--bsr-color-rating-star"
+    subtitle="StarRating filled star"
+    colors={{ 'rating-star': '#ffc500' }}
+  />
+</ColorPalette>
+
+### Neutral surfaces
+
+<ColorPalette>
+  <ColorItem title="--bsr-color-white" subtitle="Base white" colors={{ white: '#feffff' }} />
+  <ColorItem title="--bsr-color-surface" subtitle="Light card/section background" colors={{ surface: '#f9fafb' }} />
+  <ColorItem title="--bsr-color-surface-alt" subtitle="SearchBar / ServiceCard background" colors={{ 'surface-alt': '#f0f1f2' }} />
+  <ColorItem title="--bsr-color-surface-hover" subtitle="TextField disabled/hover surface" colors={{ 'surface-hover': '#edeeef' }} />
+  <ColorItem title="--bsr-color-surface-muted" subtitle="SearchBar resting background" colors={{ 'surface-muted': '#e9eaec' }} />
+  <ColorItem title="--bsr-color-surface-navhover" subtitle="Navbar link hover/active, ActionCateg hover" colors={{ 'surface-navhover': '#e9ebef' }} />
+  <ColorItem title="--bsr-color-surface-texthover" subtitle="Text-variant button hover, ActionCateg border" colors={{ 'surface-texthover': '#e0e1e2' }} />
+  <ColorItem title="--bsr-color-surface-card-hover" subtitle="Course card hover background" colors={{ 'surface-card-hover': '#f8f8f8' }} />
+  <ColorItem title="--bsr-color-selected" subtitle="Dropdown option selected/hover background" colors={{ selected: '#dde1e7' }} />
+  <ColorItem title="--bsr-color-green-light" subtitle="CourseCard2 'with learner' background" colors={{ 'green-light': '#dcf1e4' }} />
+</ColorPalette>
+
+### Borders
+
+<ColorPalette>
+  <ColorItem title="--bsr-color-border" subtitle="Property card divider/stroke" colors={{ border: '#c7c8c9' }} />
+  <ColorItem title="--bsr-color-border-muted" subtitle="TextField/PasswordField disabled border" colors={{ 'border-muted': '#e5e7eb' }} />
+  <ColorItem title="--bsr-color-border-strong" subtitle="PasswordField default border" colors={{ 'border-strong': '#959697' }} />
+  <ColorItem title="--bsr-color-border-trust" subtitle="Dropdown selected border" colors={{ 'border-trust': '#1e3a5f' }} />
+  <ColorItem title="--bsr-color-border-white" subtitle="Calendar month selector border" colors={{ 'border-white': '#e6e6e6' }} />
+</ColorPalette>
+
+### Disabled
+
+<ColorPalette>
+  <ColorItem title="--bsr-color-disabled-bg-primary" subtitle="Primary button disabled bg" colors={{ 'disabled-bg-primary': '#b9c2cd' }} />
+  <ColorItem title="--bsr-color-disabled-bg-secondary" subtitle="Secondary button disabled bg" colors={{ 'disabled-bg-secondary': '#d1d3d8' }} />
+  <ColorItem title="--bsr-color-disabled-bg-text" subtitle="Text button disabled bg" colors={{ 'disabled-bg-text': '#efe9ec' }} />
+  <ColorItem title="--bsr-color-disabled-fg" subtitle="Disabled text/placeholder" colors={{ 'disabled-fg': '#9ca3af' }} />
+  <ColorItem title="--bsr-color-disabled-fg-muted" subtitle="Disabled icon" colors={{ 'disabled-fg-muted': '#d1d5db' }} />
+</ColorPalette>
+
+### Text
+
+<ColorPalette>
+  <ColorItem title="--bsr-color-text-heading" subtitle="Headings, prices, numbers" colors={{ heading: '#111827' }} />
+  <ColorItem title="--bsr-color-text-body" subtitle="Primary body/label text" colors={{ body: '#25282d' }} />
+  <ColorItem title="--bsr-color-text-secondary" subtitle="Typography secondary" colors={{ secondary: '#4b5563' }} />
+  <ColorItem title="--bsr-color-text-muted" subtitle="Secondary button, muted labels" colors={{ muted: '#6b7280' }} />
+  <ColorItem title="--bsr-color-text-muted-alt" subtitle="SearchBar, service/testimonial copy" colors={{ 'muted-alt': '#505660' }} />
+  <ColorItem title="--bsr-color-text-subtle" subtitle="Property card address" colors={{ subtle: '#707071' }} />
+  <ColorItem title="--bsr-color-text-faint" subtitle="Property card name" colors={{ faint: '#30333a' }} />
+  <ColorItem title="--bsr-color-text-faq-answer" subtitle="FAQ answer copy" colors={{ 'faq-answer': '#40444d' }} />
+  <ColorItem title="--bsr-color-text-inverse" subtitle="Text on dark/brand backgrounds" colors={{ inverse: '#ffffff' }} />
+  <ColorItem title="--bsr-color-text-trust-blue-active" subtitle="FilterItem active text" colors={{ 'trust-blue-active': '#0b1421' }} />
+  <ColorItem title="--bsr-color-text-muted-gray" subtitle="CourseCard2 text" colors={{ 'muted-gray': '#38404a' }} />
+  <ColorItem title="--bsr-color-text-deep-night" subtitle="Calendar title" colors={{ 'deep-night': '#020617' }} />
+  <ColorItem title="--bsr-color-text-light-gray" subtitle="Calendar day" colors={{ 'light-gray': '#505152' }} />
+</ColorPalette>
+
+### Status
+
+<ColorPalette>
+  <ColorItem title="--bsr-color-error" subtitle="Error state" colors={{ error: '#dc2626' }} />
+  <ColorItem title="--bsr-color-error-bg" subtitle="Error background" colors={{ 'error-bg': '#fce9e9' }} />
+  <ColorItem title="--bsr-color-success" subtitle="Success state" colors={{ success: '#16a34a' }} />
+  <ColorItem title="--bsr-color-success-bg" subtitle="Success background" colors={{ 'success-bg': '#e8f6ed' }} />
+</ColorPalette>
+
+---
+
+## Typography
+
+Font family: `--bsr-font-family-primary` (Lato) for body copy,
+`--bsr-font-family-nav` (Source Sans 3) for navigation.
+
+### Display
+
+<Typeset
+  fontFamily="var(--bsr-font-family-primary)"
+  fontSizes={[64, 48, 40]}
+  sampleText="BS Realty"
+/>
+
+### Headline
+
+<Typeset
+  fontFamily="var(--bsr-font-family-primary)"
+  fontSizes={[32, 28, 24]}
+  sampleText="Find your next home"
+/>
+
+### Title
+
+<Typeset
+  fontFamily="var(--bsr-font-family-primary)"
+  fontSizes={[22, 16, 14]}
+  sampleText="Property details"
+/>
+
+### Body
+
+<Typeset
+  fontFamily="var(--bsr-font-family-primary)"
+  fontSizes={[18, 16, 14, 12]}
+  sampleText="Browse listings across every BSRealty product."
+/>
+
+### Label
+
+<Typeset
+  fontFamily="var(--bsr-font-family-primary)"
+  fontSizes={[14, 12, 11]}
+  sampleText="Field label"
+/>
+
+### Font weights
+
+| Token                         | Value | Sample                                                                    |
+| ------------------------------ | ----- | -------------------------------------------------------------------------- |
+| `--bsr-font-weight-light`     | 300   | <span style={{ fontWeight: 300 }}>BS Realty</span>                       |
+| `--bsr-font-weight-regular`   | 400   | <span style={{ fontWeight: 400 }}>BS Realty</span>                       |
+| `--bsr-font-weight-medium`    | 500   | <span style={{ fontWeight: 500 }}>BS Realty</span>                       |
+| `--bsr-font-weight-semibold`  | 600   | <span style={{ fontWeight: 600 }}>BS Realty</span>                       |
+| `--bsr-font-weight-bold`      | 700   | <span style={{ fontWeight: 700 }}>BS Realty</span>                       |
+
+---
+
+## Radius
+
+<div style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap', alignItems: 'flex-end' }}>
+  {[
+    ['--bsr-radius-sm', '4px'],
+    ['--bsr-radius-input', '5px'],
+    ['--bsr-radius-md', '6px'],
+    ['--bsr-radius-lg', '8px'],
+    ['--bsr-radius-xl', '10px'],
+    ['--bsr-radius-2xl', '12px'],
+    ['--bsr-radius-3xl', '16px'],
+    ['--bsr-radius-full', '50px'],
+  ].map(([name, value]) => (
+    <div key={name} style={{ textAlign: 'center' }}>
+      <div
+        style={{
+          width: '72px',
+          height: '72px',
+          background: 'var(--bsr-color-surface-alt)',
+          border: '1px solid var(--bsr-color-border)',
+          borderRadius: `var(${name})`,
+        }}
+      />
+      <code style={{ fontSize: '11px' }}>{name}</code>
+      <br />
+      <span style={{ fontSize: '11px', color: 'var(--bsr-color-text-muted)' }}>{value}</span>
+    </div>
+  ))}
+</div>
+
+---
+
+## Shadows
+
+<div style={{ display: 'flex', gap: '2rem', padding: '1rem 0' }}>
+  <div>
+    <div
+      style={{
+        width: '160px',
+        height: '80px',
+        borderRadius: 'var(--bsr-radius-lg)',
+        background: 'var(--bsr-color-white)',
+        boxShadow: 'var(--bsr-shadow-card)',
+      }}
+    />
+    <code style={{ fontSize: '11px' }}>--bsr-shadow-card</code>
+  </div>
+</div>
