@@ -1,10 +1,15 @@
-@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
 
 .bs-calendar {
   display: flex;
   flex-direction: column;
-  font-family: var(--bsr-font-family-primary);
+  font-family: "Inter", sans-serif;
   gap: 8px;
+}
+.bs-calendar *,
+.bs-calendar ::before,
+.bs-calendar ::after {
+  font-family: "Inter", sans-serif;
 }
 .bs-calendar-container {
   display: flex;
@@ -43,6 +48,7 @@
   line-height: 28px;
   color: var(--bsr-color-text-deep-night);
   margin: 0;
+  text-align: center;
 }
 .bs-calender-week-day {
   display: flex;
@@ -94,7 +100,9 @@
   background: transparent;
   border: none;
   cursor: pointer;
-  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* single calendar */
@@ -143,4 +151,34 @@
 
 .bs-calendar-chevron.open {
   transform: rotate(180deg);
+}
+
+.bs-calendar-day-btn.range-start {
+  background-color: var(--bsr-color-select-date);
+  color: var(--bsr-color-text-inverse);
+  border-radius: 50%;
+}
+
+.bs-calendar-day-btn.range-end {
+  background-color: var(--bsr-color-select-date);
+  color: var(--bsr-color-text-inverse);
+  border-radius: 50%;
+}
+
+.bs-calendar-day-btn.in-range {
+  background-color: var(--bsr-color-select-range-date);
+  border-radius: 0;
+}
+/* Style for today's date */
+.bs-calendar-day-btn.today {
+  color: var(--bsr-color-select-date);
+  font-weight: 600;
+}
+
+/* If today is also selected or in range,*/
+.bs-calendar-day-btn.today.selected,
+.bs-calendar-day-btn.today.range-start,
+.bs-calendar-day-btn.today.range-end {
+  border: none;
+  color: var(--bsr-color-text-inverse);
 }
