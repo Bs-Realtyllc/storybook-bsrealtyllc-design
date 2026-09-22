@@ -13,6 +13,7 @@
   font-weight: var(--bsr-font-weight-semibold);
   overflow: hidden;
   user-select: none;
+  font-weight: 600;
 }
 
 .bsr-avatar__image {
@@ -30,25 +31,25 @@
 /* ── Sizes ─────────────────────────────────────────────────────── */
 
 .bsr-avatar--sm {
-  width: 24px;
-  height: 24px;
-  font-size: var(--bsr-font-size-label-small);
+  width: 36px;
+  height: 36px;
+  font-size: 16px;
 }
 
 .bsr-avatar--md {
-  width: 32px;
-  height: 32px;
-  font-size: var(--bsr-font-size-label-medium);
+  width: 40px;
+  height: 40px;
+  font-size: 20px;
 }
 
 .bsr-avatar--lg {
   width: 48px;
   height: 48px;
-  font-size: var(--bsr-font-size-body-medium);
+  font-size: 22px;
 }
 
 .bsr-avatar--xl {
-  width: 64px;
-  height: 64px;
-  font-size: var(--bsr-font-size-title-medium);
+  width: 56px;
+  height: 56px;
+  font-size: 28px;
 }
