@@ -1,2 +1,2 @@
-import { BSRealtyDatePicker } from "./BSRealtyDatePicker";
-import type { DateFormat, BSRealtyDatePickerProps } from "./BSRealtyDatePicker";
+export { BSRealtyDatePicker } from "./BSRealtyDatePicker";
+export type { DateFormat, BSRealtyDatePickerProps } from "./BSRealtyDatePicker";
