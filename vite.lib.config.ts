@@ -82,6 +82,14 @@ export default defineConfig({
         CourseCard2: resolve(__dirname, "src/components/CourseCard2/index.ts"),
         DatePicker: resolve(__dirname, "src/components/DatePicker/index.ts"),
         Calender: resolve(__dirname, "src/components/Calender/index.ts"),
+        Notification: resolve(
+          __dirname,
+          "src/components/Notification/index.ts",
+        ),
+        Alert: resolve(__dirname, "src/components/Alert/index.ts"),
+        Checkbox: resolve(__dirname, "src/components/Checkbox/index.ts"),
+        Spinner: resolve(__dirname, "src/components/Spinner/index.ts"),
+        Toast: resolve(__dirname, "src/components/Toast/index.ts"),
 
         // src/types/index.ts is type-only (interfaces are erased at build
         // time) — deliberately NOT a lib entry, it would emit an empty JS

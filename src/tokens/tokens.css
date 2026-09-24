@@ -19,6 +19,7 @@
 
   /* ── Neutral surfaces ──────────────────────────────────────────── */
   --bsr-color-white: #feffff; /* was #feffff / #fefffe / #ffffff */
+  --bsr-color-white-soft: #f1f5f9; /* was #feffff / #fefffe / #ffffff */
   --bsr-color-surface: #f9fafb; /* light card/section background */
   --bsr-color-surface-alt: #f0f1f2; /* searchbar / service card background */
   --bsr-color-surface-hover: #edeeef; /* textfield disabled / hover surface */
@@ -63,6 +64,7 @@
   --bsr-color-text-soft-white: #575858; /*Breadcrumb */
 
   --bsr-color-text-dark-black: #000000; /* back button*/
+  --bsr-color-blackish: #17212b;
 
   --bsr-color-text-trust-blue-active: #0b1421; /* FilterItem text*/
   --bsr-color-text-muted-gray: #38404a; /* Course card 2 text*/
@@ -75,6 +77,10 @@
   --bsr-color-error-bg: #fce9e9;
   --bsr-color-success: #16a34a;
   --bsr-color-success-bg: #e8f6ed;
+  --bsr-color-warning: #f59e0b;
+  --bsr-color-warning-bg: #fef5e7;
+  --bsr-color-info: #2563eb;
+  --bsr-color-info-bg: #e9effd;
 
   /* ── Focus rings (alpha) ───────────────────────────────────────── */
   --bsr-focus-ring: rgba(30, 58, 95, 0.4);

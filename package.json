@@ -152,6 +152,31 @@
       "import": "./dist/Calender.js",
       "require": "./dist/Calender.cjs"
     },
+    "./Notification": {
+      "types": "./dist/Notification/index.d.ts",
+      "import": "./dist/Notification.js",
+      "require": "./dist/Notification.cjs"
+    },
+    "./Toast": {
+      "types": "./dist/Toast/index.d.ts",
+      "import": "./dist/Toast.js",
+      "require": "./dist/Toast.cjs"
+    },
+    "./Alert": {
+      "types": "./dist/Alert/index.d.ts",
+      "import": "./dist/Alert.js",
+      "require": "./dist/Alert.cjs"
+    },
+    "./Checkbox": {
+      "types": "./dist/Checkbox/index.d.ts",
+      "import": "./dist/Checkbox.js",
+      "require": "./dist/Checkbox.cjs"
+    },
+    "./Spinner": {
+      "types": "./dist/Spinner/index.d.ts",
+      "import": "./dist/Spinner.js",
+      "require": "./dist/Spinner.cjs"
+    },
     
     "./style.css": "./dist/style.css"
   },

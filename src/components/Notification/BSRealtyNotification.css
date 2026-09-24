@@ -1,0 +1,55 @@
+.bsr-notification {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: none;
+  border-radius: 8px;
+  background: var(--bsr-color-white-soft);
+  color: var(--bsr-color-blackish);
+  cursor: pointer;
+  transition:
+    background-color 0.3s ease-out,
+    transform 0.15s ease,
+    box-shadow 0.2s ease;
+}
+
+.bsr-notification__wraper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+}
+
+.bsr-notification:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.bsr-notification__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+}
+
+.bsr-notification__icon img,
+.bsr-notification__icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.bsr-notification__indicator {
+  position: absolute;
+  right: 1px;
+  top: 4px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--bsr-color-error);
+  border: none;
+}
