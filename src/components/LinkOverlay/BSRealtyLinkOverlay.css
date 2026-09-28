@@ -1,0 +1,26 @@
+.bsr-link-overlay {
+  position: relative;
+
+  display: block;
+
+  color: inherit;
+  text-decoration: none;
+
+  cursor: pointer;
+}
+
+.bsr-link-overlay::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  z-index: 1;
+}
+
+.bsr-link-overlay:hover {
+  text-decoration: none;
+}
+
+.bsr-link-overlay:focus-visible {
+  outline: 2px solid currentColor;
+}

@@ -1,0 +1,58 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;500&display=swap");
+
+.bsr-link {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--bsr-font-family-primary);
+  cursor: pointer;
+  transition:
+    color 0.2s ease,
+    text-decoration 0.2s ease;
+}
+
+/* Variants */
+.bsr-link--plain {
+  text-decoration: none;
+}
+
+.bsr-link--underline {
+  text-decoration: underline;
+}
+
+.bsr-link--hoverUnderline {
+  text-decoration: none;
+}
+
+.bsr-link--hoverUnderline:hover {
+  text-decoration: underline;
+}
+
+/* Sizes */
+.bsr-link--xs {
+  font-size: 12px;
+}
+
+.bsr-link--small {
+  font-size: 14px;
+}
+
+.bsr-link--medium {
+  font-size: 16px;
+}
+
+.bsr-link--large {
+  font-size: 18px;
+}
+
+/* Focus accessibility */
+.bsr-link:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+
+/* Disabled state, if needed */
+.bsr-link[aria-disabled="true"] {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
