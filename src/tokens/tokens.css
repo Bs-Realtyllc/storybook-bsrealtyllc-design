@@ -7,7 +7,6 @@
    Do not hardcode hex/rgba values in component CSS — add or reuse a
    token here instead, so a rebrand or dark-mode pass touches one file.
    ════════════════════════════════════════════════════════════════════ */
-
 :root {
   /* ── Brand ─────────────────────────────────────────────────────── */
   --bsr-color-primary: #1e3a5f; /* BSRealtyButton, Navbar, TextField focus */
@@ -20,6 +19,8 @@
   /* ── Neutral surfaces ──────────────────────────────────────────── */
   --bsr-color-white: #feffff; /* was #feffff / #fefffe / #ffffff */
   --bsr-color-white-soft: #f1f5f9; /* was #feffff / #fefffe / #ffffff */
+  --bsr-color-white-soft-light: #fefefe;
+  --bsr-color-white-soft-dark-hover: #919395;
   --bsr-color-surface: #f9fafb; /* light card/section background */
   --bsr-color-surface-alt: #f0f1f2; /* searchbar / service card background */
   --bsr-color-surface-hover: #edeeef; /* textfield disabled / hover surface */
@@ -34,12 +35,13 @@
 
   --bsr-color-select-date: #6a00e5; /*select date in calander*/
   --bsr-color-select-range-date: #eeeafc; /*select range date in calander*/
-  /* ── Borders ───────────────────────────────────────────────────── */
+  /* ── Borders 
+  ───────────────────────────────────────────────────── */
   --bsr-color-border: #c7c8c9; /* property card divider/stroke */
   --bsr-color-border-muted: #e5e7eb; /* textfield/password disabled border */
   --bsr-color-border-strong: #959697; /* password field default border / foundation border */
   --bsr-color-border-trust: #1e3a5f; /*dropdown selected border*/
-
+  --bsr-color-border-kpi: #d9dde0;
   /* ── Disabled ──────────────────────────────────────────────────── */
   --bsr-color-disabled-bg-primary: #b9c2cd; /* primary button disabled bg */
   --bsr-color-disabled-bg-secondary: #d1d3d8; /* secondary button disabled bg */
@@ -71,7 +73,7 @@
   --bsr-color-text-deep-night: #020617; /*calander title*/
   --bsr-color-text-light-gray: #505152; /*calander day*/
   --bsr-color-border-white: #e6e6e6; /*calander month selector border*/
-
+  --bsr-color-radio-dot: #235e94; /*radio dot color  | toogle bg*/
   /* ── Status ────────────────────────────────────────────────────── */
   --bsr-color-error: #dc2626;
   --bsr-color-error-bg: #fce9e9;
@@ -95,6 +97,7 @@
     0 1px 4px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(0, 0, 0, 0.04);
   --bsr-shadow-hover-tint: rgba(0, 0, 0, 0.05);
   --bsr-shadow-hover-color: rgba(0, 0, 0, 0.1);
+  --bsr-shadow-toogle-color: rgba(0, 0, 0, 0.25);
 
   /* ── Font family ───────────────────────────────────────────────── */
   --bsr-font-family-primary:

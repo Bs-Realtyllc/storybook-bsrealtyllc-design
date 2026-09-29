@@ -1,0 +1,51 @@
+.bsr-file-upload-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Upload button */
+.bsr-file-upload {
+  border: 1px solid var(--bsr-color-border);
+  border-radius: 5px;
+  padding: 5px 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: fit-content;
+  cursor: pointer;
+}
+.bsr-file-upload:hover {
+  background: var(--bsr-color-surface-hover);
+}
+
+/* Icon */
+.bsr-file-upload__icon {
+  display: inline-flex;
+  align-items: center;
+}
+
+/* Label */
+.bsr-file-upload__label {
+  display: inline-flex;
+  align-items: center;
+}
+
+/* File name */
+.bsr-file-upload__file-name {
+  font-size: 14px;
+  color: #4a5568;
+  word-break: break-word;
+}
+
+/* Disabled upload button */
+.bsr-file-upload:has(input:disabled) {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+/* Prevent clicking disabled input through label */
+.bsr-file-upload:has(input:disabled) {
+  pointer-events: none;
+}

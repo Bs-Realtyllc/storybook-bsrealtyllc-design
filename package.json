@@ -177,6 +177,51 @@
       "import": "./dist/Spinner.js",
       "require": "./dist/Spinner.cjs"
     },
+    "./FileUpload": {
+      "types": "./dist/FileUpload/index.d.ts",
+      "import": "./dist/FileUpload.js",
+      "require": "./dist/FileUpload.cjs"
+    },
+    "./KPICard": {
+      "types": "./dist/KPICard/index.d.ts",
+      "import": "./dist/KPICard.js",
+      "require": "./dist/KPICard.cjs"
+    },
+    "./Link": {
+      "types": "./dist/Link/index.d.ts",
+      "import": "./dist/Link.js",
+      "require": "./dist/Link.cjs"
+    },
+    "./LinkOverlay": {
+      "types": "./dist/LinkOverlay/index.d.ts",
+      "import": "./dist/LinkOverlay.js",
+      "require": "./dist/LinkOverlay.cjs"
+    },
+    "./Pagination": {
+      "types": "./dist/Pagination/index.d.ts",
+      "import": "./dist/Pagination.js",
+      "require": "./dist/Pagination.cjs"
+    },
+    "./Radio": {
+      "types": "./dist/Radio/index.d.ts",
+      "import": "./dist/Radio.js",
+      "require": "./dist/Radio.cjs"
+    },
+    "./Tabs": {
+      "types": "./dist/Tabs/index.d.ts",
+      "import": "./dist/Tabs.js",
+      "require": "./dist/Tabs.cjs"
+    },
+    "./Toogle": {
+      "types": "./dist/Toogle/index.d.ts",
+      "import": "./dist/Toogle.js",
+      "require": "./dist/Toogle.cjs"
+    },
+    "./Tooltip": {
+      "types": "./dist/Tooltip/index.d.ts",
+      "import": "./dist/Tooltip.js",
+      "require": "./dist/Tooltip.cjs"
+    },
     
     "./style.css": "./dist/style.css"
   },

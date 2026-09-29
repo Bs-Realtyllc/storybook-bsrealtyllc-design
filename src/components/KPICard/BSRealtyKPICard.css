@@ -1,0 +1,28 @@
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap");
+.bsr-kpi-card {
+  display: flex;
+  flex-direction: column;
+  font-family: "Plus Jakarta Sans";
+  width: 212px;
+  height: 106px;
+  gap: 12px;
+  padding: 16px;
+  background: var(--bsr-color-white-soft);
+  border: 1px solid var(--bsr-color-border-kpi);
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+.bsr-kpi-card__title {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--bsr-color-white-soft-dark-hover);
+  margin: 0;
+}
+.bsr-kpi-card__count {
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 40px;
+  color: var(--bsr-color-blackish);
+  margin: 0;
+}

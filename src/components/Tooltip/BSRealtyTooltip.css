@@ -1,0 +1,113 @@
+.bsr-tooltip-wrapper {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+/* Tooltip */
+.bsr-tooltip {
+  position: absolute;
+  z-index: 1000;
+  width: max-content;
+  max-width: 240px;
+  padding: 8px 12px;
+  border-radius: 6px;
+  background-color: var(--bsr-color-text-trust-blue-active);
+  color: var(--bsr-color-text-inverse);
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
+  white-space: normal;
+  text-align: center;
+  visibility: hidden;
+  pointer-events: none;
+
+  transition:
+    opacity 0.15s ease,
+    visibility 0.15s ease;
+}
+
+/* Show tooltip on hover */
+.bsr-tooltip-wrapper:hover .bsr-tooltip {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Show tooltip when child receives focus */
+.bsr-tooltip-wrapper:focus-within .bsr-tooltip {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Top */
+.bsr-tooltip--top {
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Arrow */
+.bsr-tooltip--top::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid var(--bsr-color-text-trust-blue-active);
+}
+
+/*   Bottom */
+.bsr-tooltip--bottom {
+  top: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.bsr-tooltip--bottom::after {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 5px solid var(--bsr-color-text-trust-blue-active);
+}
+
+/* Left */
+.bsr-tooltip--left {
+  right: calc(100% + 8px);
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.bsr-tooltip--left::after {
+  content: "";
+  position: absolute;
+  left: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-left: 5px solid var(--bsr-color-text-trust-blue-active);
+}
+/* Right */
+.bsr-tooltip--right {
+  left: calc(100% + 8px);
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.bsr-tooltip--right::after {
+  content: "";
+  position: absolute;
+  right: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-right: 5px solid var(--bsr-color-text-trust-blue-active);
+}
