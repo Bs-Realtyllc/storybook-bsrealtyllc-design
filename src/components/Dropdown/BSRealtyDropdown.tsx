@@ -26,9 +26,12 @@ export interface BSRealtyDropdownProps {
 
     /** Accessible name for the dropdown (e.g. "Property type"). Defaults to the placeholder. */
     'aria-label'?: string;
+    /** Extra class name(s) for the root element, for project-specific styling */
+    className?: string;
 }
 
 export const BSRealtyDropdown = ({
+    className = '',
     options,
     value,
     placeholder = "Select an option",
@@ -131,7 +134,7 @@ export const BSRealtyDropdown = ({
     const optionId = (index: number) => `${listboxId}-option-${index}`;
 
     return (
-        <div className="bsr-dropdown" ref={dropdownRef}>
+        <div className={`bsr-dropdown ${className}`} ref={dropdownRef}>
 
             <div
                 className={`bsr-dropdown_input-wrapper ${isOpen ? "bsr-dropdown_trigger--open" : ""

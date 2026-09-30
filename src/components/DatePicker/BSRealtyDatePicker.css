@@ -73,7 +73,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 6px;
+  padding: var(--bsr-space-1-5);
   margin: 0;
   transform: translateY(-50%);
   border: none;
@@ -89,7 +89,7 @@
 
 .bst-date-picker_clear-button {
   right: 42px;
-  font-size: 20px;
+  font-size: var(--bsr-icon-size-lg); /* × glyph */
   line-height: 1;
 }
 
@@ -138,7 +138,7 @@
   }
 
   .bst-date-picker_input {
-    font-size: 16px;
+    font-size: var(--bsr-font-size-body-large);
   }
 }
 

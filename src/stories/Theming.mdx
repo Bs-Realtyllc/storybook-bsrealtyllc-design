@@ -1,0 +1,117 @@
+{/* Guides/Theming */}
+
+import { Meta } from '@storybook/addon-docs/blocks';
+import { BSRealtyButton } from '../components/Button';
+import { BSRealtyTextField } from '../components/TextField';
+import { BSRealtyTabs } from '../components/Tabs';
+import { BSRealtyToogle } from '../components/Toogle';
+import { BSRealtyCheckbox } from '../components/Checkbox';
+
+<Meta title="Guides/Theming" />
+
+export const demoTabs = [
+  { value: 'overview', label: 'Overview' },
+  { value: 'jobs', label: 'Jobs' },
+  { value: 'settings', label: 'Settings' },
+];
+
+export const Demo = ({ title, theme }) => (
+  <div
+    style={{
+      ...theme,
+      flex: '1 1 280px',
+      display: 'flex',
+      flexDirection: 'column',
+      gap: '16px',
+      padding: '20px',
+      border: '1px solid #e5e7eb',
+      borderRadius: '8px',
+    }}
+  >
+    <strong>{title}</strong>
+    <BSRealtyTabs tabs={demoTabs} defaultValue="overview" />
+    <BSRealtyTextField label="Email" placeholder="you@example.com" />
+    <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+      <BSRealtyToogle defaultChecked aria-label="Notifications" />
+      <BSRealtyCheckbox label="Remember me" defaultChecked />
+    </div>
+    <BSRealtyButton label="Continue" showLeftIcon={false} showRightIcon={false} />
+  </div>
+);
+
+# Theming
+
+Every component reads its look from `--bsr-*` CSS variables (design tokens).
+A project changes those variables — it never edits or forks the components.
+
+<div style={{ display: 'flex', flexWrap: 'wrap', gap: '16px', margin: '24px 0' }}>
+  <Demo title="Default (BS Realty)" theme={{}} />
+  <Demo
+    title="Example project theme"
+    theme={{
+      '--bsr-color-primary': '#0f766e',
+      '--bsr-color-primary-hover': '#115e59',
+      '--bsr-font-family-primary': 'Georgia, serif',
+      '--bsr-radius-full': '6px',
+      '--bsr-radius-lg': '12px',
+      '--bsr-radius-input': '12px',
+      '--bsr-space-3': '14px',
+      '--bsr-space-4': '20px',
+    }}
+  />
+</div>
+
+Both columns use the same components. The right one only overrides a few
+tokens (on the wrapper `div`, which is also how you theme part of a page).
+
+## Theming a project
+
+Create a theme file and load it **after** the package stylesheet:
+
+```css
+/* src/theme.css */
+:root {
+  --bsr-color-primary: #0f766e;
+  --bsr-color-primary-hover: #115e59;
+  --bsr-font-family-primary: "Inter", system-ui, sans-serif;
+  --bsr-radius-lg: 12px;
+  --bsr-space-4: 20px;
+  --bsr-icon-size-lg: 24px;
+}
+```
+
+```ts
+import '@bsrealtyllc/design-system/style.css';
+import './theme.css'; // your overrides win
+```
+
+## What you can change
+
+| Group | Tokens | Changes |
+| --- | --- | --- |
+| Colors | `--bsr-color-*` | Brand, text, borders, surfaces, status colors |
+| Font family | `--bsr-font-family-primary` | Every component's font |
+| Font size | `--bsr-font-size-*`, `--bsr-font-size-*-mobile` | Text sizes on desktop and phones |
+| Font weight | `--bsr-font-weight-*` | Text weights |
+| Radius | `--bsr-radius-sm` … `--bsr-radius-7xl`, `--bsr-radius-input`, `--bsr-radius-full` | Corner rounding |
+| Spacing | `--bsr-space-0-5` (2px) … `--bsr-space-8` (32px) | Padding, margins and gaps |
+| Icon size | `--bsr-icon-size-2xs` (12px) … `--bsr-icon-size-2xl` (24px) | Icons inside components |
+| Shadows | `--bsr-shadow-*` | Elevation |
+
+Default values for every token are listed on **Guides/Foundations** and in
+`src/tokens/tokens.css`.
+
+## One-off changes
+
+For a change in one place only, pass `className` — every component accepts it
+on its outermost element:
+
+```tsx
+<BSRealtyButton className="checkout-cta" label="Pay now" />
+```
+
+## Adding to the design system
+
+Style new components with the tokens (`var(--bsr-space-4)`, not `16px`) so
+projects can theme them. Keep raw values only for things that must not change
+between projects, such as perfect circles (`border-radius: 50%`).

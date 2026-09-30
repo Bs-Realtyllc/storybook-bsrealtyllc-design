@@ -11,9 +11,12 @@ export interface BSRealtyActionCategProps {
     /** Click handler */
     onClick?: () => void;
 
+    /** Extra class name(s) for the root element, for project-specific styling */
+    className?: string;
 }
 
 export const BSRealtyActionCateg = ({
+    className = '',
     title,
     description,
     icon,
@@ -25,7 +28,7 @@ export const BSRealtyActionCateg = ({
         <button
             type="button"
             onClick={onClick}
-            className='bsr-action-categ'
+            className={`bsr-action-categ ${className}`}
         >
             <span className="bsr-action-categ-wrapper" aria-hidden="true">{icon}</span>
             <span className="bsr-action-categ_text">

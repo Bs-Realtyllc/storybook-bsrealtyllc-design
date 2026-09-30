@@ -4,7 +4,7 @@
   font-family: var(--bsr-font-family-primary);
   display: inline-flex;
   align-items: center;
-  gap: 4px;
+  gap: var(--bsr-space-1);
 }
 
 .bsr-star {

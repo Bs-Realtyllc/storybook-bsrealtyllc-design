@@ -7,12 +7,14 @@ export interface BSRealtyStarRatingProps {
   rating: number;
   /** Total number of stars */
   maxStars?: number;
-  /** Size of each star in px */
+  /** Size of each star in px. Defaults to the --bsr-icon-size-md token (18px). */
   size?: number;
   /** Allow interactive rating selection */
   readOnly?: boolean;
   /** Called when user selects a rating (readOnly must be false) */
   onChange?: (rating: number) => void;
+    /** Extra class name(s) for the root element, for project-specific styling */
+    className?: string;
 }
 
 const StarIcon = ({
@@ -23,7 +25,8 @@ const StarIcon = ({
 }: {
   id: string;
   fill: 'full' | 'half' | 'empty';
-  size: number;
+  /** px number, or any CSS length such as a token var() */
+  size: number | string;
   onClick?: (e: React.MouseEvent<SVGSVGElement>) => void;
 }) => {
   const starPath =
@@ -34,8 +37,7 @@ const StarIcon = ({
   return (
     <svg
       className="bsr-star"
-      width={size}
-      height={size}
+      style={{ width: size, height: size }}
       viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -63,9 +65,10 @@ const StarIcon = ({
 };
 
 export const BSRealtyStarRating = ({
+    className = '',
   rating,
   maxStars = 5,
-  size = 18,
+  size,
   readOnly = true,
   onChange,
 }: BSRealtyStarRatingProps) => {
@@ -116,7 +119,7 @@ export const BSRealtyStarRating = ({
 
   return (
     <div
-      className={`bsr-star-rating${isInteractive ? ' bsr-star-rating--interactive' : ''}`}
+      className={`bsr-star-rating${isInteractive ? ' bsr-star-rating--interactive' : ''} ${className}`}
       style={{ gap: `4px` }}
       {...(isInteractive
         ? {
@@ -136,7 +139,7 @@ export const BSRealtyStarRating = ({
           key={i}
           id={`${instanceId}-star-${i}`}
           fill={getFill(i)}
-          size={size}
+          size={size ?? 'var(--bsr-icon-size-md)'}
           onClick={isInteractive ? (e) => handleMouseClick(i, e) : undefined}
         />
       ))}

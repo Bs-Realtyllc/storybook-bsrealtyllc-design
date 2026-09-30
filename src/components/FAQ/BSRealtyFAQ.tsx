@@ -1,6 +1,7 @@
 import { useId, useState } from 'react';
 import './BSRealtyFAQ.css';
 import { ChevronDownIcon } from '../../icons/icons';
+import { iconSizeStyle } from '../../icons/iconSize';
 
 export interface BSRealtyFAQProps {
   /** The question text */
@@ -9,9 +10,12 @@ export interface BSRealtyFAQProps {
   answer: string;
   /** Whether the FAQ is open by default */
   defaultOpen?: boolean;
+    /** Extra class name(s) for the root element, for project-specific styling */
+    className?: string;
 }
 
 export const BSRealtyFAQ = ({
+    className = '',
   question,
   answer,
   defaultOpen = false,
@@ -21,7 +25,7 @@ export const BSRealtyFAQ = ({
   const answerId = useId();
 
   return (
-    <div className="bsr-faq">
+    <div className={`bsr-faq ${className}`}>
       {/* Question row — clicking this toggles the answer */}
       <button
         type="button"
@@ -32,7 +36,7 @@ export const BSRealtyFAQ = ({
       >
         <span className="bsr-faq__question-text">{question}</span>
         <span className={`bsr-faq__icon ${isOpen ? 'bsr-faq__icon--open' : ''}`} aria-hidden="true">
-          <ChevronDownIcon size={20} />
+          <ChevronDownIcon style={iconSizeStyle('lg')} />
         </span>
       </button>
 

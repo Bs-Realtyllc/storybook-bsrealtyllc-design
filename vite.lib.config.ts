@@ -112,6 +112,10 @@ export default defineConfig({
     rollupOptions: {
       external: ["react", "react-dom", "react/jsx-runtime"],
       output: {
+        // Components use hooks/event handlers, so Next.js (App Router) must
+        // treat them as Client Components. Without this directive, importing
+        // e.g. BSRealtyTabs into a server component throws at runtime.
+        banner: '"use client";',
         exports: "named",
         globals: { react: "React", "react-dom": "ReactDOM" },
         // Vite's default lib-mode CSS name is derived from `lib.name`
@@ -125,6 +129,9 @@ export default defineConfig({
       },
     },
     cssCodeSplit: false,
+    // Inline the small default images (store badges, ~3–5 KB) as data URIs so
+    // consumers don't need to copy or serve any asset files.
+    assetsInlineLimit: 8192,
     sourcemap: true,
     emptyOutDir: true,
   },

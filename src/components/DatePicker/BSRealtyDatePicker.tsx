@@ -1,6 +1,6 @@
 import { useEffect, useId, useRef, useState } from 'react';
 import './BSRealtyDatePicker.css';
-import { CalendarIcon } from '../../icons';
+import { CalendarIcon, iconSizeStyle } from '../../icons';
 import { BSRealtyCalender } from '../Calender';
 
 export type DateFormat =
@@ -20,6 +20,8 @@ export interface BSRealtyDatePickerProps {
 
     /**Called with the new date in YYYY-MM-DD format, or '' when cleared */
     onChange?: (value: string) => void;
+    /** Extra class name(s) for the root element, for project-specific styling */
+    className?: string;
 }
 
 const formatDateString = (
@@ -48,6 +50,7 @@ const formatDateString = (
 };
 
 export const BSRealtyDatePicker = ({
+    className = '',
     dateFormat = 'YYYY-MM-DD',
     label = 'Select Date',
     value = '',
@@ -112,7 +115,7 @@ export const BSRealtyDatePicker = ({
     };
 
     return (
-        <div className="bst-date-picker" ref={rootRef}>
+        <div className={`bst-date-picker ${className}`} ref={rootRef}>
             <label
                 htmlFor={inputId}
                 className="bst-date-picker_label"
@@ -165,7 +168,7 @@ export const BSRealtyDatePicker = ({
                     aria-expanded={isOpen}
                     aria-controls={isOpen ? popoverId : undefined}
                 >
-                    <CalendarIcon size={20} />
+                    <CalendarIcon style={iconSizeStyle('lg')} />
                 </button>
             </div>
 

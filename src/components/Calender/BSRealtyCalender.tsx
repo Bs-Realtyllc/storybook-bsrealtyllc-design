@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { CalendarIcon, ChevronDownIcon, ChevronLeftIcon, ChevronRightIcon } from '../../icons/icons';
+import { iconSizeStyle } from '../../icons/iconSize';
 import './BSRealtyCalender.css';
 
 const DAYS_OF_WEEK = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
@@ -20,6 +21,8 @@ export interface BSRealtyCalenderProps {
 
     /** Calendar variant */
     variant?: CalenderVariant;
+    /** Extra class name(s) for the root element, for project-specific styling */
+    className?: string;
 }
 
 interface MonthData {
@@ -30,13 +33,15 @@ interface MonthData {
 }
 
 export const BSRealtyCalender = ({
+    className = '',
     value,
     onChange,
     variant = 'dualMonths'
 }: BSRealtyCalenderProps) => {
     const isSingleVariant = variant?.includes('singleMonth');
     // Figma: 13px arrows on the single-month panel, 19px on the dual-month one
-    const navIconSize = isSingleVariant ? 13 : 19;
+    const navIconSizeVar = `var(--bsr-icon-size-calendar-nav-${isSingleVariant ? 'single' : 'dual'})`;
+    const navIconStyle = { width: navIconSizeVar, height: navIconSizeVar };
 
     // Safe parser for strings ('YYYY-MM-DD')
     const parseDate = (dateInput?: string): Date | null => {
@@ -168,7 +173,7 @@ export const BSRealtyCalender = ({
     };
 
     return (
-        <div className='bs-calendar'>
+        <div className={`bs-calendar ${className}`}>
             {(variant === 'dualMonthsSelector' || variant === 'singleMonthSelector') && (
                 <div className='bs-calendar-monthSelector'>
                     <button
@@ -177,10 +182,10 @@ export const BSRealtyCalender = ({
                         aria-expanded={showCalender}
                         onClick={() => setShowCalender(prev => !prev)}
                     >
-                        <CalendarIcon size={16} />
+                        <CalendarIcon style={iconSizeStyle('sm')} />
                         {formatDisplayDate()}
                         <span className={`bs-calendar-chevron ${showCalender ? 'open' : ''}`}>
-                            <ChevronDownIcon size={12} />
+                            <ChevronDownIcon style={iconSizeStyle('2xs')} />
                         </span>
                     </button>
                 </div>
@@ -188,7 +193,7 @@ export const BSRealtyCalender = ({
             {(!variant?.includes('Selector') || showCalender) && (
                 <div className={`bs-calendar-container bs-calendar-container-${variant}`}>
                     <button type="button" onClick={handlePrevMonth} className="bs-calendar-nav-btn" aria-label="Previous month">
-                        <ChevronLeftIcon size={navIconSize} />
+                        <ChevronLeftIcon style={navIconStyle} />
                     </button>
 
                     <div className="bs-calendar-grid-container">
@@ -216,7 +221,7 @@ export const BSRealtyCalender = ({
                     </div>
 
                     <button type="button" onClick={handleNextMonth} className="bs-calendar-nav-btn" aria-label="Next month">
-                        <ChevronRightIcon size={navIconSize} />
+                        <ChevronRightIcon style={navIconStyle} />
                     </button>
                 </div>
             )}

@@ -13,16 +13,19 @@ export interface BSRealtySocialIconProps {
     /** Click handler */
     onClick?: () => void;
 
+    /** Extra class name(s) for the root element, for project-specific styling */
+    className?: string;
 }
 
 export const BSRealtySocialIcon = ({
+    className = '',
     href,
     imgSrc,
     label,
     onClick,
 }: BSRealtySocialIconProps) => {
     return (
-        <a href={href} className='bsr-social-icon' onClick={onClick} aria-label={label}>
+        <a href={href} className={`bsr-social-icon ${className}`} onClick={onClick} aria-label={label}>
             {imgSrc ? (
                 <img className="bsr-social-icon_image"
                     src={imgSrc} alt="" />) : null}

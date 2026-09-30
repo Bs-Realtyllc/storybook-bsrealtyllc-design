@@ -6,8 +6,8 @@
 .bsr-service-card {
   display: flex;
   flex-direction: column;
-  gap: 24px;
-  padding: 20px;
+  gap: var(--bsr-space-6);
+  padding: var(--bsr-space-5);
   width: 305px;
   background-color: var(--bsr-color-surface-alt);
   border-radius: var(--bsr-radius-3xl);
@@ -21,10 +21,10 @@
   flex-direction: column;
   justify-content: center;
   align-items: stretch;
-  gap: 10px;
-  padding: 12px;
+  gap: var(--bsr-space-2-5);
+  padding: var(--bsr-space-3);
   background-color: var(--bsr-color-surface);
-  border-radius: 30px;
+  border-radius: var(--bsr-radius-7xl);
   width: fit-content;
 }
 
@@ -39,7 +39,7 @@
 .bsr-service-card__body {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: var(--bsr-space-2);
 }
 
 /* Title: Website/Title/largeemphasized — Lato 500 20px */

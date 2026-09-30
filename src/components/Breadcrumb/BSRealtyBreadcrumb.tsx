@@ -12,15 +12,18 @@ export interface BSRealtyBreadcrumbProps {
     separator?: string;
     testId?: string;
 
+    /** Extra class name(s) for the root element, for project-specific styling */
+    className?: string;
 }
 
 export const BSRealtyBreadcrumb = ({
+    className = '',
     items,
     separator = '/',
     testId
 }: BSRealtyBreadcrumbProps) => {
     return (
-        <nav className="bsr-breadcrumb" aria-label="Breadcrumb" data-testid={testId}>
+        <nav className={`bsr-breadcrumb ${className}`} aria-label="Breadcrumb" data-testid={testId}>
             <ol className="bsr-breadcrumb_list">
                 {
                     items.map((item, index) => {

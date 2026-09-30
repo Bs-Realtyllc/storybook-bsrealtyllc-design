@@ -17,6 +17,8 @@ export interface BSRealtyPasswordFieldProps extends Disableable, FieldIdentity {
   errorMessage?: string;
   /** Change handler */
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  /** Extra class name(s) for the root element, for project-specific styling */
+  className?: string;
 }
 
 /**
@@ -24,6 +26,7 @@ export interface BSRealtyPasswordFieldProps extends Disableable, FieldIdentity {
  * one design (sizes, states, messages) and one set of accessibility fixes.
  */
 export const BSRealtyPasswordField = ({
+  className = '',
   label = 'Password',
   placeholder = '',
   value,
@@ -47,5 +50,6 @@ export const BSRealtyPasswordField = ({
     name={name}
     id={id}
     autoComplete="current-password"
+    className={className}
   />
 );

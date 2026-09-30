@@ -16,9 +16,12 @@ export interface BSRealtyFilterItemProps {
 
     /** Optional click handler */
     onClick?: () => void;
+    /** Extra class name(s) for the root element, for project-specific styling */
+    className?: string;
 }
 
 export const BSRealtyFilterItem = ({
+    className = '',
     label,
     variant,
     varient,
@@ -29,7 +32,7 @@ export const BSRealtyFilterItem = ({
     return (
         <button
             type="button"
-            className={[`bsr-filter-item`, currentVariant ? `bsr-filter-item--${currentVariant}` : ''].join(' ')}
+            className={[`bsr-filter-item`, currentVariant ? `bsr-filter-item--${currentVariant}` : '', className].join(' ')}
             // Tells screen readers whether this filter is currently applied
             aria-pressed={currentVariant === 'active'}
             onClick={onClick}

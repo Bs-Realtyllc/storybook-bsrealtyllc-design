@@ -10,6 +10,8 @@ export interface BSRealtySearchbarProps {
   onChange?: (value: string) => void;
   /** Submit handler */
   onSearch?: (value: string) => void;
+    /** Extra class name(s) for the root element, for project-specific styling */
+    className?: string;
 }
 
 const SearchIcon = () => (
@@ -20,6 +22,7 @@ const SearchIcon = () => (
 );
 
 export const BSRealtySearchbar = ({
+    className = '',
   placeholder = 'Search by location, property type, city or ZIP code',
   value,
   onChange,
@@ -39,7 +42,7 @@ export const BSRealtySearchbar = ({
   };
 
   return (
-    <div className="bsr-searchbar">
+    <div className={`bsr-searchbar ${className}`}>
       <span className="bsr-searchbar__icon">
         <SearchIcon />
       </span>

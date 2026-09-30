@@ -10,12 +10,12 @@
   z-index: 1000;
   width: max-content;
   max-width: 240px;
-  padding: 8px 12px;
-  border-radius: 6px;
+  padding: var(--bsr-space-2) var(--bsr-space-3);
+  border-radius: var(--bsr-radius-md);
   background-color: var(--bsr-color-tooltip-bg);
   color: var(--bsr-color-text-inverse);
   font-family: var(--bsr-font-family-primary);
-  font-size: 12px;
+  font-size: var(--bsr-font-size-body-small);
   font-weight: var(--bsr-font-weight-medium);
   line-height: 18px;
   white-space: normal;

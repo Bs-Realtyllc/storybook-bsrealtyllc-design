@@ -6,7 +6,7 @@
   width: 36px;
   height: 36px;
   border: none;
-  border-radius: 8px;
+  border-radius: var(--bsr-radius-lg);
   background: var(--bsr-color-white-soft);
   color: var(--bsr-color-blackish);
   cursor: pointer;
@@ -40,8 +40,8 @@
 
 .bsr-notification__icon img,
 .bsr-notification__icon svg {
-  width: 20px;
-  height: 20px;
+  width: var(--bsr-icon-size-lg);
+  height: var(--bsr-icon-size-lg);
 }
 
 .bsr-notification__indicator {

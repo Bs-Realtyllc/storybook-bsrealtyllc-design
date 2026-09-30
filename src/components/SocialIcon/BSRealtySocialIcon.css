@@ -8,7 +8,7 @@
   width: 36px;
   height: 36px;
   border-radius: var(--bsr-radius-full);
-  gap: 10px;
+  gap: var(--bsr-space-2-5);
   opacity: 1;
   background: var(--bsr-color-disabled-bg-secondary);
   transition: background-color 200ms ease;

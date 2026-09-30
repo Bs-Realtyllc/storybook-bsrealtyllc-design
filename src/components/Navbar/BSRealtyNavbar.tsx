@@ -1,5 +1,6 @@
 import './BSRealtyNavbar.css';
 import { ChevronDownIcon } from '../../icons/icons';
+import { iconSizeStyle } from '../../icons/iconSize';
 
 export interface NavItem {
   label: string;
@@ -16,6 +17,8 @@ export interface BSRealtyNavbarProps {
   activeItem?: string;
   /** Called when the Login button is clicked */
   onLoginClick?: () => void;
+    /** Extra class name(s) for the root element, for project-specific styling */
+    className?: string;
 }
 
 const DEFAULT_NAV_ITEMS: NavItem[] = [
@@ -28,13 +31,14 @@ const DEFAULT_NAV_ITEMS: NavItem[] = [
 ];
 
 export function BSRealtyNavbar({
+    className = '',
   logo = '/Primary_Logo.png',
   navItems = DEFAULT_NAV_ITEMS,
   activeItem,
   onLoginClick,
 }: BSRealtyNavbarProps) {
   return (
-    <nav className="bsr-navbar" aria-label="Main navigation">
+    <nav className={`bsr-navbar ${className}`} aria-label="Main navigation">
       {/* Logo */}
       <a href="/" className="bsr-navbar__logo-link" aria-label="BS Realty home">
         <img
@@ -54,7 +58,7 @@ export function BSRealtyNavbar({
               aria-current={activeItem === item.label ? 'page' : undefined}
             >
               <span>{item.label}</span>
-              {item.hasDropdown && <ChevronDownIcon size={20} className="bsr-navbar__chevron" />}
+              {item.hasDropdown && <ChevronDownIcon style={iconSizeStyle('lg')} className="bsr-navbar__chevron" />}
             </a>
           </li>
         ))}

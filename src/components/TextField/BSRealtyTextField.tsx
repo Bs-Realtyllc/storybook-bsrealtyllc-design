@@ -2,6 +2,7 @@ import React, { useState, forwardRef, useId } from 'react';
 import './BSRealtyTextField.css';
 import type { Disableable, FieldIdentity, AriaLabelled } from '../../types/shared';
 import { EyeIcon, EyeOffIcon, InfoCircleIcon } from '../../icons/icons';
+import { iconSizeStyle } from '../../icons/iconSize';
 
 export type TextFieldVariant = 'default' | 'error' | 'success';
 export type TextFieldState = 'default' | 'hover' | 'focus' | 'filled' | 'disabled' | 'typing';
@@ -37,6 +38,8 @@ export interface BSRealtyTextFieldProps extends Disableable, FieldIdentity, Aria
   onFocus?: (event: React.FocusEvent<HTMLInputElement>) => void;
   /** Blur handler */
   onBlur?: (event: React.FocusEvent<HTMLInputElement>) => void;
+  /** Extra class name(s) for the root element, for project-specific styling */
+  className?: string;
 }
 
 /** Filled exclamation circle shown inside the field in the error state (Figma 123:1303) */
@@ -54,6 +57,7 @@ const FieldSuccessIcon = () => (
 );
 
 export const BSRealtyTextField = forwardRef<HTMLInputElement, BSRealtyTextFieldProps>(({
+  className = '',
   label,
   placeholder = 'Input placeholder',
   type = 'text',
@@ -129,7 +133,7 @@ export const BSRealtyTextField = forwardRef<HTMLInputElement, BSRealtyTextFieldP
   const inputType = type === 'password' && showPassword ? 'text' : type;
 
   return (
-    <div className={`bsr-textfield${disabled ? ' bsr-textfield--disabled' : ''}`}>
+    <div className={`bsr-textfield${disabled ? ' bsr-textfield--disabled' : ''} ${className}`}>
       {label && (
         <label className="bsr-textfield__label" htmlFor={inputId}>
           {label}
@@ -180,7 +184,7 @@ export const BSRealtyTextField = forwardRef<HTMLInputElement, BSRealtyTextFieldP
             aria-pressed={showPassword}
             disabled={disabled}
           >
-            {showPassword ? <EyeOffIcon size={16} /> : <EyeIcon size={16} />}
+            {showPassword ? <EyeOffIcon style={iconSizeStyle('sm')} /> : <EyeIcon style={iconSizeStyle('sm')} />}
           </button>
         )}
       </div>
@@ -193,7 +197,7 @@ export const BSRealtyTextField = forwardRef<HTMLInputElement, BSRealtyTextFieldP
           ].join(' ')}
           id={messageId}
         >
-          <InfoCircleIcon size={14} aria-hidden="true" />
+          <InfoCircleIcon aria-hidden="true" />
           <span>{displayMessage}</span>
         </div>
       )}

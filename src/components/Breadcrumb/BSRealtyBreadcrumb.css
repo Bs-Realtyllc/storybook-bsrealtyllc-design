@@ -35,7 +35,7 @@
 }
 
 .bsr-breadcrumb_separator {
-  margin: 0 8px;
+  margin: 0 var(--bsr-space-2);
   color: var(--bsr-color-text-muted);
   user-select: none;
 }

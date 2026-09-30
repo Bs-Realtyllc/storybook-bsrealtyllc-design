@@ -1,5 +1,6 @@
 import './BSRealtyButton.css';
 import type { Disableable } from '../../types/shared';
+import { iconSizeStyle, type IconSizeToken } from '../../icons/iconSize';
 
 export type ButtonVariant = 'primary' | 'secondary' | 'text';
 export type ButtonSize = 'xs' | 'xs-medium' | 'small' | 'medium' | 'large' | 'xl' | '2xl';
@@ -28,14 +29,14 @@ export interface BSRealtyButtonProps extends Disableable {
 }
 
 
-const iconSizeMap: Record<ButtonSize, number> = {
-  'xs': 14,
-  'xs-medium': 14,
-  'small': 16,
-  'medium': 18,
-  'large': 20,
-  'xl': 22,
-  '2xl': 24,
+const iconSizeMap: Record<ButtonSize, IconSizeToken> = {
+  'xs': 'xs',          // 14px
+  'xs-medium': 'xs',   // 14px
+  'small': 'sm',       // 16px
+  'medium': 'md',      // 18px
+  'large': 'lg',       // 20px
+  'xl': 'xl',          // 22px
+  '2xl': '2xl',        // 24px
 };
 
 export const BSRealtyButton = ({
@@ -51,7 +52,7 @@ export const BSRealtyButton = ({
   onClick,
   className = ''
 }: BSRealtyButtonProps) => {
-  const iconSize = iconSizeMap[size];
+  const iconStyle = iconSizeStyle(iconSizeMap[size]);
 
   return (
     <button
@@ -65,14 +66,14 @@ export const BSRealtyButton = ({
       onClick={onClick}
     >
       {showLeftIcon && leftIcon && (
-        <span className="bsr-btn__icon bsr-btn__icon--left" style={{ width: iconSize, height: iconSize }}>
+        <span className="bsr-btn__icon bsr-btn__icon--left" style={iconStyle}>
           {leftIcon}
         </span>
       )}
       <span>{label}</span>
       {showRightIcon && rightIcon
         && (
-          <span className="bsr-btn__icon bsr-btn__icon--right" style={{ width: iconSize, height: iconSize }}>
+          <span className="bsr-btn__icon bsr-btn__icon--right" style={iconStyle}>
             {rightIcon}
           </span>
         )}

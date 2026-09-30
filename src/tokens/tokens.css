@@ -144,6 +144,15 @@
   --bsr-font-size-label-medium: 0.75rem; /* 12px */
   --bsr-font-size-label-small: 0.6875rem; /* 11px */
   --bsr-font-size-quote-mark: 3.25rem; /* 52px — Testimonial decorative quote glyph */
+  --bsr-font-size-body-compact: 0.9375rem; /* 15px — Dropdown options on tablets */
+
+  /* Phone sizes (≤768px) for Typography. Each defaults to one step down the
+     desktop scale; override any of them per project. */
+  --bsr-font-size-display-large-mobile: var(--bsr-font-size-display-small); /* 40px */
+  --bsr-font-size-display-medium-mobile: var(--bsr-font-size-headline-large); /* 32px */
+  --bsr-font-size-display-small-mobile: var(--bsr-font-size-headline-medium); /* 28px */
+  --bsr-font-size-headline-large-mobile: var(--bsr-font-size-headline-small); /* 24px */
+  --bsr-font-size-headline-medium-mobile: var(--bsr-font-size-title-large); /* 22px */
 
   /* Custom 1.25 scale (Figma mathematical scale, base 16px) */
   --bsr-font-size-figma-9xl: 3.813rem; /* 61px */
@@ -172,6 +181,11 @@
   --bsr-line-height-label-large: 1.25rem; /* 20px */
   --bsr-line-height-label-medium: 1rem; /* 16px */
   --bsr-line-height-label-small: 1rem; /* 16px */
+  --bsr-line-height-display-large-mobile: var(--bsr-line-height-display-small); /* 48px */
+  --bsr-line-height-display-medium-mobile: var(--bsr-line-height-headline-large); /* 40px */
+  --bsr-line-height-display-small-mobile: var(--bsr-line-height-headline-medium); /* 36px */
+  --bsr-line-height-headline-large-mobile: var(--bsr-line-height-headline-small); /* 32px */
+  --bsr-line-height-headline-medium-mobile: var(--bsr-line-height-title-large); /* 28px */
 
   /* ── Radii ─────────────────────────────────────────────────────── */
   --bsr-radius-sm: 4px;
@@ -181,5 +195,37 @@
   --bsr-radius-xl: 10px;
   --bsr-radius-2xl: 12px;
   --bsr-radius-3xl: 16px;
+  --bsr-radius-4xl: 20px; /* EvolutionCard year badge */
+  --bsr-radius-5xl: 24px; /* SearchBar */
+  --bsr-radius-6xl: 28px; /* EvolutionCard */
+  --bsr-radius-7xl: 30px; /* ServiceCard */
   --bsr-radius-full: 50px;
+
+  /* ── Spacing (padding, margin, gap) ───────────────────────────────
+     4px grid; the number is the multiple of 4 (space-3 = 12px).
+     Scale these per project to make every component tighter or roomier. */
+  --bsr-space-0-5: 2px;
+  --bsr-space-1: 4px;
+  --bsr-space-1-5: 6px;
+  --bsr-space-2: 8px;
+  --bsr-space-2-5: 10px;
+  --bsr-space-3: 12px;
+  --bsr-space-3-5: 14px;
+  --bsr-space-4: 16px;
+  --bsr-space-5: 20px;
+  --bsr-space-6: 24px;
+  --bsr-space-7: 28px;
+  --bsr-space-8: 32px;
+
+  /* ── Icon sizes ────────────────────────────────────────────────── */
+  --bsr-icon-size-2xs: 12px;
+  --bsr-icon-size-xs: 14px;
+  --bsr-icon-size-sm: 16px;
+  --bsr-icon-size-md: 18px;
+  --bsr-icon-size-lg: 20px;
+  --bsr-icon-size-xl: 22px;
+  --bsr-icon-size-2xl: 24px;
+  /* Calendar arrows follow Figma exactly (single- vs dual-month panel) */
+  --bsr-icon-size-calendar-nav-single: 13px;
+  --bsr-icon-size-calendar-nav-dual: 19px;
 }

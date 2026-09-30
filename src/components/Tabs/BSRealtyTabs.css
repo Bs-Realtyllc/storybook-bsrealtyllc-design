@@ -1,12 +1,12 @@
 .bsr-tabs {
   display: flex;
-  gap: 12px;
+  gap: var(--bsr-space-3);
   justify-content: space-between;
   background: transparent;
 }
 
 .bsr-tabs__tab {
-  padding: 8px 12px;
+  padding: var(--bsr-space-2) var(--bsr-space-3);
   font-family: var(--bsr-font-family-primary);
   font-weight: var(--bsr-font-weight-medium);
   font-size: var(--bsr-font-size-label-medium);

@@ -34,6 +34,8 @@ export interface BSRealtyCourseCard2Props {
 
     /** What the course includes. Defaults to the standard pre-license list. */
     features?: CourseFeature[];
+    /** Extra class name(s) for the root element, for project-specific styling */
+    className?: string;
 }
 
 export const ClockIcon = ({ size = 24 }: { size?: number }) => (
@@ -117,6 +119,7 @@ export const CheckCircleIcon = ({ size = 24 }: { size?: number }) => (
 );
 
 export const BSRealtyCourseCard2 = ({
+    className = '',
     imgSrc,
     title,
     price,
@@ -141,7 +144,7 @@ export const BSRealtyCourseCard2 = ({
     ];
     const featureList = features ?? defaultFeatures;
     return (
-        <div className='bsr-course-card2'>
+        <div className={`bsr-course-card2 ${className}`}>
 
             <img src={imgSrc} alt={title} className='bsr-course-card2__image' />
 

@@ -13,6 +13,8 @@ export interface BSRealtyTestimonialProps {
   avatarUrl?: string;
   /** Fallback initials if no avatarUrl is provided */
   avatarInitials?: string;
+    /** Extra class name(s) for the root element, for project-specific styling */
+    className?: string;
 }
 
 const QuoteIcon = () => (
@@ -25,6 +27,7 @@ const QuoteIcon = () => (
 );
 
 export const BSRealtyTestimonial = ({
+    className = '',
   quote = 'Buying our first home felt overwhelming, but the BS Realty team made the entire process simple and stress-free. Their guidance helped us find the perfect property within our budget.',
   name = 'Rachel Hadid',
   rating = 5,
@@ -34,7 +37,7 @@ export const BSRealtyTestimonial = ({
   const initials = avatarInitials || getInitials(name);
 
   return (
-    <div className="bsr-testimonial">
+    <div className={`bsr-testimonial ${className}`}>
       {/* Avatar — overlaps top-left of card */}
       <div className="bsr-testimonial__avatar">
         {avatarUrl ? (
@@ -53,7 +56,7 @@ export const BSRealtyTestimonial = ({
         <div className="bsr-testimonial__footer">
           <div className="bsr-testimonial__meta">
             <span className="bsr-testimonial__name">{name}</span>
-            <BSRealtyStarRating rating={rating} size={18} readOnly />
+            <BSRealtyStarRating rating={rating} readOnly />
           </div>
           <QuoteIcon />
         </div>

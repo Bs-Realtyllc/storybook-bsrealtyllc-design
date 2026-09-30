@@ -9,7 +9,7 @@
   height: 36px;
   /* Sized by its content so longer labels fit; the hover background
      no longer changes the button's width */
-  padding: 0 8px 0 0;
+  padding: 0 var(--bsr-space-2) 0 0;
   font-family: var(--bsr-font-family-primary);
   background: transparent;
   cursor: pointer;

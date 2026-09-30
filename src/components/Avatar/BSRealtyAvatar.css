@@ -32,23 +32,23 @@
 .bsr-avatar--sm {
   width: 32px;
   height: 32px;
-  font-size: 16px;
+  font-size: var(--bsr-font-size-body-large);
 }
 
 .bsr-avatar--md {
   width: 40px;
   height: 40px;
-  font-size: 20px;
+  font-size: var(--bsr-font-size-figma-4xl);
 }
 
 .bsr-avatar--lg {
   width: 48px;
   height: 48px;
-  font-size: 22px;
+  font-size: var(--bsr-font-size-title-large);
 }
 
 .bsr-avatar--xl {
   width: 56px;
   height: 56px;
-  font-size: 28px;
+  font-size: var(--bsr-font-size-headline-medium);
 }

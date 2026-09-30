@@ -47,7 +47,7 @@
 .bsr-link:focus-visible {
   outline: 2px solid currentColor;
   outline-offset: 3px;
-  border-radius: 3px;
+  border-radius: var(--bsr-radius-sm);
 }
 
 /* Disabled */
