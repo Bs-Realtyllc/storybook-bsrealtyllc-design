@@ -4,7 +4,7 @@ import { Meta } from '@storybook/addon-docs/blocks';
 import { BSRealtyButton } from '../components/Button';
 import { BSRealtyTextField } from '../components/TextField';
 import { BSRealtyTabs } from '../components/Tabs';
-import { BSRealtyToogle } from '../components/Toogle';
+import { BSRealtyToggle } from '../components/Toggle';
 import { BSRealtyCheckbox } from '../components/Checkbox';
 
 <Meta title="Guides/Theming" />
@@ -32,7 +32,7 @@ export const Demo = ({ title, theme }) => (
     <BSRealtyTabs tabs={demoTabs} defaultValue="overview" />
     <BSRealtyTextField label="Email" placeholder="you@example.com" />
     <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
-      <BSRealtyToogle defaultChecked aria-label="Notifications" />
+      <BSRealtyToggle defaultChecked aria-label="Notifications" />
       <BSRealtyCheckbox label="Remember me" defaultChecked />
     </div>
     <BSRealtyButton label="Continue" showLeftIcon={false} showRightIcon={false} />
