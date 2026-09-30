@@ -1,4 +1,5 @@
 .bsr-notification {
+  font-family: var(--bsr-font-family-primary);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -52,4 +53,9 @@
   border-radius: 50%;
   background: var(--bsr-color-error);
   border: none;
+}
+
+.bsr-notification:focus-visible {
+  outline: 2px solid var(--bsr-color-primary);
+  outline-offset: 2px;
 }

@@ -24,7 +24,7 @@ const meta = {
 
         color: {
             control: 'color',
-            description: 'Text color of the link',
+            description: 'Text color of the link (defaults to the primary color)',
         },
 
         children: {
@@ -36,14 +36,18 @@ const meta = {
             control: 'text',
             description: 'URL of the link',
         },
+
+        disabled: {
+            control: 'boolean',
+            description: 'Disable the link',
+        },
     },
 
     args: {
         children: 'Link',
-        href: 'https://google.com',
+        href: '#',
         variant: 'plain',
         size: 'medium',
-        color: '#235E94',
     },
 } satisfies Meta<typeof BSRealtyLink>;
 
@@ -62,5 +66,12 @@ export const Underline: Story = {
 export const HoverUnderline: Story = {
     args: {
         variant: 'hoverUnderline',
+    },
+};
+
+export const Disabled: Story = {
+    args: {
+        variant: 'underline',
+        disabled: true,
     },
 };

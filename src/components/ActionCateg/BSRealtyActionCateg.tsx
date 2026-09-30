@@ -19,18 +19,19 @@ export const BSRealtyActionCateg = ({
     icon,
     onClick,
 }: BSRealtyActionCategProps) => {
+    // A real <button>: Enter and Space work, and it's announced as a button.
+    // Buttons can only hold inline content, so the title/description are spans.
     return (
-        <div
-            role="button"
-            tabIndex={0}
+        <button
+            type="button"
             onClick={onClick}
             className='bsr-action-categ'
         >
-            <div className="bsr-action-categ-wrapper">{icon}</div>
-            <div className="bsr-action-categ_text">
-                <h4 className="bsr-action-categ__title">{title}</h4>
-                <p className="bsr-action-categ__description">{description}</p>
-            </div>
-        </div >
+            <span className="bsr-action-categ-wrapper" aria-hidden="true">{icon}</span>
+            <span className="bsr-action-categ_text">
+                <span className="bsr-action-categ__title">{title}</span>
+                <span className="bsr-action-categ__description">{description}</span>
+            </span>
+        </button>
     )
 }

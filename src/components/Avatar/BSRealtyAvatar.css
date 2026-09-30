@@ -7,13 +7,12 @@
   justify-content: center;
   flex-shrink: 0;
   border-radius: var(--bsr-radius-full);
-  background: #339cd4;
+  background: var(--bsr-color-avatar-bg);
   color: var(--bsr-color-surface-alt);
   font-family: var(--bsr-font-family-primary);
   font-weight: var(--bsr-font-weight-semibold);
   overflow: hidden;
   user-select: none;
-  font-weight: 600;
 }
 
 .bsr-avatar__image {

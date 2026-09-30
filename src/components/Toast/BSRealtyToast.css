@@ -9,10 +9,10 @@
   justify-content: space-between;
   gap: 16px;
   padding: 14px 16px;
-  border-radius: 8px;
-  font-family: "Lato", sans-serif;
-  font-size: 14px;
-  line-height: 20px;
+  border-radius: var(--bsr-radius-lg);
+  font-family: var(--bsr-font-family-primary);
+  font-size: var(--bsr-font-size-body-medium);
+  line-height: var(--bsr-line-height-body-medium);
   border: none;
   box-shadow: 0 4px 12px var(--bsr-shadow-hover-tint);
   z-index: 9999;
@@ -20,22 +20,22 @@
 
 .bsr-toast--success {
   background: var(--bsr-color-success-bg);
-  color: var(--bsr-color-success);
+  color: var(--bsr-color-success-text);
 }
 
 .bsr-toast--error {
   background: var(--bsr-color-error-bg);
-  color: var(--bsr-color-error);
+  color: var(--bsr-color-error-text);
 }
 
 .bsr-toast--info {
   background: var(--bsr-color-info-bg);
-  color: var(--bsr-color-info);
+  color: var(--bsr-color-info-text);
 }
 
 .bsr-toast--warning {
   background: var(--bsr-color-warning-bg);
-  color: var(--bsr-color-warning);
+  color: var(--bsr-color-warning-text);
 }
 
 .bsr-toast__message {
@@ -46,6 +46,7 @@
   border: 0;
   background: transparent;
   padding: 0;
+  border-radius: var(--bsr-radius-sm);
 
   font-size: 20px;
   line-height: 1;
@@ -56,4 +57,9 @@
 
 .bsr-toast__close:hover {
   opacity: 0.7;
+}
+
+.bsr-toast__close:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
 }

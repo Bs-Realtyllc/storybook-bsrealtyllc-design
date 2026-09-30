@@ -26,7 +26,8 @@ export const BSRealtyAlert: React.FC<AlertProps> = ({
     return (
         <div
             className={`bsr-alert bsr-alert--${variant} ${className} `.trim()}
-            role="alert"
+            // Only errors/warnings interrupt a screen reader; success/info wait their turn
+            role={variant === 'error' || variant === 'warning' ? 'alert' : 'status'}
         >
             <div className="bsr-alert__content">
                 {icon && (

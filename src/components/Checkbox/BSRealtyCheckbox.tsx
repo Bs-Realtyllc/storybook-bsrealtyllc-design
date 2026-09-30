@@ -1,13 +1,19 @@
 
-import React, { useState } from 'react';
+import React, { forwardRef, useState } from 'react';
 import './BSRealtyCheckbox.css';
 
 export type CheckboxSize = 'small' | 'medium' | 'large';
 
-export interface CheckboxProps {
-    size?: CheckboxSize | string;
+export interface CheckboxProps
+    extends Omit<
+        React.InputHTMLAttributes<HTMLInputElement>,
+        'type' | 'size' | 'color' | 'onChange'
+    > {
+    size?: CheckboxSize | (string & {});
     color?: string;
     checkColor?: string;
+    /** Text shown next to the box (also its accessible name). Use aria-label when there's no visible text. */
+    label?: React.ReactNode;
     checked?: boolean;
     defaultChecked?: boolean;
     disabled?: boolean;
@@ -15,16 +21,18 @@ export interface CheckboxProps {
     className?: string;
 }
 
-export const BSRealtyCheckbox: React.FC<CheckboxProps> = ({
+export const BSRealtyCheckbox = forwardRef<HTMLInputElement, CheckboxProps>(({
     size = 'medium',
     color,
     checkColor = 'white',
+    label,
     checked,
     defaultChecked = false,
     disabled = false,
     onChange,
     className = '',
-}) => {
+    ...props
+}, ref) => {
     const [internalChecked, setInternalChecked] = useState(defaultChecked);
 
     const isControlled = checked !== undefined;
@@ -47,7 +55,7 @@ export const BSRealtyCheckbox: React.FC<CheckboxProps> = ({
 
     return (
         <label
-            className={`bsr-checkbox bsr-checkbox--${size} ${className}`.trim()}
+            className={`bsr-checkbox ${isCustomSize ? '' : `bsr-checkbox--${size}`} ${className}`.trim()}
             style={
                 {
                     ...(isCustomSize && {
@@ -61,16 +69,21 @@ export const BSRealtyCheckbox: React.FC<CheckboxProps> = ({
             }
         >
             <input
+                {...props}
+                ref={ref}
                 type="checkbox"
+                className="bsr-checkbox__input"
                 checked={currentChecked}
                 disabled={disabled}
                 onChange={handleChange}
             />
 
-            <span className="bsr-checkbox__box" />
+            <span className="bsr-checkbox__box" aria-hidden="true" />
+
+            {label && <span className="bsr-checkbox__label">{label}</span>}
         </label>
     );
-};
+});
 
 BSRealtyCheckbox.displayName = 'BSRealtyCheckbox';
 

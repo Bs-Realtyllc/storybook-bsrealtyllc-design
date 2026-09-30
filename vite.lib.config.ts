@@ -94,7 +94,6 @@ export default defineConfig({
         KPICard: resolve(__dirname, "src/components/KPICard/index.ts"),
         Link: resolve(__dirname, "src/components/Link/index.ts"),
         LinkOverlay: resolve(__dirname, "src/components/LinkOverlay/index.ts"),
-        Pagination: resolve(__dirname, "src/components/Pagination/index.ts"),
         Radio: resolve(__dirname, "src/components/Radio/index.ts"),
         Tabs: resolve(__dirname, "src/components/Tabs/index.ts"),
         Toogle: resolve(__dirname, "src/components/Toogle/index.ts"),

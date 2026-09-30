@@ -8,6 +8,8 @@ const meta = {
 
     parameters: {
         layout: 'centered',
+        // Leave room on the Docs page for the calendar that opens below the field
+        docs: { story: { inline: false, height: '460px' } },
     },
 
     tags: ['autodocs'],

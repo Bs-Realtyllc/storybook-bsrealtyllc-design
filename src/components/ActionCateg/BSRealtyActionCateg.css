@@ -12,9 +12,15 @@
   font-family: var(--bsr-font-family-primary);
   border: 1px solid var(--bsr-color-surface-texthover);
   background-color: transparent;
+  text-align: left;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
   box-sizing: border-box;
+}
+
+.bsr-action-categ:focus-visible {
+  outline: 2px solid var(--bsr-color-primary);
+  outline-offset: 2px;
 }
 
 .bsr-action-categ_text {
@@ -26,6 +32,7 @@
 }
 
 .bsr-action-categ__title {
+  display: block;
   margin: 0;
   font-weight: var(--bsr-font-weight-medium);
   font-size: var(--bsr-font-size-body-large);
@@ -33,6 +40,7 @@
   color: var(--bsr-color-text-body);
 }
 .bsr-action-categ__description {
+  display: block;
   margin: 0;
   font-weight: var(--bsr-font-weight-regular);
   font-size: var(--bsr-font-size-body-small);

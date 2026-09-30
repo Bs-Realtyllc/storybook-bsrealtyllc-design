@@ -1,2 +1,2 @@
-import { BSRealtyAlert } from "./BSRealtyAlert";
-import type { AlertProps, AlertVariant } from "./BSRealtyAlert";
+export { BSRealtyAlert } from "./BSRealtyAlert";
+export type { AlertProps, AlertVariant } from "./BSRealtyAlert";

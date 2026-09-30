@@ -103,7 +103,7 @@
   cursor: pointer;
   transition: background-color 0.15s ease;
 
-  font-family: var(--bsr-font-family-nav);
+  font-family: var(--bsr-font-family-primary);
   font-weight: var(--bsr-font-weight-medium);
   font-size: var(--bsr-font-size-label-medium);
   line-height: 1.33;

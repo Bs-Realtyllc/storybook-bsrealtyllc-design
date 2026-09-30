@@ -87,8 +87,10 @@
 
 .bsr-btn--primary:focus-visible:not(:disabled) {
   background-color: var(--bsr-color-primary);
-  box-shadow: 0 0 0 3px var(--bsr-focus-ring);
-  border: 1.5px solid var(--bsr-color-primary-active);
+  /* Inset shadow draws the 1.5px border without changing the button's size */
+  box-shadow:
+    inset 0 0 0 1.5px var(--bsr-color-primary-active),
+    0 0 0 3px var(--bsr-focus-ring);
 }
 
 .bsr-btn--primary:disabled {
@@ -132,7 +134,8 @@
 .bsr-btn--text:hover:not(:disabled) {
   background-color: var(--bsr-color-surface-texthover);
   border-radius: var(--bsr-radius-full);
-  border: none;
+  /* Hide the border but keep its 1.5px so the button doesn't shrink */
+  border-color: transparent;
 }
 
 .bsr-btn--text:focus-visible:not(:disabled) {
@@ -147,5 +150,5 @@
   color: var(--bsr-color-disabled-bg-primary);
   cursor: not-allowed;
   border-radius: var(--bsr-radius-full);
-  border: none;
+  border-color: transparent;
 }

@@ -56,7 +56,6 @@ export * from "./components/Toast";
 export * from "./components/FileUpload";
 export * from "./components/KPICard";
 export * from "./components/Link";
-export * from "./components/Pagination";
 export * from "./components/Radio";
 export * from "./components/Toogle";
 export * from "./components/Tooltip";
@@ -67,3 +66,5 @@ export * from "./icons/index";
 
 // Shared types
 export * from "./types";
+export * from "./components/Tabs";
+export * from "./components/LinkOverlay";

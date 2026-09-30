@@ -29,7 +29,7 @@
   display: inline-flex;
   align-items: center;
   flex-shrink: 0;
-  background-color: #b5b8bb;
+  background-color: var(--bsr-color-toggle-off);
   border-radius: 999px;
   transition:
     background-color 0.2s ease,
@@ -91,7 +91,7 @@
 }
 
 .bsr-toogle__input:checked + .bsr-toogle {
-  background-color: var(--bsr-color-radio-dot);
+  background-color: var(--bsr-color-primary);
 }
 
 .bsr-toogle__input:disabled + .bsr-toogle {

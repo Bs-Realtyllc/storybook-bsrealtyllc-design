@@ -1,11 +1,23 @@
-.bsr-link-overlay {
+/* Box: the area the overlay link stretches over */
+.bsr-link-box {
   position: relative;
+}
 
-  display: block;
+/* Other interactive elements inside the box sit above the overlay and keep working */
+.bsr-link-box a[href]:not(.bsr-link-overlay),
+.bsr-link-box button,
+.bsr-link-box input,
+.bsr-link-box select,
+.bsr-link-box textarea,
+.bsr-link-box [tabindex]:not([tabindex="-1"]) {
+  position: relative;
+  z-index: 2;
+}
 
+/* Overlay link: must NOT be positioned, so ::after fills the box instead of the link */
+.bsr-link-overlay {
   color: inherit;
   text-decoration: none;
-
   cursor: pointer;
 }
 
@@ -13,14 +25,20 @@
   content: "";
   position: absolute;
   inset: 0;
-
   z-index: 1;
+  border-radius: inherit;
 }
 
-.bsr-link-overlay:hover {
-  text-decoration: none;
+.bsr-link-box:hover .bsr-link-overlay {
+  text-decoration: underline;
 }
 
+/* Draw the focus ring around the whole box, not just the title text */
 .bsr-link-overlay:focus-visible {
-  outline: 2px solid currentColor;
+  outline: none;
+}
+
+.bsr-link-overlay:focus-visible::after {
+  outline: 2px solid var(--bsr-color-primary);
+  outline-offset: 2px;
 }

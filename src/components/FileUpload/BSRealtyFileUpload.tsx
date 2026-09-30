@@ -15,7 +15,7 @@ export interface BSRealtyFileUploadProps
     /** Message shown when no file is selected */
     emptyMessage?: string;
 
-    /** Callback when a file is selected */
+    /** Callback when a file is selected (the first file when `multiple` is set) */
     onFileSelect?: (file: File | null) => void;
 }
 
@@ -24,36 +24,41 @@ export const BSRealtyFileUpload = ({
     leftIcon,
     className = '',
     emptyMessage,
-    accept,
     onFileSelect,
+    onChange,
+    disabled,
     ...props
 }: BSRealtyFileUploadProps) => {
-    const [selectedFile, setSelectedFile] = useState<File | null>(null);
+    const [selectedFiles, setSelectedFiles] = useState<File[]>([]);
 
     const handleFileChange = (
         e: React.ChangeEvent<HTMLInputElement>
     ) => {
-        const file = e.target.files?.[0] || null;
+        const files = Array.from(e.target.files ?? []);
 
-        setSelectedFile(file);
-        onFileSelect?.(file);
+        setSelectedFiles(files);
+        onFileSelect?.(files[0] ?? null);
+        onChange?.(e);
     };
 
     return (
         <div className="bsr-file-upload-wrapper">
 
             {/* Upload button */}
-            <label className={`bsr-file-upload ${className}`}>
+            <label
+                className={`bsr-file-upload ${disabled ? 'bsr-file-upload--disabled' : ''} ${className}`}
+            >
+                {/* Visually hidden, but still reachable with Tab and opened with Enter/Space */}
                 <input
-                    type="file"
-                    accept={accept}
-                    onChange={handleFileChange}
-                    style={{ display: 'none' }}
                     {...props}
+                    type="file"
+                    disabled={disabled}
+                    className="bsr-file-upload__input"
+                    onChange={handleFileChange}
                 />
 
                 {leftIcon && (
-                    <span className="bsr-file-upload__icon">
+                    <span className="bsr-file-upload__icon" aria-hidden="true">
                         {leftIcon}
                     </span>
                 )}
@@ -63,13 +68,11 @@ export const BSRealtyFileUpload = ({
                 </span>
             </label>
 
-            {/* File name */}
-            <div className="bsr-file-upload__file-name">
-                {selectedFile ? (
-                    selectedFile.name
-                ) : (
-                    emptyMessage
-                )}
+            {/* File name(s), announced to screen readers when they change */}
+            <div className="bsr-file-upload__file-name" aria-live="polite">
+                {selectedFiles.length > 0
+                    ? selectedFiles.map((file) => file.name).join(', ')
+                    : emptyMessage}
             </div>
 
         </div>

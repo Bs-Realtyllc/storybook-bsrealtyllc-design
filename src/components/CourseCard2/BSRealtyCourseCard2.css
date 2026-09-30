@@ -90,7 +90,7 @@
 
 /* With Learners */
 
-.bsr-course-card2--withLearners .bsr-course-card2__content {
+.bsr-course-card2__content.bsr-course-card2--withLearners {
   height: 404px;
 }
 .bsr-course-card2__learners {

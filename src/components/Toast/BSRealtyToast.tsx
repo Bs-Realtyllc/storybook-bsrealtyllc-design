@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import './BSRealtyToast.css';
 
 export type ToastVariant = 'success' | 'error' | 'info' | 'warning';
@@ -13,10 +13,10 @@ export interface BSRealtyToastProps {
     /** Controls whether the toast is visible */
     isOpen: boolean;
 
-    /** Called when the toast is closed */
+    /** Called when the toast is closed. The close button is hidden when omitted. */
     onClose?: () => void;
 
-    /** Auto-close duration */
+    /** Auto-close duration in milliseconds (0 disables auto-close) */
     duration?: number;
 
     /** Additional CSS class */
@@ -31,36 +31,43 @@ export const BSRealtyToast = ({
     duration = 3000,
     className = '',
 }: BSRealtyToastProps) => {
+    // Keep the latest onClose without restarting the timer when the parent re-renders
+    const onCloseRef = useRef(onClose);
     useEffect(() => {
-        if (!isOpen || !onClose || duration <= 0) return;
+        onCloseRef.current = onClose;
+    }, [onClose]);
+
+    useEffect(() => {
+        if (!isOpen || duration <= 0) return;
 
         const timer = setTimeout(() => {
-            onClose();
+            onCloseRef.current?.();
         }, duration);
 
         return () => clearTimeout(timer);
-    }, [isOpen, duration, onClose]);
+    }, [isOpen, duration]);
 
     if (!isOpen) return null;
 
     return (
-        <button
+        <div
             className={`bsr-toast bsr-toast--${variant} ${className}`}
-            role="alert"
-            aria-live="polite"
+            role={variant === 'error' ? 'alert' : 'status'}
         >
             <span className="bsr-toast__message">
                 {message}
             </span>
 
-            <button
-                type="button"
-                className="bsr-toast__close"
-                onClick={onClose}
-                aria-label="Close toast"
-            >
-                ×
-            </button>
-        </button>
+            {onClose && (
+                <button
+                    type="button"
+                    className="bsr-toast__close"
+                    onClick={onClose}
+                    aria-label="Close toast"
+                >
+                    ×
+                </button>
+            )}
+        </div>
     );
 };

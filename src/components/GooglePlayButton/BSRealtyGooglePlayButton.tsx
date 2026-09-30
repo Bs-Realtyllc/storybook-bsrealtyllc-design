@@ -12,10 +12,10 @@ export interface GooglePlayButtonProps {
     onClick?: () => void;
 }
 
-export const BSRealtyGooglePlayButton = ({ href, imageSrc = '/google-play-button.png', onClick }: GooglePlayButtonProps) => {
+export const BSRealtyGooglePlayButton = ({ href, imageSrc = '/images/google-play-button.png', onClick }: GooglePlayButtonProps) => {
     return (
         <a href={href} onClick={onClick} target="_blank" rel="noopener noreferrer" className="bsr-google-play-button">
-            <img src={imageSrc} alt={imageSrc} />
+            <img src={imageSrc} alt="Get it on Google Play" />
         </a>
     )
 }

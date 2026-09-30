@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
+import { useArgs } from 'storybook/preview-api';
 import { BSRealtyTabs } from './BSRealtyTabs';
 
 const meta = {
@@ -8,15 +9,26 @@ const meta = {
         layout: 'centered',
     },
     tags: ['autodocs'],
+    // Keep the `value` control in sync when a tab is clicked
+    render: function Render(args) {
+        const [, updateArgs] = useArgs();
+        return (
+            <BSRealtyTabs
+                {...args}
+                onChange={(value) => {
+                    updateArgs({ value });
+                    args.onChange?.(value);
+                }}
+            />
+        );
+    },
     argTypes: {
-
-
         value: {
             control: 'text',
             description: 'Controlled selected tab',
         },
         variant: {
-            control: 'select', options: ['default', 'underline', 'outline'], description: 'Tabs visual variant',
+            control: false,
         },
         disabled: {
             control: 'boolean', description: 'Disable all tabs',
@@ -33,8 +45,6 @@ const meta = {
 export default meta;
 
 type Story = StoryObj<typeof meta>;
-
-
 
 export const Default: Story = {
     args: {
@@ -57,31 +67,8 @@ export const Default: Story = {
             },
         ],
         value: 'personal_info',
-
     },
 };
-
-// export const Outline: Story = {
-//     args: {
-//         variant: 'outline',
-//         tabs: [
-//             {
-//                 value: 'overview',
-//                 label: 'Overview',
-//             },
-//             {
-//                 value: 'details',
-//                 label: 'Details',
-//             },
-//             {
-//                 value: 'settings',
-//                 label: 'Settings',
-//             },
-//         ],
-//         value: 'overview',
-
-//     },
-// };
 
 export const WithDisabledTab: Story = {
     args: {
@@ -105,6 +92,5 @@ export const WithDisabledTab: Story = {
             },
         ],
         value: 'personal_info',
-
     },
 };

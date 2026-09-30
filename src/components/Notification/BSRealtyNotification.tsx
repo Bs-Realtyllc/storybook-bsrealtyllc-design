@@ -18,6 +18,9 @@ export interface NotificationProps {
 
     /** Additional class names for styling.*/
     className?: string;
+
+    /** Accessible name for the icon-only button */
+    ariaLabel?: string;
 }
 
 export const BSRealtyNotification: React.FC<NotificationProps> = ({
@@ -28,7 +31,7 @@ export const BSRealtyNotification: React.FC<NotificationProps> = ({
     onClick,
     disabled = false,
     className = '',
-
+    ariaLabel = 'Notifications',
 }) => {
     return (
         <button
@@ -36,12 +39,13 @@ export const BSRealtyNotification: React.FC<NotificationProps> = ({
             className={`bsr-notification  ${className} `.trim()}
             onClick={onClick}
             disabled={disabled}
+            aria-label={showIndicator ? `${ariaLabel} (unread)` : ariaLabel}
             style={{
                 backgroundColor,
             }}
         >
-            <div className='bsr-notification__wraper'>
-                <span className="bsr-notification__icon">
+            <span className='bsr-notification__wraper'>
+                <span className="bsr-notification__icon" aria-hidden="true">
                     {icon}
                 </span>
 
@@ -53,7 +57,7 @@ export const BSRealtyNotification: React.FC<NotificationProps> = ({
                         }}
                     />
                 )}
-            </div>
+            </span>
         </button>
     );
 };

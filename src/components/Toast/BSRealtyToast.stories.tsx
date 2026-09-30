@@ -1,12 +1,17 @@
-
-import type { Meta, StoryObj } from '@storybook/react';
+import { useState } from 'react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
+import { fn } from 'storybook/test';
 import { BSRealtyToast } from './BSRealtyToast';
+import { BSRealtyButton } from '../Button';
 
 const meta = {
     title: 'Components/Toast',
     component: BSRealtyToast,
     parameters: {
         layout: 'centered',
+        // The toast is position: fixed, so give each story its own iframe on the
+        // Docs page — otherwise every open toast stacks in the same corner.
+        docs: { story: { inline: false, height: '120px' } },
     },
     tags: ['autodocs'],
     argTypes: {
@@ -23,8 +28,14 @@ const meta = {
         },
         duration: {
             control: 'number',
-            description: 'Toast duration in milliseconds',
+            description: 'Toast duration in milliseconds (0 disables auto-close)',
         },
+    },
+    args: {
+        isOpen: true,
+        // 0 keeps the static variant stories on screen; see Interactive for auto-close
+        duration: 0,
+        onClose: fn(),
     },
 } satisfies Meta<typeof BSRealtyToast>;
 
@@ -36,17 +47,14 @@ export const Success: Story = {
     args: {
         variant: 'success',
         message: 'Toast successfully.',
-        isOpen: true,
-        duration: 3000,
     },
 };
 
-export const Error: Story = {
+export const ErrorToast: Story = {
+    name: 'Error',
     args: {
         variant: 'error',
         message: 'Something went wrong.',
-        isOpen: true,
-        duration: 3000,
     },
 };
 
@@ -54,8 +62,6 @@ export const Warning: Story = {
     args: {
         variant: 'warning',
         message: 'Toast warning.',
-        isOpen: true,
-        duration: 3000,
     },
 };
 
@@ -63,30 +69,36 @@ export const Info: Story = {
     args: {
         variant: 'info',
         message: 'Toast info.',
-        isOpen: true,
-        duration: 3000,
     },
 };
-import { useState } from 'react';
 
-export const SuccessDemo: any = {
-    render: () => {
-        const [isOpen, setIsOpen] = useState(false);
+const InteractiveDemo = (args: Story['args']) => {
+    const [isOpen, setIsOpen] = useState(false);
 
-        return (
-            <>
-                <button type="button" onClick={() => setIsOpen(true)}>
-                    Show Toast
-                </button>
+    return (
+        <>
+            <BSRealtyButton
+                label="Show Toast"
+                size="small"
+                showLeftIcon={false}
+                showRightIcon={false}
+                onClick={() => setIsOpen(true)}
+            />
 
-                <BSRealtyToast
-                    variant='success'
-                    message="Your changes have been saved successfully."
-                    isOpen={isOpen}
-                    onClose={() => setIsOpen(false)}
-                    duration={3000}
-                />
-            </>
-        );
+            <BSRealtyToast
+                {...args}
+                isOpen={isOpen}
+                onClose={() => setIsOpen(false)}
+            />
+        </>
+    );
+};
+
+export const Interactive: Story = {
+    args: {
+        variant: 'success',
+        message: 'Your changes have been saved successfully.',
+        duration: 3000,
     },
+    render: (args) => <InteractiveDemo {...args} />,
 };

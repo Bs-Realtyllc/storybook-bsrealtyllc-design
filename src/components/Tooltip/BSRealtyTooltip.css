@@ -12,14 +12,15 @@
   max-width: 240px;
   padding: 8px 12px;
   border-radius: 6px;
-  background-color: var(--bsr-color-text-trust-blue-active);
+  background-color: var(--bsr-color-tooltip-bg);
   color: var(--bsr-color-text-inverse);
-  font-family: "Plus Jakarta Sans", sans-serif;
+  font-family: var(--bsr-font-family-primary);
   font-size: 12px;
-  font-weight: 500;
+  font-weight: var(--bsr-font-weight-medium);
   line-height: 18px;
   white-space: normal;
   text-align: center;
+  opacity: 0;
   visibility: hidden;
   pointer-events: none;
 
@@ -56,7 +57,7 @@
   transform: translateX(-50%);
   border-left: 5px solid transparent;
   border-right: 5px solid transparent;
-  border-top: 5px solid var(--bsr-color-text-trust-blue-active);
+  border-top: 5px solid var(--bsr-color-tooltip-bg);
 }
 
 /*   Bottom */
@@ -74,7 +75,7 @@
   transform: translateX(-50%);
   border-left: 5px solid transparent;
   border-right: 5px solid transparent;
-  border-bottom: 5px solid var(--bsr-color-text-trust-blue-active);
+  border-bottom: 5px solid var(--bsr-color-tooltip-bg);
 }
 
 /* Left */
@@ -92,7 +93,7 @@
   transform: translateY(-50%);
   border-top: 5px solid transparent;
   border-bottom: 5px solid transparent;
-  border-left: 5px solid var(--bsr-color-text-trust-blue-active);
+  border-left: 5px solid var(--bsr-color-tooltip-bg);
 }
 /* Right */
 .bsr-tooltip--right {
@@ -109,5 +110,5 @@
   transform: translateY(-50%);
   border-top: 5px solid transparent;
   border-bottom: 5px solid transparent;
-  border-right: 5px solid var(--bsr-color-text-trust-blue-active);
+  border-right: 5px solid var(--bsr-color-tooltip-bg);
 }

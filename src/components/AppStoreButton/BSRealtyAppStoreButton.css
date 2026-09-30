@@ -1,12 +1,15 @@
 .bsr-app-store_button {
-  width: 500px;
+  /* Links are inline by default, which ignores width/height */
+  display: inline-block;
+  /* Height only: the width follows the image so the badge is never stretched */
   height: 59px;
   overflow: hidden;
   opacity: 1;
   border-radius: var(--bsr-radius-2xl);
 }
 .bsr-app-store_button img {
-  width: 100%;
+  display: block;
+  width: auto;
   height: 100%;
 }
 .bsr-app-store_button:hover {

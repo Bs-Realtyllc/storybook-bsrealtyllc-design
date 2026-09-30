@@ -6,21 +6,29 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 83px;
   height: 36px;
+  /* Sized by its content so longer labels fit; the hover background
+     no longer changes the button's width */
+  padding: 0 8px 0 0;
   font-family: var(--bsr-font-family-primary);
   background: transparent;
   cursor: pointer;
   border: none;
-  opacity: 1;
+  border-radius: var(--bsr-radius-input);
   color: var(--bsr-color-text-dark-black);
 }
-.bsr-back-button:hover {
+.bsr-back-button:hover:not(:disabled) {
   background: var(--bsr-color-surface-muted);
-  width: 87px;
-  height: 36px;
-  opacity: 1;
-  border-radius: var(--bsr-radius-input);
+}
+
+.bsr-back-button:focus-visible {
+  outline: 2px solid var(--bsr-color-primary);
+  outline-offset: 2px;
+}
+
+.bsr-back-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 
 .bsr-back-button_label {

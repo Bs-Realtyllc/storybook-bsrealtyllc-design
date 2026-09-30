@@ -7,9 +7,13 @@
    Do not hardcode hex/rgba values in component CSS — add or reuse a
    token here instead, so a rebrand or dark-mode pass touches one file.
    ════════════════════════════════════════════════════════════════════ */
+/* Lato is the one font for every component. Google serves 300/400/700 (+900);
+   a 500/600 weight renders as the nearest of those. */
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,400&display=swap");
+
 :root {
   /* ── Brand ─────────────────────────────────────────────────────── */
-  --bsr-color-primary: #1e3a5f; /* BSRealtyButton, Navbar, TextField focus */
+  --bsr-color-primary: #1e3a5f; /* BSRealtyButton, Navbar, TextField focus, Toggle on, Radio, Tabs active */
   --bsr-color-primary-hover: #182e4c; /* Button primary hover */
   --bsr-color-primary-active: #172c47; /* Navbar login button active */
   --bsr-color-primary-subtle: #253f66; /* Navbar login button hover */
@@ -32,15 +36,11 @@
   /*dropdown option selected / hover background */
 
   --bsr-color-green-light: #dcf1e4; /* course card 2 with lerner background*/
+  --bsr-color-avatar-bg: #1f6f9e; /* Avatar initials bg — darker than Figma's #339cd4 so the initials pass 4.5:1 */
 
-  --bsr-color-select-date: #6a00e5; /*select date in calander*/
-  --bsr-color-select-range-date: #eeeafc; /*select range date in calander*/
 
   /*Grays*/
   --bsr-color-grays-dark-hover: #3c4653;
-
-  /*Blue*/
-  --bsr-color-blue-dark: #235e94;
 
   /* ── Borders 
   ───────────────────────────────────────────────────── */
@@ -80,7 +80,8 @@
   --bsr-color-text-deep-night: #020617; /*calander title*/
   --bsr-color-text-light-gray: #505152; /*calander day*/
   --bsr-color-border-white: #e6e6e6; /*calander month selector border*/
-  --bsr-color-radio-dot: #235e94; /*radio dot color  | toogle bg*/
+  --bsr-color-toggle-off: #b5b8bb; /* Toggle off bg */
+  --bsr-color-tooltip-bg: #0b1421; /* Tooltip bg + arrow */
   /* ── Status ────────────────────────────────────────────────────── */
   --bsr-color-error: #dc2626;
   --bsr-color-error-bg: #fce9e9;
@@ -90,6 +91,11 @@
   --bsr-color-warning-bg: #fef5e7;
   --bsr-color-info: #2563eb;
   --bsr-color-info-bg: #e9effd;
+  /* Darker status text for use on the *-bg tints (all ≥ 4.5:1) */
+  --bsr-color-success-text: #166534;
+  --bsr-color-error-text: #b91c1c;
+  --bsr-color-warning-text: #92400e;
+  --bsr-color-info-text: #1d4ed8;
 
   /* ── Focus rings (alpha) ───────────────────────────────────────── */
   --bsr-focus-ring: rgba(30, 58, 95, 0.4);
@@ -105,17 +111,19 @@
   --bsr-shadow-hover-tint: rgba(0, 0, 0, 0.05);
   --bsr-shadow-hover-color: rgba(0, 0, 0, 0.1);
   --bsr-shadow-toogle-color: rgba(0, 0, 0, 0.25);
+  --bsr-shadow-field: 0 1px 2px rgba(0, 0, 0, 0.12); /* TextField error/success */
 
   /* ── Font family ───────────────────────────────────────────────── */
   --bsr-font-family-primary:
     "Lato", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --bsr-font-family-nav: "Source Sans 3", "Source Sans Pro", sans-serif;
 
   /* ── Font weights ──────────────────────────────────────────────── */
   --bsr-font-weight-light: 300;
   --bsr-font-weight-regular: 400;
-  --bsr-font-weight-medium: 500;
-  --bsr-font-weight-semibold: 600;
+  /* Lato only ships 300/400/700/900, so Figma's in-between weights are
+     mapped to the nearest real one: medium (500) → 400, semibold (600) → 700 */
+  --bsr-font-weight-medium: 400;
+  --bsr-font-weight-semibold: 700;
   --bsr-font-weight-bold: 700;
 
   /* ── Font sizes (Material-style scale, from Figma) ────────────── */

@@ -1,4 +1,5 @@
 import './BSRealtyAvatar.css';
+import { getInitials } from './getInitials';
 
 export type AvatarSize = 'sm' | 'md' | 'lg' | 'xl';
 
@@ -10,15 +11,6 @@ export interface BSRealtyAvatarProps extends React.HTMLAttributes<HTMLSpanElemen
   /** Size of the avatar */
   size?: AvatarSize;
 }
-
-/** Turns "Jane Doe" into "JD", "Cher" into "C". */
-const getInitials = (name: string): string =>
-  name
-    .trim()
-    .split(/\s+/)
-    .slice(0, 2)
-    .map((part) => part[0]?.toUpperCase() ?? '')
-    .join('');
 
 export const BSRealtyAvatar = ({ src, name, size = 'md', className = '', ...props }: BSRealtyAvatarProps) => {
   return (

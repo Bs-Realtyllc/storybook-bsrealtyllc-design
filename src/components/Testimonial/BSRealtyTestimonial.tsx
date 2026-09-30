@@ -1,5 +1,6 @@
 import './BSRealtyTestimonial.css';
 import { BSRealtyStarRating } from '../StarRating/BSRealtyStarRating';
+import { getInitials } from '../Avatar/getInitials';
 
 export interface BSRealtyTestimonialProps {
   /** The testimonial quote text */
@@ -30,14 +31,7 @@ export const BSRealtyTestimonial = ({
   avatarUrl,
   avatarInitials,
 }: BSRealtyTestimonialProps) => {
-  const initials =
-    avatarInitials ||
-    name
-      .split(' ')
-      .map((n) => n[0])
-      .join('')
-      .toUpperCase()
-      .slice(0, 2);
+  const initials = avatarInitials || getInitials(name);
 
   return (
     <div className="bsr-testimonial">

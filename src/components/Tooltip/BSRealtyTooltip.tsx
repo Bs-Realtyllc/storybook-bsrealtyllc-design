@@ -5,7 +5,7 @@ import './BSRealtyTooltip.css';
 export type TooltipPosition = 'top' | 'bottom' | 'left' | 'right';
 
 export interface BSRealtyTooltipProps
-    extends React.HTMLAttributes<HTMLDivElement> {
+    extends Omit<React.HTMLAttributes<HTMLDivElement>, 'content'> {
     /** Text displayed inside the tooltip */
     content: React.ReactNode;
 

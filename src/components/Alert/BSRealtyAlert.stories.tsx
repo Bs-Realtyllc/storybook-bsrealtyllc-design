@@ -1,5 +1,5 @@
 
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import { BSRealtyAlert } from './BSRealtyAlert';
 import { ErrorIcon, InfoIcon, SuccessIcon, WarningIcon } from '../../icons';
 

@@ -1,5 +1,5 @@
 
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import { BSRealtyCheckbox } from './BSRealtyCheckbox';
 
 const meta = {
@@ -17,6 +17,11 @@ const meta = {
         color: {
             control: 'color',
             description: 'Custom checkbox color',
+        },
+
+        label: {
+            control: 'text',
+            description: 'Text next to the box',
         },
 
         checkColor: {
@@ -50,7 +55,7 @@ const meta = {
 
 export default meta;
 
-type Story = StoryObj<typeof BSRealtyCheckbox>;
+type Story = StoryObj<typeof meta>;
 
 export const Unchecked: Story = {
     args: {
@@ -116,3 +121,8 @@ export const CustomTickColor: Story = {
     },
 };
 
+export const WithLabel: Story = {
+    args: {
+        label: 'Remember me',
+    },
+};

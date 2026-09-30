@@ -1,2 +1,2 @@
-export { BSRealtyLinkOverlay } from "./BSRealtyLinkOverlay";
-export type { BSRealtyLinkOverlayProps } from "./BSRealtyLinkOverlay";
+export { BSRealtyLinkBox, BSRealtyLinkOverlay } from "./BSRealtyLinkOverlay";
+export type { BSRealtyLinkBoxProps, BSRealtyLinkOverlayProps } from "./BSRealtyLinkOverlay";

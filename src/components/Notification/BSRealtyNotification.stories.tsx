@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import bellIcon from '../../assets/icons/bell.svg';
 import { BSRealtyNotification } from './BSRealtyNotification';
 

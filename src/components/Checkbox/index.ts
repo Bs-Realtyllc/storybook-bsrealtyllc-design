@@ -1,2 +1,2 @@
-import { BSRealtyCheckbox } from "./BSRealtyCheckbox";
-import type { CheckboxProps, CheckboxSize } from "./BSRealtyCheckbox";
+export { BSRealtyCheckbox } from "./BSRealtyCheckbox";
+export type { CheckboxProps, CheckboxSize } from "./BSRealtyCheckbox";

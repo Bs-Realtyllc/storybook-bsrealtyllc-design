@@ -20,7 +20,7 @@ export const BSRealtyBreadcrumb = ({
     testId
 }: BSRealtyBreadcrumbProps) => {
     return (
-        <nav className="bsr-breadcrumb" data-testid={testId}>
+        <nav className="bsr-breadcrumb" aria-label="Breadcrumb" data-testid={testId}>
             <ol className="bsr-breadcrumb_list">
                 {
                     items.map((item, index) => {
@@ -29,7 +29,7 @@ export const BSRealtyBreadcrumb = ({
                         return (
                             <li key={index} className={`bsr-breadcrumb_item ${isActive ? "bsr-breadcrumb_item--active" : ""}`}>{
                                 isActive ? (
-                                    <span>
+                                    <span aria-current={item.active || (isLast && !items.some((i) => i.active)) ? 'page' : undefined}>
                                         {item.label}
                                     </span>
                                 ) : item.href ? (<a href={item.href}>{item.label}</a>) : (<span>{item.label}</span>)
