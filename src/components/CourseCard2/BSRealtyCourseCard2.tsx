@@ -2,6 +2,13 @@ import './BSRealtyCourseCard2.css'
 
 export type CourseVariant = 'Default' | 'withLearners'
 
+export interface CourseFeature {
+    /** Icon shown before the text (22px works best) */
+    icon?: React.ReactNode;
+    /** Feature text */
+    label: React.ReactNode;
+}
+
 
 export interface BSRealtyCourseCard2Props {
     /**Image url of course card 2 */
@@ -13,14 +20,22 @@ export interface BSRealtyCourseCard2Props {
     /** price of course card 2 */
     price?: string;
 
-    /**Credit hrs */
-    creditHrs: number;
+    /**Credit hrs — used by the default feature list */
+    creditHrs?: number;
 
     /**Varient */
     variant?: CourseVariant;
 
     /**Learners number */
     learners?: number;
+
+    /** Heading above the feature list */
+    featuresTitle?: string;
+
+    /** What the course includes. Defaults to the standard pre-license list. */
+    features?: CourseFeature[];
+    /** Extra class name(s) for the root element, for project-specific styling */
+    className?: string;
 }
 
 export const ClockIcon = ({ size = 24 }: { size?: number }) => (
@@ -104,22 +119,38 @@ export const CheckCircleIcon = ({ size = 24 }: { size?: number }) => (
 );
 
 export const BSRealtyCourseCard2 = ({
+    className = '',
     imgSrc,
     title,
     price,
     creditHrs,
     variant,
-    learners
+    learners,
+    featuresTitle = 'This Course Includes',
+    features,
 }: BSRealtyCourseCard2Props) => {
     const course = title.trim().split(/\s+/)[0];
-    return (
-        <div className='bsr-course-card2'>
 
-            <img src={imgSrc} alt={imgSrc} className='bsr-course-card2__image' />
+    // Standard pre-license list, used when no `features` are passed
+    const defaultFeatures: CourseFeature[] = [
+        ...(creditHrs !== undefined
+            ? [{ icon: <ClockIcon size={22} />, label: `${creditHrs} Credit Hours (${course} Required)` }]
+            : []),
+        { icon: <BookOpenIcon size={22} />, label: 'PSI Exam Preparation' },
+        { icon: <QuestionMarkCircleIcon size={22} />, label: 'Practice Quizzer & Exam' },
+        { icon: <DownloadIcon size={22} />, label: 'Downloadable Resources' },
+        { icon: <DocumentIcon size={22} />, label: 'Certificate of Completion' },
+        { icon: <CheckCircleIcon size={22} />, label: 'State Approved Curriculum' },
+    ];
+    const featureList = features ?? defaultFeatures;
+    return (
+        <div className={`bsr-course-card2 ${className}`}>
+
+            <img src={imgSrc} alt={title} className='bsr-course-card2__image' />
 
 
             {/* Content */}
-            <div className={`bsr-course-card2__content,  bsr-course-card2--${variant}`}>
+            <div className={`bsr-course-card2__content ${variant ? `bsr-course-card2--${variant}` : ''}`}>
                 {/* Heading title/price text */}
                 <div className='bsr-course-card2__information'>
                     <h3 className='bsr-course-card2__title'>{title}</h3>
@@ -134,26 +165,13 @@ export const BSRealtyCourseCard2 = ({
 
                 {/* Details  */}
                 <div className='bsr-course-card2__details'>
-                    <p className='bsr-course-card2__feature-title' >This Course Includes</p>
+                    <p className='bsr-course-card2__feature-title' >{featuresTitle}</p>
                     <ul className='bsr-course-card2__feature-list'>
-                        <li >
-                            <ClockIcon size={22} />{creditHrs} Credit Hours ({course} Required)
-                        </li>
-                        <li>
-                            <BookOpenIcon size={22} /> PSI Exam Preparation
-                        </li>
-                        <li>
-                            <QuestionMarkCircleIcon size={22} /> Practice Quizzer & Exam
-                        </li>
-                        <li>
-                            <DownloadIcon size={22} /> Downloadable Resources
-                        </li>
-                        <li>
-                            <DocumentIcon size={22} /> Certificate of Completion
-                        </li>
-                        <li>
-                            <CheckCircleIcon size={22} /> State Approved Curriculum
-                        </li>
+                        {featureList.map((feature, index) => (
+                            <li key={index}>
+                                {feature.icon}{feature.label}
+                            </li>
+                        ))}
                     </ul>
                 </div>
             </div>

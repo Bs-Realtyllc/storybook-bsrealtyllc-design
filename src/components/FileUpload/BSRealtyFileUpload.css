@@ -1,0 +1,70 @@
+.bsr-file-upload-wrapper {
+  font-family: var(--bsr-font-family-primary);
+  display: flex;
+  flex-direction: column;
+  gap: var(--bsr-space-2);
+}
+
+/* Upload button */
+.bsr-file-upload {
+  position: relative;
+  border: 1px solid var(--bsr-color-border);
+  border-radius: var(--bsr-radius-input);
+  padding: 5px 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--bsr-space-2);
+  width: fit-content;
+  font-size: var(--bsr-font-size-body-medium);
+  color: var(--bsr-color-text-body);
+  cursor: pointer;
+}
+.bsr-file-upload:hover {
+  background: var(--bsr-color-surface-hover);
+}
+
+/* Hide native file input (still focusable and read by screen readers) */
+.bsr-file-upload__input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Keyboard focus lands on the hidden input; show it on the button */
+.bsr-file-upload:has(.bsr-file-upload__input:focus-visible) {
+  outline: 2px solid var(--bsr-color-primary);
+  outline-offset: 2px;
+}
+
+/* Icon */
+.bsr-file-upload__icon {
+  display: inline-flex;
+  align-items: center;
+}
+
+/* Label */
+.bsr-file-upload__label {
+  display: inline-flex;
+  align-items: center;
+}
+
+/* File name */
+.bsr-file-upload__file-name {
+  font-size: var(--bsr-font-size-body-medium);
+  color: var(--bsr-color-text-secondary);
+  word-break: break-word;
+}
+
+/* Disabled upload button */
+.bsr-file-upload--disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+  pointer-events: none;
+}

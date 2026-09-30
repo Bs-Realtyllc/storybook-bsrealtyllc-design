@@ -1,0 +1,118 @@
+.bsr-radio-wrapper {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--bsr-space-2);
+  cursor: pointer;
+  user-select: none;
+}
+
+.bsr-radio-wrapper--disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Hide native radio (still focusable and read by screen readers) */
+.bsr-radio__input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Radio */
+.bsr-radio {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  flex-shrink: 0;
+
+  border: 2px solid var(--bsr-color-border);
+  border-radius: 50%;
+  background: var(--bsr-color-white);
+
+  transition:
+    border-color 0.2s ease,
+    background-color 0.2s ease;
+}
+
+/* Dot */
+.bsr-radio__dot {
+  display: block;
+  border-radius: 50%;
+  background: var(--bsr-color-primary);
+
+  transform: scale(0);
+  transition: transform 0.2s ease;
+}
+
+/* Checked */
+.bsr-radio__input:checked + .bsr-radio {
+  border-color: var(--bsr-color-primary);
+}
+
+.bsr-radio__input:checked + .bsr-radio .bsr-radio__dot {
+  transform: scale(1);
+}
+
+/* Focus */
+.bsr-radio__input:focus-visible + .bsr-radio {
+  outline: 2px solid var(--bsr-color-primary);
+  outline-offset: 2px;
+}
+
+/* =========================
+   SMALL
+========================= */
+
+.bsr-radio--small {
+  width: 16px;
+  height: 16px;
+}
+
+.bsr-radio--small .bsr-radio__dot {
+  width: 6px;
+  height: 6px;
+}
+
+/* =========================
+   MEDIUM
+========================= */
+
+.bsr-radio--medium {
+  width: 20px;
+  height: 20px;
+}
+
+.bsr-radio--medium .bsr-radio__dot {
+  width: 8px;
+  height: 8px;
+}
+
+/* =========================
+   LARGE
+========================= */
+
+.bsr-radio--large {
+  width: 24px;
+  height: 24px;
+}
+
+.bsr-radio--large .bsr-radio__dot {
+  width: 10px;
+  height: 10px;
+}
+
+/* Label */
+.bsr-radio__label {
+  font-family: var(--bsr-font-family-primary);
+  font-size: var(--bsr-font-size-body-medium);
+  color: var(--bsr-color-text-body);
+}

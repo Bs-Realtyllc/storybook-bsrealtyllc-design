@@ -7,15 +7,18 @@ export interface BSRealtyServiceCardProps {
   title: string;
   /** Service description */
   description: string;
+    /** Extra class name(s) for the root element, for project-specific styling */
+    className?: string;
 }
 
 export const BSRealtyServiceCard = ({
+    className = '',
   number = '01',
   title = 'Mortgage Assistance',
   description = 'Get guidance on home financing and connect with trusted lenders to secure the best mortgage options.',
 }: BSRealtyServiceCardProps) => {
   return (
-    <div className="bsr-service-card">
+    <div className={`bsr-service-card ${className}`}>
       {/* Number badge */}
       <div className="bsr-service-card__badge">
         <span className="bsr-service-card__number">{number}</span>

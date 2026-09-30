@@ -1,6 +1,7 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useId, useRef, useState } from 'react';
 import './BSRealtyDatePicker.css';
-import { CalendarIcon } from '../../icons';
+import { CalendarIcon, iconSizeStyle } from '../../icons';
+import { BSRealtyCalender } from '../Calender';
 
 export type DateFormat =
     | 'YYYY-MM-DD'
@@ -8,16 +9,19 @@ export type DateFormat =
     | 'MM-DD-YYYY';
 
 export interface BSRealtyDatePickerProps {
-    /**Date formate */
-    dateFormat: DateFormat;
+    /**Format used to display the date (the value itself is always YYYY-MM-DD) */
+    dateFormat?: DateFormat;
 
     /**Label for date picker */
     label?: string;
 
-    /**Value of date picker */
-    value: string;
+    /**Selected date in YYYY-MM-DD format ('' for none) */
+    value?: string;
 
+    /**Called with the new date in YYYY-MM-DD format, or '' when cleared */
     onChange?: (value: string) => void;
+    /** Extra class name(s) for the root element, for project-specific styling */
+    className?: string;
 }
 
 const formatDateString = (
@@ -46,38 +50,74 @@ const formatDateString = (
 };
 
 export const BSRealtyDatePicker = ({
+    className = '',
     dateFormat = 'YYYY-MM-DD',
     label = 'Select Date',
-    value,
+    value = '',
     onChange,
 }: BSRealtyDatePickerProps) => {
-    const dateInputRef = useRef<HTMLInputElement>(null);
+    const inputId = useId();
+    const popoverId = useId();
+    const rootRef = useRef<HTMLDivElement>(null);
+    const popoverRef = useRef<HTMLDivElement>(null);
+    const calendarButtonRef = useRef<HTMLButtonElement>(null);
 
     const [selectedDate, setSelectedDate] = useState(value);
+    const [isOpen, setIsOpen] = useState(false);
 
-    useEffect(() => {
+    // Follow `value` when the parent changes it
+    const [prevValue, setPrevValue] = useState(value);
+    if (prevValue !== value) {
+        setPrevValue(value);
         setSelectedDate(value);
-    }, [value]);
+    }
 
-    const handleDateChange = (
-        event: React.ChangeEvent<HTMLInputElement>
-    ) => {
-        const date = event.target.value;
+    const close = (returnFocus = false) => {
+        setIsOpen(false);
+        if (returnFocus) calendarButtonRef.current?.focus();
+    };
 
-        if (!date) return;
+    // Close when clicking outside the picker
+    useEffect(() => {
+        if (!isOpen) return;
 
+        const handlePointerDown = (event: MouseEvent) => {
+            if (!rootRef.current?.contains(event.target as Node)) {
+                setIsOpen(false);
+            }
+        };
+
+        document.addEventListener('mousedown', handlePointerDown);
+        return () => document.removeEventListener('mousedown', handlePointerDown);
+    }, [isOpen]);
+
+    // Move focus into the calendar: the selected day, else today, else the first day
+    useEffect(() => {
+        if (!isOpen) return;
+
+        const popover = popoverRef.current;
+        const target =
+            popover?.querySelector<HTMLButtonElement>('.bs-calendar-day-btn[aria-pressed="true"]') ??
+            popover?.querySelector<HTMLButtonElement>('.bs-calendar-day-btn.today') ??
+            popover?.querySelector<HTMLButtonElement>('.bs-calendar-day-btn');
+        target?.focus();
+    }, [isOpen]);
+
+    const selectDate = (date: string) => {
         setSelectedDate(date);
         onChange?.(date);
     };
 
-    const handleCalendarClick = () => {
-        dateInputRef.current?.showPicker?.();
+    const handleCalendarChange = (date: string | { startDate?: string; endDate?: string }) => {
+        if (typeof date !== 'string') return;
+        selectDate(date);
+        close(true);
     };
 
     return (
-        <div className="bst-date-picker">
+        <div className={`bst-date-picker ${className}`} ref={rootRef}>
             <label
-                htmlFor="bst-date-picker-input"
+                htmlFor={inputId}
                 className="bst-date-picker_label"
             >
                 {label}
@@ -87,34 +127,73 @@ export const BSRealtyDatePicker = ({
 
                 {/* Visible input */}
                 <input
-                    id="bst-date-picker-input"
+                    id={inputId}
                     type="text"
                     className="bst-date-picker_input"
                     value={formatDateString(selectedDate, dateFormat)}
                     readOnly
                     placeholder={dateFormat}
+                    aria-haspopup="dialog"
+                    aria-expanded={isOpen}
+                    aria-controls={isOpen ? popoverId : undefined}
+                    onClick={() => setIsOpen(true)}
+                    onKeyDown={(event) => {
+                        if (event.key === 'Enter' || event.key === 'ArrowDown') {
+                            event.preventDefault();
+                            setIsOpen(true);
+                        }
+                    }}
                 />
+
+                {/* Clear button */}
+                {selectedDate && (
+                    <button
+                        type="button"
+                        className="bst-date-picker_clear-button"
+                        onClick={() => selectDate('')}
+                        aria-label="Clear date"
+                    >
+                        ×
+                    </button>
+                )}
 
                 {/* Calendar button */}
                 <button
+                    ref={calendarButtonRef}
                     type="button"
                     className="bst-date-picker_calendar-button"
-                    onClick={handleCalendarClick}
+                    onClick={() => setIsOpen((prev) => !prev)}
                     aria-label="Open calendar"
+                    aria-haspopup="dialog"
+                    aria-expanded={isOpen}
+                    aria-controls={isOpen ? popoverId : undefined}
                 >
-                    <CalendarIcon size={20} />
+                    <CalendarIcon style={iconSizeStyle('lg')} />
                 </button>
-
-                {/* Native calendar */}
-                <input
-                    ref={dateInputRef}
-                    type="date"
-                    className="bst-hidden-date-input"
-                    value={selectedDate}
-                    onChange={handleDateChange}
-                />
-
             </div>
+
+            {/* Our calendar, shown below the field */}
+            {isOpen && (
+                <div
+                    ref={popoverRef}
+                    id={popoverId}
+                    role="dialog"
+                    aria-label="Choose date"
+                    className="bst-date-picker_popover"
+                    onKeyDown={(event) => {
+                        if (event.key === 'Escape') {
+                            event.stopPropagation();
+                            close(true);
+                        }
+                    }}
+                >
+                    <BSRealtyCalender
+                        variant="singleMonth"
+                        value={selectedDate}
+                        onChange={handleCalendarChange}
+                    />
+                </div>
+            )}
         </div>
     );
 };

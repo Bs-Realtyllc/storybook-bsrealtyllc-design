@@ -11,7 +11,7 @@ const meta = {
   tags: ["autodocs"],
   argTypes: {
     label: { control: "text" },
-    varient: {
+    variant: {
       control: { type: "select" },
       options: ["primary", "active"],
     },
@@ -27,13 +27,13 @@ type Story = StoryObj<typeof BSRealtyFilterItem>;
 export const Primary: Story = {
   args: {
     label: "General",
-    varient: "primary",
+    variant: "primary",
   },
 };
 
 export const Active: Story = {
   args: {
     label: "General",
-    varient: "active",
+    variant: "active",
   },
 };

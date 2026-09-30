@@ -1,8 +1,9 @@
 import './BSRealtyAvatar.css';
+import { getInitials } from './getInitials';
 
 export type AvatarSize = 'sm' | 'md' | 'lg' | 'xl';
 
-export interface BSRealtyAvatarProps {
+export interface BSRealtyAvatarProps extends React.HTMLAttributes<HTMLSpanElement> {
   /** Image URL. When omitted (or when it fails to load), falls back to initials. */
   src?: string;
   /** Accessible label / alt text for the image */
@@ -11,18 +12,9 @@ export interface BSRealtyAvatarProps {
   size?: AvatarSize;
 }
 
-/** Turns "Jane Doe" into "JD", "Cher" into "C". */
-const getInitials = (name: string): string =>
-  name
-    .trim()
-    .split(/\s+/)
-    .slice(0, 2)
-    .map((part) => part[0]?.toUpperCase() ?? '')
-    .join('');
-
-export const BSRealtyAvatar = ({ src, name, size = 'md' }: BSRealtyAvatarProps) => {
+export const BSRealtyAvatar = ({ src, name, size = 'md', className = '', ...props }: BSRealtyAvatarProps) => {
   return (
-    <span className={['bsr-avatar', `bsr-avatar--${size}`].join(' ')}>
+    <span {...props} className={['bsr-avatar', `bsr-avatar--${size}`, className].join(' ')}>
       {src ? (
         <img
           className="bsr-avatar__image"

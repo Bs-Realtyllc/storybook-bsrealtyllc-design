@@ -1,4 +1,5 @@
-/* BS Realty TextField — Based on Figma design nodes 232:375, 233:309, 233:315 */
+/* BS Realty TextField — Figma "HR Management System" Inputform 278:3231
+   (sizes and state behaviour; colors are our own tokens) */
 
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;500&display=swap');
 
@@ -29,8 +30,24 @@
 .bsr-textfield {
   display: flex;
   flex-direction: column;
+  gap: var(--bsr-space-1); /* field ↔ message (Figma) */
   width: 100%;
   max-width: 400px;
+  font-family: var(--bsr-font-family-primary);
+}
+
+/* ── Label (optional) ───────────────────────────────────── */
+
+.bsr-textfield__label {
+  margin-bottom: var(--bsr-space-1); /* 8px total above the field */
+  font-size: var(--bsr-font-size-body-xlarge);
+  font-weight: var(--bsr-font-weight-medium);
+  line-height: 1.556;
+  color: var(--bsr-color-text-heading);
+}
+
+.bsr-textfield--disabled .bsr-textfield__label {
+  color: var(--bsr-color-disabled-fg);
 }
 
 .bsr-textfield__container {
@@ -47,7 +64,7 @@
 
 .bsr-textfield__input {
   flex: 1;
-  padding: 12px 16px;
+  padding: var(--bsr-space-3) var(--bsr-space-4);
   border: none;
   background: transparent;
   outline: none;
@@ -62,7 +79,23 @@
 
 .bsr-textfield__input::placeholder {
   color: var(--bsr-soft-white-dark);
-  font-weight: var(--bsr-font-weight-medium);
+  font-weight: var(--bsr-font-weight-regular);
+}
+
+/* ── Status icon (error / success) ──────────────────────── */
+
+.bsr-textfield__status-icon {
+  display: flex;
+  flex-shrink: 0;
+  margin-right: var(--bsr-space-4);
+}
+
+.bsr-textfield__status-icon--error {
+  color: var(--bsr-red-normal);
+}
+
+.bsr-textfield__status-icon--success {
+  color: var(--bsr-green-normal);
 }
 
 /* ── Icon Button (for password toggle) ──────────────────── */
@@ -71,8 +104,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 8px;
-  margin-right: 8px;
+  padding: var(--bsr-space-2);
+  margin-right: var(--bsr-space-2);
   background: none;
   border: none;
   cursor: pointer;
@@ -86,29 +119,23 @@
   background-color: var(--bsr-shadow-hover-tint);
 }
 
-.bsr-textfield__icon-button:focus {
-  outline: none;
-  box-shadow: 0 0 0 2px var(--bsr-focus-ring);
+.bsr-textfield__icon-button:focus-visible {
+  outline: 2px solid var(--bsr-color-primary);
+  outline-offset: 1px;
 }
 
-/* ── States: Default & Hover ────────────────────────────── */
+/* ── States: Hover, Focus (typing), Filled ──────────────
+   Figma: all three switch the border to the brand color, with no glow */
 
-.bsr-textfield__container--default:hover:not(.bsr-textfield__container--disabled) {
-  border-color: var(--bsr-slate-gray-normal);
+.bsr-textfield__container--default:hover:not(.bsr-textfield__container--disabled),
+.bsr-textfield__container--default.bsr-textfield__container--focused,
+.bsr-textfield__container--default.bsr-textfield__container--filled:not(.bsr-textfield__container--disabled) {
+  border-color: var(--bsr-color-primary);
 }
-
-/* ── State: Focus ───────────────────────────────────────── */
-
-.bsr-textfield__container--focused {
-  border-color: var(--bsr-slate-gray-normal);
-  box-shadow: 0 0 0 3px var(--bsr-focus-ring);
-}
-
-/* ── State: Filled ──────────────────────────────────────── */
 
 .bsr-textfield__container--filled .bsr-textfield__input {
   color: var(--bsr-slate-gray-darker);
-  font-weight: var(--bsr-font-weight-medium);
+  font-weight: var(--bsr-font-weight-regular);
 }
 
 .bsr-textfield__container--filled .bsr-textfield__input::placeholder {
@@ -119,7 +146,8 @@
 
 .bsr-textfield__container--disabled {
   background-color: var(--bsr-soft-white-normal-hover);
-  border-color: var(--bsr-soft-white-dark);
+  /* Figma: no visible border; kept transparent so the size doesn't change */
+  border-color: transparent;
   cursor: not-allowed;
 }
 
@@ -142,6 +170,7 @@
 
 .bsr-textfield__container--error {
   border-color: var(--bsr-red-normal);
+  box-shadow: var(--bsr-shadow-field);
 }
 
 .bsr-textfield__container--error:hover:not(.bsr-textfield__container--disabled) {
@@ -150,13 +179,13 @@
 
 .bsr-textfield__container--error.bsr-textfield__container--focused {
   border-color: var(--bsr-red-normal);
-  box-shadow: 0 0 0 3px var(--bsr-focus-ring-error);
 }
 
 /* ── Variant: Success ───────────────────────────────────── */
 
 .bsr-textfield__container--success {
   border-color: var(--bsr-green-normal);
+  box-shadow: var(--bsr-shadow-field);
 }
 
 .bsr-textfield__container--success:hover:not(.bsr-textfield__container--disabled) {
@@ -165,16 +194,14 @@
 
 .bsr-textfield__container--success.bsr-textfield__container--focused {
   border-color: var(--bsr-green-normal);
-  box-shadow: 0 0 0 3px var(--bsr-focus-ring-success);
 }
 
 /* ── Validation Message ─────────────────────────────────── */
 
 .bsr-textfield__message {
   display: flex;
-  align-items: flex-start;
-  gap: 8px;
-  margin-top: 8px;
+  align-items: center;
+  gap: var(--bsr-space-1);
   font-family: var(--bsr-font-family-primary);
   font-size: var(--bsr-font-size-body-small);
   font-weight: var(--bsr-font-weight-regular);
@@ -191,9 +218,8 @@
 
 .bsr-textfield__message svg {
   flex-shrink: 0;
-  width: 16px;
-  height: 16px;
-  margin-top: 1px;
+  width: var(--bsr-icon-size-xs);
+  height: var(--bsr-icon-size-xs);
 }
 
 /* ── Responsive Design ──────────────────────────────────── */

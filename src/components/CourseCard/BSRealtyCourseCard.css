@@ -8,8 +8,8 @@
   width: 305px;
   border-radius: var(--bsr-radius-2xl);
   background-color: var(--bsr-color-white);
-  gap: 12px;
-  padding-bottom: 20px;
+  gap: var(--bsr-space-3);
+  padding-bottom: var(--bsr-space-5);
   font-family: var(--bsr-font-family-primary);
   text-decoration: none;
   overflow: hidden;
@@ -35,9 +35,9 @@
 .bsr-course-card_content {
   display: flex;
   flex-direction: column;
-  padding-right: 16px;
-  padding-left: 16px;
-  gap: 4px;
+  padding-right: var(--bsr-space-4);
+  padding-left: var(--bsr-space-4);
+  gap: var(--bsr-space-1);
 }
 
 .bsr-course-card_title {
@@ -59,9 +59,9 @@
 .bsr-course-card_action {
   display: flex;
   align-items: center;
-  gap: 4px;
-  padding-right: 16px;
-  padding-left: 16px;
+  gap: var(--bsr-space-1);
+  padding-right: var(--bsr-space-4);
+  padding-left: var(--bsr-space-4);
   background: none;
   border: none;
   font-size: var(--bsr-font-size-body-medium);

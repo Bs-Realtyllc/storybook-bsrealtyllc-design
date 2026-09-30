@@ -20,6 +20,7 @@ const meta = {
       options: ['default', 'error', 'success'],
       description: 'Visual variant',
     },
+    label: { control: 'text' },
     placeholder: { control: 'text' },
     value: { control: 'text' },
     disabled: { control: 'boolean' },
@@ -44,6 +45,15 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   args: {
     placeholder: 'Input placeholder',
+  },
+};
+
+/** With a visible label above the field (same label PasswordField uses) */
+export const WithLabel: Story = {
+  args: {
+    label: 'Email',
+    placeholder: 'you@example.com',
+    type: 'email',
   },
 };
 

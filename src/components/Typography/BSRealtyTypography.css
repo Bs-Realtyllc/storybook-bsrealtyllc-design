@@ -419,28 +419,28 @@
 
 @media (max-width: 768px) {
   .text-display-large {
-    font-size: 2.5rem; /* 40px */
-    line-height: 3rem; /* 48px */
+    font-size: var(--bsr-font-size-display-large-mobile);
+    line-height: var(--bsr-line-height-display-large-mobile);
   }
   
   .text-display-medium {
-    font-size: 2rem; /* 32px */
-    line-height: 2.5rem; /* 40px */
+    font-size: var(--bsr-font-size-display-medium-mobile);
+    line-height: var(--bsr-line-height-display-medium-mobile);
   }
   
   .text-display-small {
-    font-size: 1.75rem; /* 28px */
-    line-height: 2.25rem; /* 36px */
+    font-size: var(--bsr-font-size-display-small-mobile);
+    line-height: var(--bsr-line-height-display-small-mobile);
   }
   
   .text-headline-large {
-    font-size: 1.5rem; /* 24px */
-    line-height: 2rem; /* 32px */
+    font-size: var(--bsr-font-size-headline-large-mobile);
+    line-height: var(--bsr-line-height-headline-large-mobile);
   }
   
   .text-headline-medium {
-    font-size: 1.375rem; /* 22px */
-    line-height: 1.75rem; /* 28px */
+    font-size: var(--bsr-font-size-headline-medium-mobile);
+    line-height: var(--bsr-line-height-headline-medium-mobile);
   }
 }
 
@@ -479,7 +479,7 @@
 .typography-label {
   font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
   font-size: 0.75rem;
-  font-weight: 500;
+  font-weight: var(--bsr-font-weight-medium);
   color: var(--text-muted);
   margin-bottom: 0.5rem;
   text-transform: uppercase;

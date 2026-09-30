@@ -21,7 +21,7 @@
 // vite.lib.config.ts, so importing this once here bundles it into the
 // single published dist/style.css alongside every component's styles,
 // regardless of which entry point a consumer actually imports from.
-import './tokens/tokens.css';
+import "./tokens/tokens.css";
 
 // Components
 export * from "./components/Avatar";
@@ -48,6 +48,18 @@ export * from "./components/FilterItem";
 export * from "./components/CourseCard2";
 export * from "./components/DatePicker";
 export * from "./components/Calender";
+export * from "./components/Notification";
+export * from "./components/Alert";
+export * from "./components/Checkbox";
+export * from "./components/Spinner";
+export * from "./components/Toast";
+export * from "./components/FileUpload";
+export * from "./components/KPICard";
+export * from "./components/Link";
+export * from "./components/Radio";
+export * from "./components/Toggle";
+export * from "./components/Tooltip";
+export * from "./components/Pagination";
 
 // Icons
 
@@ -55,3 +67,5 @@ export * from "./icons/index";
 
 // Shared types
 export * from "./types";
+export * from "./components/Tabs";
+export * from "./components/LinkOverlay";

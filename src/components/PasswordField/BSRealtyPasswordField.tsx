@@ -1,7 +1,6 @@
-import React, { useState, useId } from 'react';
-import './BSRealtyPasswordField.css';
+import React from 'react';
 import type { Disableable, FieldIdentity } from '../../types/shared';
-import { EyeIcon, EyeOffIcon, InfoCircleIcon } from '../../icons/icons';
+import { BSRealtyTextField } from '../TextField';
 
 export type PasswordFieldState = 'default' | 'error' | 'seeing';
 
@@ -18,71 +17,39 @@ export interface BSRealtyPasswordFieldProps extends Disableable, FieldIdentity {
   errorMessage?: string;
   /** Change handler */
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  /** Extra class name(s) for the root element, for project-specific styling */
+  className?: string;
 }
 
+/**
+ * A labelled password TextField. Reuses BSRealtyTextField so both fields share
+ * one design (sizes, states, messages) and one set of accessibility fixes.
+ */
 export const BSRealtyPasswordField = ({
+  className = '',
   label = 'Password',
   placeholder = '',
   value,
   state = 'default',
-  errorMessage = 'Your password must contain atleast 12 characters',
+  errorMessage = 'Your password must contain at least 12 characters',
   disabled = false,
   onChange,
   name,
   id,
-}: BSRealtyPasswordFieldProps) => {
-  const generatedId = useId();
-  const inputId = id ?? generatedId;
-
-  // 'seeing' state starts visible, others start hidden
-  const [visible, setVisible] = useState(state === 'seeing');
-
-  const inputType = visible ? 'text' : 'password';
-  const isError = state === 'error';
-
-  return (
-    <div className={`bsr-password${disabled ? ' bsr-password--disabled' : ''}`}>
-      {/* Label */}
-      <label className="bsr-password__label" htmlFor={inputId}>
-        {label}
-      </label>
-
-      {/* Input wrapper */}
-      <div className={`bsr-password__input-wrap${isError ? ' bsr-password__input-wrap--error' : ''}`}>
-        <input
-          id={inputId}
-          name={name}
-          type={inputType}
-          className="bsr-password__input"
-          placeholder={placeholder}
-          value={value}
-          disabled={disabled}
-          onChange={onChange}
-          aria-invalid={isError}
-          aria-describedby={isError ? `${inputId}-error` : undefined}
-          autoComplete="current-password"
-        />
-
-        {/* Toggle visibility button */}
-        <button
-          type="button"
-          className="bsr-password__toggle"
-          onClick={() => setVisible((v) => !v)}
-          aria-label={visible ? 'Hide password' : 'Show password'}
-          tabIndex={-1}
-          disabled={disabled}
-        >
-          {visible ? <EyeIcon size={20} /> : <EyeOffIcon size={20} />}
-        </button>
-      </div>
-
-      {/* Error message */}
-      {isError && errorMessage && (
-        <div id={`${inputId}-error`} className="bsr-password__error" role="alert">
-          <InfoCircleIcon size={14} />
-          <span>{errorMessage}</span>
-        </div>
-      )}
-    </div>
-  );
-};
+}: BSRealtyPasswordFieldProps) => (
+  <BSRealtyTextField
+    type="password"
+    label={label}
+    placeholder={placeholder}
+    value={value}
+    errorMessage={state === 'error' ? errorMessage : ''}
+    // 'seeing' starts with the password visible
+    defaultShowPassword={state === 'seeing'}
+    disabled={disabled}
+    onChange={onChange}
+    name={name}
+    id={id}
+    autoComplete="current-password"
+    className={className}
+  />
+);

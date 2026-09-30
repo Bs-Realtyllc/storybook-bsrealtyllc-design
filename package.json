@@ -143,14 +143,84 @@
       "require": "./dist/CourseCard2.cjs"
     },
     "./DatePicker": {
-      "types": "./dist/DatePicker/index.d.ts",
+      "types": "./dist/components/DatePicker/index.d.ts",
       "import": "./dist/DatePicker.js",
       "require": "./dist/DatePicker.cjs"
     },
     "./Calender": {
-      "types": "./dist/Calender/index.d.ts",
+      "types": "./dist/components/Calender/index.d.ts",
       "import": "./dist/Calender.js",
       "require": "./dist/Calender.cjs"
+    },
+    "./Notification": {
+      "types": "./dist/components/Notification/index.d.ts",
+      "import": "./dist/Notification.js",
+      "require": "./dist/Notification.cjs"
+    },
+    "./Toast": {
+      "types": "./dist/components/Toast/index.d.ts",
+      "import": "./dist/Toast.js",
+      "require": "./dist/Toast.cjs"
+    },
+    "./Alert": {
+      "types": "./dist/components/Alert/index.d.ts",
+      "import": "./dist/Alert.js",
+      "require": "./dist/Alert.cjs"
+    },
+    "./Checkbox": {
+      "types": "./dist/components/Checkbox/index.d.ts",
+      "import": "./dist/Checkbox.js",
+      "require": "./dist/Checkbox.cjs"
+    },
+    "./Spinner": {
+      "types": "./dist/components/Spinner/index.d.ts",
+      "import": "./dist/Spinner.js",
+      "require": "./dist/Spinner.cjs"
+    },
+    "./FileUpload": {
+      "types": "./dist/components/FileUpload/index.d.ts",
+      "import": "./dist/FileUpload.js",
+      "require": "./dist/FileUpload.cjs"
+    },
+    "./KPICard": {
+      "types": "./dist/components/KPICard/index.d.ts",
+      "import": "./dist/KPICard.js",
+      "require": "./dist/KPICard.cjs"
+    },
+    "./Link": {
+      "types": "./dist/components/Link/index.d.ts",
+      "import": "./dist/Link.js",
+      "require": "./dist/Link.cjs"
+    },
+    "./LinkOverlay": {
+      "types": "./dist/components/LinkOverlay/index.d.ts",
+      "import": "./dist/LinkOverlay.js",
+      "require": "./dist/LinkOverlay.cjs"
+    },
+    "./Radio": {
+      "types": "./dist/components/Radio/index.d.ts",
+      "import": "./dist/Radio.js",
+      "require": "./dist/Radio.cjs"
+    },
+    "./Tabs": {
+      "types": "./dist/components/Tabs/index.d.ts",
+      "import": "./dist/Tabs.js",
+      "require": "./dist/Tabs.cjs"
+    },
+    "./Toggle": {
+      "types": "./dist/components/Toggle/index.d.ts",
+      "import": "./dist/Toggle.js",
+      "require": "./dist/Toggle.cjs"
+    },
+    "./Tooltip": {
+      "types": "./dist/components/Tooltip/index.d.ts",
+      "import": "./dist/Tooltip.js",
+      "require": "./dist/Tooltip.cjs"
+    },
+    "./Pagination": {
+      "types": "./dist/components/Pagination/index.d.ts",
+      "import": "./dist/Pagination.js",
+      "require": "./dist/Pagination.cjs"
     },
     
     "./style.css": "./dist/style.css"

@@ -48,7 +48,7 @@ export const Error: Story = {
     state: 'error',
     label: 'Password',
     value: 'short',
-    errorMessage: 'Your password must contain atleast 12 characters',
+    errorMessage: 'Your password must contain at least 12 characters',
   },
 };
 

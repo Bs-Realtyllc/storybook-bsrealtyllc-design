@@ -5,10 +5,10 @@
 .bsr-searchbar {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 16px 20px;
+  gap: var(--bsr-space-2);
+  padding: var(--bsr-space-4) var(--bsr-space-5);
   background-color: var(--bsr-color-surface-muted);
-  border-radius: 24px;
+  border-radius: var(--bsr-radius-5xl);
   width: 567px;
   max-width: 100%;
   box-sizing: border-box;

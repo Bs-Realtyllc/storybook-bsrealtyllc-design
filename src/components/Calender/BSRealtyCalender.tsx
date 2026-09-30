@@ -1,5 +1,6 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { CalendarIcon, ChevronDownIcon, ChevronLeftIcon, ChevronRightIcon } from '../../icons/icons';
+import { iconSizeStyle } from '../../icons/iconSize';
 import './BSRealtyCalender.css';
 
 const DAYS_OF_WEEK = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
@@ -14,11 +15,14 @@ export interface BSRealtyCalenderProps {
     /** Value can be a single date string or a range object */
     value?: DateRangeValue | SingleDateValue;
 
-    /** Callback fired when a date or range is selected */
-    onChange?: (date: any) => void;
+    /** Callback fired when a date or range is selected: a 'YYYY-MM-DD' string for
+     *  single-month variants, a DateRangeValue for dual-month variants */
+    onChange?: (value: DateRangeValue | SingleDateValue) => void;
 
     /** Calendar variant */
     variant?: CalenderVariant;
+    /** Extra class name(s) for the root element, for project-specific styling */
+    className?: string;
 }
 
 interface MonthData {
@@ -29,11 +33,15 @@ interface MonthData {
 }
 
 export const BSRealtyCalender = ({
-    value = '2025-09-15',
+    className = '',
+    value,
     onChange,
     variant = 'dualMonths'
 }: BSRealtyCalenderProps) => {
     const isSingleVariant = variant?.includes('singleMonth');
+    // Figma: 13px arrows on the single-month panel, 19px on the dual-month one
+    const navIconSizeVar = `var(--bsr-icon-size-calendar-nav-${isSingleVariant ? 'single' : 'dual'})`;
+    const navIconStyle = { width: navIconSizeVar, height: navIconSizeVar };
 
     // Safe parser for strings ('YYYY-MM-DD')
     const parseDate = (dateInput?: string): Date | null => {
@@ -54,17 +62,17 @@ export const BSRealtyCalender = ({
     };
 
     // Initialize states safely based on whether it's single or range
+    // Nothing is selected until a value is given; the view opens on that date or today
     const getInitialDates = () => {
         if (isSingleVariant && typeof value === 'string') {
-            const d = parseDate(value) || new Date();
-            return { current: d, start: d, end: null };
+            const d = parseDate(value);
+            return { current: d || new Date(), start: d, end: null };
         } else if (!isSingleVariant && typeof value === 'object' && value !== null) {
-            const start = parseDate(value.startDate) || new Date();
+            const start = parseDate(value.startDate);
             const end = parseDate(value.endDate);
-            return { current: start, start, end };
+            return { current: start || new Date(), start, end };
         }
-        const fallback = new Date();
-        return { current: fallback, start: fallback, end: null };
+        return { current: new Date(), start: null, end: null };
     };
 
     const initial = getInitialDates();
@@ -73,24 +81,19 @@ export const BSRealtyCalender = ({
     const [endDate, setEndDate] = useState<Date | null>(initial.end);
     const [showCalender, setShowCalender] = useState(false);
 
-    // Synchronize props updates from Storybook/Parent
-    useEffect(() => {
-        if (isSingleVariant && typeof value === 'string') {
-            const parsed = parseDate(value);
-            if (parsed) {
-                setStartDate(parsed);
-                setCurrentDate(parsed);
-            }
-        } else if (!isSingleVariant && typeof value === 'object' && value !== null) {
-            const parsedStart = parseDate(value.startDate);
-            const parsedEnd = parseDate(value.endDate);
-            if (parsedStart) {
-                setStartDate(parsedStart);
-                setCurrentDate(parsedStart);
-            }
-            setEndDate(parsedEnd || null);
-        }
-    }, [value, isSingleVariant]);
+    // Synchronize props updates from Storybook/Parent. Done during render (not in an
+    // effect) and keyed on the date strings, so a new-but-equal range object is a no-op.
+    const valueKey = typeof value === 'object' && value !== null
+        ? `${value.startDate ?? ''}|${value.endDate ?? ''}`
+        : value ?? '';
+    const [syncedKey, setSyncedKey] = useState(`${valueKey}#${variant}`);
+    if (syncedKey !== `${valueKey}#${variant}`) {
+        setSyncedKey(`${valueKey}#${variant}`);
+        const next = getInitialDates();
+        setStartDate(next.start);
+        setEndDate(next.end);
+        if (next.start) setCurrentDate(next.start);
+    }
 
     const firstMonthDate = new Date(currentDate.getFullYear(), currentDate.getMonth(), 1);
     const secondMonthDate = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 1);
@@ -160,34 +163,38 @@ export const BSRealtyCalender = ({
     };
 
     // Header Display formatting
+    const formatShortDate = (date: Date) =>
+        `${date.getDate()} ${date.toLocaleString('default', { month: 'short' })}, ${date.getFullYear()}`;
+
     const formatDisplayDate = () => {
-        if (isSingleVariant || !endDate) {
-            const target = startDate || currentDate;
-            return `${target.getDate()} ${target.toLocaleString('default', { month: 'short' })}, ${target.getFullYear()}`;
-        }
-        const startStr = `${startDate!.getDate()} ${startDate!.toLocaleString('default', { month: 'short' })}, ${startDate!.getFullYear()}`;
-        const endStr = `${endDate.getDate()} ${endDate.toLocaleString('default', { month: 'short' })}, ${endDate.getFullYear()}`;
-        return `${startStr} - ${endStr}`;
+        if (!startDate) return isSingleVariant ? 'Select date' : 'Select dates';
+        if (isSingleVariant || !endDate) return formatShortDate(startDate);
+        return `${formatShortDate(startDate)} - ${formatShortDate(endDate)}`;
     };
 
     return (
-        <div className='bs-calendar'>
+        <div className={`bs-calendar ${className}`}>
             {(variant === 'dualMonthsSelector' || variant === 'singleMonthSelector') && (
-                <div className='bs-calendar-monthSelector' onClick={() => setShowCalender(prev => !prev)}>
-                    <span className='bs-calendar-monthSelector-box'>
-                        <CalendarIcon size={19} />
+                <div className='bs-calendar-monthSelector'>
+                    <button
+                        type='button'
+                        className='bs-calendar-monthSelector-box'
+                        aria-expanded={showCalender}
+                        onClick={() => setShowCalender(prev => !prev)}
+                    >
+                        <CalendarIcon style={iconSizeStyle('sm')} />
                         {formatDisplayDate()}
                         <span className={`bs-calendar-chevron ${showCalender ? 'open' : ''}`}>
-                            <ChevronDownIcon size={19} />
+                            <ChevronDownIcon style={iconSizeStyle('2xs')} />
                         </span>
-                    </span>
+                    </button>
                 </div>
             )}
             {(!variant?.includes('Selector') || showCalender) && (
                 <div className={`bs-calendar-container bs-calendar-container-${variant}`}>
-                    <span onClick={handlePrevMonth} className="bs-calendar-nav-btn" aria-label="Previous Month">
-                        <ChevronLeftIcon size={19} />
-                    </span>
+                    <button type="button" onClick={handlePrevMonth} className="bs-calendar-nav-btn" aria-label="Previous month">
+                        <ChevronLeftIcon style={navIconStyle} />
+                    </button>
 
                     <div className="bs-calendar-grid-container">
                         <span className={`bs-calendar-month1-${variant}`}>
@@ -213,9 +220,9 @@ export const BSRealtyCalender = ({
                         )}
                     </div>
 
-                    <span onClick={handleNextMonth} className="bs-calendar-nav-btn" aria-label="Next Month">
-                        <ChevronRightIcon size={19} />
-                    </span>
+                    <button type="button" onClick={handleNextMonth} className="bs-calendar-nav-btn" aria-label="Next month">
+                        <ChevronRightIcon style={navIconStyle} />
+                    </button>
                 </div>
             )}
         </div>
@@ -279,11 +286,20 @@ const MonthTable = ({ data, startDate, endDate, isSingle, onDayClick }: MonthTab
                         if (isEnd && !isSingle) classNames += " range-end";
                         if (isInRange) classNames += " in-range";
 
+                        const fullDate = new Date(data.year, data.month, day).toLocaleDateString('default', {
+                            weekday: 'long',
+                            day: 'numeric',
+                            month: 'long',
+                            year: 'numeric',
+                        });
+
                         return (
                             <div key={index} className="bs-calendar-day-cell">
                                 <button
                                     type='button'
                                     className={classNames}
+                                    aria-label={isToday ? `Today, ${fullDate}` : fullDate}
+                                    aria-pressed={isStart || isEnd}
                                     onClick={() => onDayClick(data.year, data.month, day)}
                                 >
                                     {day}

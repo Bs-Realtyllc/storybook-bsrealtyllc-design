@@ -1,50 +1,52 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
-
 .bs-calendar {
   display: flex;
   flex-direction: column;
-  font-family: "Inter", sans-serif;
-  gap: 8px;
+  font-family: var(--bsr-font-family-primary);
+  gap: var(--bsr-space-3);
 }
 .bs-calendar *,
 .bs-calendar ::before,
 .bs-calendar ::after {
-  font-family: "Inter", sans-serif;
+  font-family: var(--bsr-font-family-primary);
 }
 .bs-calendar-container {
   display: flex;
   justify-content: center;
   align-items: flex-start;
   background-color: var(--bsr-color-text-inverse);
-  border-radius: 8px;
-  padding: 0 12px;
+  border-radius: var(--bsr-radius-lg);
+  padding: 0 var(--bsr-space-3);
   width: 572px;
-  height: 286px;
 }
 
 .bs-calendar-nav-btn {
+  display: inline-flex;
   margin: 28px -5px;
+  padding: 0;
+  border: none;
+  border-radius: var(--bsr-radius-sm);
+  background: transparent;
   color: var(--bsr-color-text-deep-night);
+  cursor: pointer;
 }
 
 .bs-calendar-grid-container {
   display: flex;
   justify-content: center;
-  gap: 4px;
+  gap: var(--bsr-space-1);
 }
 
 .bs-calendar-month-wrapper {
   box-sizing: border-box;
-  height: 286px;
   display: flex;
   flex-direction: column;
-  padding: 24px 12px;
-  gap: 16px;
+  padding: var(--bsr-space-6) var(--bsr-space-3);
+  gap: var(--bsr-space-4);
 }
 
 .bs-calendar-month-title {
-  font-weight: 500;
-  font-size: 18px;
+  font-weight: var(--bsr-font-weight-medium);
+  font-size: var(--bsr-font-size-body-xlarge);
   line-height: 28px;
   color: var(--bsr-color-text-deep-night);
   margin: 0;
@@ -53,7 +55,7 @@
 .bs-calender-week-day {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: var(--bsr-space-2);
 }
 
 .bs-calendar-weekdays {
@@ -66,8 +68,8 @@
 }
 
 .bs-calendar-weekday {
-  font-weight: 500;
-  font-size: 14px;
+  font-weight: var(--bsr-font-weight-medium);
+  font-size: var(--bsr-font-size-body-medium);
   line-height: 20px;
   text-align: center;
   color: var(--bsr-color-text-soft-white);
@@ -78,7 +80,6 @@
   gap: 0;
   grid-template-columns: repeat(7, minmax(0, 1fr));
   width: 232px;
-  height: 166px;
 }
 
 .bs-calendar-day-cell {
@@ -92,8 +93,8 @@
 .bs-calendar-day-btn {
   width: 32px;
   height: 32px;
-  font-weight: 500;
-  font-size: 14px;
+  font-weight: var(--bsr-font-weight-medium);
+  font-size: var(--bsr-font-size-body-medium);
   line-height: 20px;
   text-align: center;
   color: var(--bsr-color-text-light-gray);
@@ -105,14 +106,24 @@
   align-items: center;
 }
 
-/* single calendar */
+/* dual calendar: month titles are left-aligned (Figma) */
+.bs-calendar-container-dualMonths .bs-calendar-month-title,
+.bs-calendar-container-dualMonthsSelector .bs-calendar-month-title {
+  text-align: left;
+}
+
+/* single calendar: 13px arrows; -2px sides keep the panel at 299px (13 - 4 = 9px, as 19 - 10 is) */
+.bs-calendar-container-singleMonth .bs-calendar-nav-btn,
+.bs-calendar-container-singleMonthSelector .bs-calendar-nav-btn {
+  margin: 31px -2px;
+}
+
 .bs-calendar-container-singleMonth,
 .bs-calendar-container-singleMonthSelector {
   width: 299px;
-  height: 286px;
-  border-radius: 8px;
-  padding-right: 12px;
-  padding-left: 12px;
+  border-radius: var(--bsr-radius-lg);
+  padding-right: var(--bsr-space-3);
+  padding-left: var(--bsr-space-3);
 }
 
 .bs-calendar-month2-singleMonth,
@@ -133,14 +144,15 @@
   justify-content: center;
   align-items: center;
   height: 44px;
-  gap: 8px;
-  border-radius: 8px;
-  border-width: 1px;
-  padding: 12px;
+  gap: var(--bsr-space-2);
+  border-radius: var(--bsr-radius-lg);
+  padding: var(--bsr-space-3);
   background: var(--bsr-color-text-inverse);
   border: 1px solid var(--bsr-color-border-white);
   color: var(--bsr-color-text-deep-night);
-  padding: 12px;
+  font-size: var(--bsr-font-size-body-medium);
+  font-weight: var(--bsr-font-weight-medium);
+  line-height: 20px;
   cursor: pointer;
 }
 .bs-calendar-chevron {
@@ -153,26 +165,22 @@
   transform: rotate(180deg);
 }
 
-.bs-calendar-day-btn.range-start {
-  background-color: var(--bsr-color-select-date);
-  color: var(--bsr-color-text-inverse);
-  border-radius: 50%;
-}
-
+.bs-calendar-day-btn.selected,
+.bs-calendar-day-btn.range-start,
 .bs-calendar-day-btn.range-end {
-  background-color: var(--bsr-color-select-date);
+  background-color: var(--bsr-color-primary);
   color: var(--bsr-color-text-inverse);
   border-radius: 50%;
 }
 
 .bs-calendar-day-btn.in-range {
-  background-color: var(--bsr-color-select-range-date);
+  background-color: var(--bsr-color-selected);
   border-radius: 0;
 }
 /* Style for today's date */
 .bs-calendar-day-btn.today {
-  color: var(--bsr-color-select-date);
-  font-weight: 600;
+  color: var(--bsr-color-primary);
+  font-weight: var(--bsr-font-weight-semibold);
 }
 
 /* If today is also selected or in range,*/
@@ -181,4 +189,12 @@
 .bs-calendar-day-btn.today.range-end {
   border: none;
   color: var(--bsr-color-text-inverse);
+}
+
+/* Keyboard focus */
+.bs-calendar-nav-btn:focus-visible,
+.bs-calendar-monthSelector-box:focus-visible,
+.bs-calendar-day-btn:focus-visible {
+  outline: 2px solid var(--bsr-color-primary);
+  outline-offset: 2px;
 }

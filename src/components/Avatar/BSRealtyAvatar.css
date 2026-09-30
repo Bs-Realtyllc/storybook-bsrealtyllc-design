@@ -7,13 +7,12 @@
   justify-content: center;
   flex-shrink: 0;
   border-radius: var(--bsr-radius-full);
-  background: var(--bsr-color-primary);
-  color: var(--bsr-color-text-inverse);
+  background: var(--bsr-color-avatar-bg);
+  color: var(--bsr-color-surface-alt);
   font-family: var(--bsr-font-family-primary);
   font-weight: var(--bsr-font-weight-semibold);
   overflow: hidden;
   user-select: none;
-  font-weight: 600;
 }
 
 .bsr-avatar__image {
@@ -31,25 +30,25 @@
 /* ── Sizes ─────────────────────────────────────────────────────── */
 
 .bsr-avatar--sm {
-  width: 36px;
-  height: 36px;
-  font-size: 16px;
+  width: 32px;
+  height: 32px;
+  font-size: var(--bsr-font-size-body-large);
 }
 
 .bsr-avatar--md {
   width: 40px;
   height: 40px;
-  font-size: 20px;
+  font-size: var(--bsr-font-size-figma-4xl);
 }
 
 .bsr-avatar--lg {
   width: 48px;
   height: 48px;
-  font-size: 22px;
+  font-size: var(--bsr-font-size-title-large);
 }
 
 .bsr-avatar--xl {
   width: 56px;
   height: 56px;
-  font-size: 28px;
+  font-size: var(--bsr-font-size-headline-medium);
 }

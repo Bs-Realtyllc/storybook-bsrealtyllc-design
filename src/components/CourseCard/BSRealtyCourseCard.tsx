@@ -1,5 +1,6 @@
 import './BSRealtyCourseCard.css'
 import { ArrowRight } from "../../icons/icons"
+import { iconSizeStyle } from "../../icons/iconSize"
 
 export interface BSRealtyCourseCardProps {
     /**  Image URL for course card */
@@ -17,9 +18,12 @@ export interface BSRealtyCourseCardProps {
     /** Click handler for action link */
     onClick?: () => void;
 
+    /** Extra class name(s) for the root element, for project-specific styling */
+    className?: string;
 }
 
 export const BSRealtyCourseCard = ({
+    className = '',
     imageUrl,
     title,
     description,
@@ -28,7 +32,7 @@ export const BSRealtyCourseCard = ({
 
 }: BSRealtyCourseCardProps) => {
     return (
-        <div className={['bsr-course-card'].join(' ')}>
+        <div className={['bsr-course-card', className].join(' ')}>
             <div className="bsr-course-card_image-container">
                 <img src={imageUrl} alt={title} className="bsr-course-card_image" />
             </div>
@@ -39,7 +43,7 @@ export const BSRealtyCourseCard = ({
 
             </div>
             {actionText ? (
-                <> <button type="button" className="bsr-course-card_action" onClick={onClick}><span>{actionText}</span> <ArrowRight size={14} className="bsr-arrow-right" /></button>
+                <> <button type="button" className="bsr-course-card_action" onClick={onClick}><span>{actionText}</span> <ArrowRight style={iconSizeStyle('xs')} className="bsr-arrow-right" /></button>
                 </>
             ) : null}
 

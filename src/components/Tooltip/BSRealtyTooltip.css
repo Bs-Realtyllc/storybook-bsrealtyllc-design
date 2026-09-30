@@ -1,0 +1,114 @@
+.bsr-tooltip-wrapper {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+/* Tooltip */
+.bsr-tooltip {
+  position: absolute;
+  z-index: 1000;
+  width: max-content;
+  max-width: 240px;
+  padding: var(--bsr-space-2) var(--bsr-space-3);
+  border-radius: var(--bsr-radius-md);
+  background-color: var(--bsr-color-tooltip-bg);
+  color: var(--bsr-color-text-inverse);
+  font-family: var(--bsr-font-family-primary);
+  font-size: var(--bsr-font-size-body-small);
+  font-weight: var(--bsr-font-weight-medium);
+  line-height: 18px;
+  white-space: normal;
+  text-align: center;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+
+  transition:
+    opacity 0.15s ease,
+    visibility 0.15s ease;
+}
+
+/* Show tooltip on hover */
+.bsr-tooltip-wrapper:hover .bsr-tooltip {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Show tooltip when child receives focus */
+.bsr-tooltip-wrapper:focus-within .bsr-tooltip {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Top */
+.bsr-tooltip--top {
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Arrow */
+.bsr-tooltip--top::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid var(--bsr-color-tooltip-bg);
+}
+
+/*   Bottom */
+.bsr-tooltip--bottom {
+  top: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.bsr-tooltip--bottom::after {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 5px solid var(--bsr-color-tooltip-bg);
+}
+
+/* Left */
+.bsr-tooltip--left {
+  right: calc(100% + 8px);
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.bsr-tooltip--left::after {
+  content: "";
+  position: absolute;
+  left: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-left: 5px solid var(--bsr-color-tooltip-bg);
+}
+/* Right */
+.bsr-tooltip--right {
+  left: calc(100% + 8px);
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.bsr-tooltip--right::after {
+  content: "";
+  position: absolute;
+  right: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-right: 5px solid var(--bsr-color-tooltip-bg);
+}
