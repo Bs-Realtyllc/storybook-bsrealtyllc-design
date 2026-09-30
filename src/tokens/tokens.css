@@ -35,6 +35,13 @@
 
   --bsr-color-select-date: #6a00e5; /*select date in calander*/
   --bsr-color-select-range-date: #eeeafc; /*select range date in calander*/
+
+  /*Grays*/
+  --bsr-color-grays-dark-hover: #3c4653;
+
+  /*Blue*/
+  --bsr-color-blue-dark: #235e94;
+
   /* ── Borders 
   ───────────────────────────────────────────────────── */
   --bsr-color-border: #c7c8c9; /* property card divider/stroke */

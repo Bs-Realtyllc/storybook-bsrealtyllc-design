@@ -1,0 +1,33 @@
+.bsr-tabs {
+  display: flex;
+  gap: 12px;
+  justify-content: space-between;
+  background: transparent;
+}
+
+.bsr-tabs__tab {
+  padding: 8px 12px;
+  font-weight: 500;
+  font-size: 12px;
+  color: var(--bsr-color-grays-dark-hover);
+  line-height: 16px;
+  border-radius: 20px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition:
+    color 0.2s ease,
+    background-color 0.2s ease;
+}
+.bsr-tabs__tab:hover:not(:disabled) {
+  outline: 1px solid var(--bsr-color-blue-dark);
+}
+.bsr-tabs__tab--active {
+  color: var(--bsr-color-white-soft-light);
+  background: var(--bsr-color-blue-dark);
+}
+/* Disabled */
+.bsr-tabs__tab:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
