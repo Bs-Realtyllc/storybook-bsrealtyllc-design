@@ -1,16 +1,15 @@
 
 import React, { forwardRef } from 'react';
-import './BSRealtyToogle.css';
+import './BSRealtyToggle.css'
+export type ToggleSize = 'small' | 'medium' | 'large';
 
-export type ToogleSize = 'small' | 'medium' | 'large';
-
-export interface BSRealtyToogleProps
+export interface BSRealtyToggleProps
     extends Omit<
         React.InputHTMLAttributes<HTMLInputElement>,
         'type' | 'size'
     > {
     /** Toggle size */
-    size?: ToogleSize;
+    size?: ToggleSize;
 
     /** Disable toggle */
     disabled?: boolean;
@@ -19,7 +18,7 @@ export interface BSRealtyToogleProps
     className?: string;
 }
 
-export const BSRealtyToogle = forwardRef<HTMLInputElement, BSRealtyToogleProps>(
+export const BSRealtyToggle = forwardRef<HTMLInputElement, BSRealtyToggleProps>(
     (
         {
             size = 'medium',
@@ -31,28 +30,28 @@ export const BSRealtyToogle = forwardRef<HTMLInputElement, BSRealtyToogleProps>(
     ) => {
         return (
             <label
-                className={`bsr-toogle-wrapper ${disabled ? 'bsr-toogle-wrapper--disabled' : ''
-                    } `}
+                className={`bsr-toggle-wrapper ${disabled ? 'bsr-toggle-wrapper--disabled' : ''
+                    } ${className}`.trim()}
             >
                 <input
                     {...props}
                     ref={ref}
                     type="checkbox"
                     disabled={disabled}
-                    className="bsr-toogle__input"
+                    className="bsr-toggle__input"
                 />
 
                 <span
                     aria-hidden="true"
-                    className={`bsr-toogle bsr-toogle--${size} ${className} `}
+                    className={`bsr-toggle bsr-toggle--${size}  `}
                 >
-                    <span className="bsr-toogle__thumb" />
+                    <span className="bsr-toggle__thumb" />
                 </span>
             </label>
         );
     }
 );
 
-BSRealtyToogle.displayName = 'BSRealtyToogle';
+BSRealtyToggle.displayName = 'BSRealtyToggle';
 
 

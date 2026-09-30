@@ -57,8 +57,9 @@ export * from "./components/FileUpload";
 export * from "./components/KPICard";
 export * from "./components/Link";
 export * from "./components/Radio";
-export * from "./components/Toogle";
+export * from "./components/Toggle";
 export * from "./components/Tooltip";
+export * from "./components/Pagination";
 
 // Icons
 

@@ -1,17 +1,17 @@
-.bsr-toogle-wrapper {
+.bsr-toggle-wrapper {
   position: relative;
   display: inline-flex;
   align-items: center;
   cursor: pointer;
 }
 
-.bsr-toogle-wrapper--disabled {
+.bsr-toggle-wrapper--disabled {
   cursor: not-allowed;
   opacity: 0.5;
 }
 
 /* Hide native checkbox  */
-.bsr-toogle__input {
+.bsr-toggle__input {
   position: absolute;
   width: 1px;
   height: 1px;
@@ -24,7 +24,7 @@
 }
 
 /* Toggle */
-.bsr-toogle {
+.bsr-toggle {
   position: relative;
   display: inline-flex;
   align-items: center;
@@ -37,7 +37,7 @@
 }
 
 /* Thumb */
-.bsr-toogle__thumb {
+.bsr-toggle__thumb {
   position: absolute;
   top: 50%;
   left: 3px;
@@ -48,52 +48,52 @@
   transition: transform 0.2s ease;
 }
 
-.bsr-toogle--small {
+.bsr-toggle--small {
   width: 36px;
   height: 20px;
 }
 
-.bsr-toogle--small .bsr-toogle__thumb {
+.bsr-toggle--small .bsr-toggle__thumb {
   width: 14px;
   height: 14px;
 }
 
-.bsr-toogle__input:checked + .bsr-toogle--small .bsr-toogle__thumb {
+.bsr-toggle__input:checked + .bsr-toggle--small .bsr-toggle__thumb {
   transform: translate(16px, -50%);
 }
 
-.bsr-toogle--medium {
+.bsr-toggle--medium {
   width: 44px;
   height: 24px;
 }
 
-.bsr-toogle--medium .bsr-toogle__thumb {
+.bsr-toggle--medium .bsr-toggle__thumb {
   width: 18px;
   height: 18px;
 }
 
-.bsr-toogle__input:checked + .bsr-toogle--medium .bsr-toogle__thumb {
+.bsr-toggle__input:checked + .bsr-toggle--medium .bsr-toggle__thumb {
   transform: translate(20px, -50%);
 }
 
-.bsr-toogle--large {
+.bsr-toggle--large {
   width: 52px;
   height: 28px;
 }
 
-.bsr-toogle--large .bsr-toogle__thumb {
+.bsr-toggle--large .bsr-toggle__thumb {
   width: 22px;
   height: 22px;
 }
 
-.bsr-toogle__input:checked + .bsr-toogle--large .bsr-toogle__thumb {
+.bsr-toggle__input:checked + .bsr-toggle--large .bsr-toggle__thumb {
   transform: translate(22px, -50%);
 }
 
-.bsr-toogle__input:checked + .bsr-toogle {
+.bsr-toggle__input:checked + .bsr-toggle {
   background-color: var(--bsr-color-primary);
 }
 
-.bsr-toogle__input:disabled + .bsr-toogle {
+.bsr-toggle__input:disabled + .bsr-toggle {
   cursor: not-allowed;
 }

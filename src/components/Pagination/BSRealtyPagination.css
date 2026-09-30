@@ -1,0 +1,91 @@
+.bsr-pagination {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+/* Previous / Next */
+.bsr-pagination__button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--bsr-color-border);
+  border-radius: 6px;
+  background: var(--bsr-color-white);
+  color: var(--bsr-color-text-body);
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.bsr-pagination__button:hover:not(:disabled) {
+  background: var(--bsr-color-surface-hover);
+  border-color: var(--bsr-color-border-strong);
+}
+
+/* Pages */
+.bsr-pagination__pages {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.bsr-pagination__page {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: none;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--bsr-color-text-secondary);
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.bsr-pagination__page:hover:not(:disabled) {
+  background: var(--bsr-color-surface-hover);
+}
+
+/* Active */
+.bsr-pagination__page--active {
+  background: var(--bsr-color-primary);
+  color: var(--bsr-color-text-inverse);
+}
+
+.bsr-pagination__page--active:hover:not(:disabled) {
+  background: var(--bsr-color-primary);
+  color: var(--bsr-color-text-inverse);
+}
+/* Dots */
+.bsr-pagination__dots {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  color: var(--bsr-color-text-muted);
+  font-size: var(--bsr-font-size-body-medium);
+  font-weight: var(--bsr-font-weight-medium);
+}
+
+/* Disabled */
+.bsr-pagination__button:disabled,
+.bsr-pagination__page:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

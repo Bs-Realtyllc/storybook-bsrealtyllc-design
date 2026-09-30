@@ -1,10 +1,10 @@
 
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { BSRealtyToogle } from './BSRealtyToogle';
+import { BSRealtyToggle } from './BSRealtyToggle';
 
 const meta = {
-    title: 'Components/Toogle',
-    component: BSRealtyToogle,
+    title: 'Components/Toggle',
+    component: BSRealtyToggle,
 
     parameters: {
         layout: 'centered',
@@ -42,7 +42,7 @@ const meta = {
             action: 'changed',
         },
     },
-} satisfies Meta<typeof BSRealtyToogle>;
+} satisfies Meta<typeof BSRealtyToggle>;
 
 export default meta;
 

@@ -207,15 +207,20 @@
       "import": "./dist/Tabs.js",
       "require": "./dist/Tabs.cjs"
     },
-    "./Toogle": {
-      "types": "./dist/components/Toogle/index.d.ts",
-      "import": "./dist/Toogle.js",
-      "require": "./dist/Toogle.cjs"
+    "./Toggle": {
+      "types": "./dist/components/Toggle/index.d.ts",
+      "import": "./dist/Toggle.js",
+      "require": "./dist/Toggle.cjs"
     },
     "./Tooltip": {
       "types": "./dist/components/Tooltip/index.d.ts",
       "import": "./dist/Tooltip.js",
       "require": "./dist/Tooltip.cjs"
+    },
+    "./Pagination": {
+      "types": "./dist/components/Pagination/index.d.ts",
+      "import": "./dist/Pagination.js",
+      "require": "./dist/Pagination.cjs"
     },
     
     "./style.css": "./dist/style.css"

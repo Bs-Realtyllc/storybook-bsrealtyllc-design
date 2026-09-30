@@ -96,8 +96,9 @@ export default defineConfig({
         LinkOverlay: resolve(__dirname, "src/components/LinkOverlay/index.ts"),
         Radio: resolve(__dirname, "src/components/Radio/index.ts"),
         Tabs: resolve(__dirname, "src/components/Tabs/index.ts"),
-        Toogle: resolve(__dirname, "src/components/Toogle/index.ts"),
+        Toggle: resolve(__dirname, "src/components/Toggle/index.ts"),
         Tooltip: resolve(__dirname, "src/components/Tooltip/index.ts"),
+        Pagination: resolve(__dirname, "src/components/Pagination/index.ts"),
 
         // src/types/index.ts is type-only (interfaces are erased at build
         // time) — deliberately NOT a lib entry, it would emit an empty JS
