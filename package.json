@@ -1,6 +1,6 @@
 {
   "name": "@bsrealtyllc/design-system",
-  "version": "0.1.4",
+  "version": "0.2.0",
   "description": "BSRealty design system — shared React components, icons, and design tokens.",
   "private": false,
   "license": "MIT",
@@ -222,7 +222,6 @@
       "import": "./dist/Pagination.js",
       "require": "./dist/Pagination.cjs"
     },
-    
     "./style.css": "./dist/style.css"
   },
   "scripts": {
