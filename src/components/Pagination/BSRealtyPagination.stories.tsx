@@ -30,6 +30,11 @@ const meta = {
             control: 'boolean',
             description: 'Disable pagination',
         },
+
+        activeColor: {
+            control: 'color',
+            description: 'Active page color (same on hover)',
+        },
     },
 } satisfies Meta<typeof BSRealtyPagination>;
 

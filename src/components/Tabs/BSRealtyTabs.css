@@ -7,10 +7,9 @@
 
 .bsr-tabs__tab {
   padding: var(--bsr-space-2) var(--bsr-space-3);
-  font-family: var(--bsr-font-family-primary);
-  font-weight: var(--bsr-font-weight-medium);
-  font-size: var(--bsr-font-size-label-medium);
-  line-height: var(--bsr-line-height-label-medium);
+  font-weight: var(--bsr-font-weight-large);
+  font-size: 16px;
+  line-height: var(--bsr-line-height-label-large);
   color: var(--bsr-color-grays-dark-hover);
   border-radius: var(--bsr-radius-full);
   background: transparent;
@@ -21,15 +20,15 @@
     background-color 0.2s ease;
 }
 .bsr-tabs__tab:hover:not(:disabled):not(.bsr-tabs__tab--active) {
-  outline: 1px solid var(--bsr-color-primary);
+  outline: 1px solid var(--bsr-color-normal-dark-blue);
 }
 .bsr-tabs__tab:focus-visible {
-  outline: 2px solid var(--bsr-color-primary);
+  outline: 2px solid var(--bsr-color-normal-dark-blue);
   outline-offset: 2px;
 }
 .bsr-tabs__tab--active {
   color: var(--bsr-color-text-inverse);
-  background: var(--bsr-color-primary);
+  background: var(--bsr-color-normal-dark-blue);
 }
 /* Disabled */
 .bsr-tabs__tab:disabled {

@@ -63,12 +63,12 @@
 
 /* Active */
 .bsr-pagination__page--active {
-  background: var(--bsr-color-primary);
+  background: var(--bsr-pagination-active, var(--bsr-color-normal-dark-blue));
   color: var(--bsr-color-text-inverse);
 }
 
 .bsr-pagination__page--active:hover:not(:disabled) {
-  background: var(--bsr-color-primary);
+  background: var(--bsr-pagination-active, var(--bsr-color-normal-dark-blue));
   color: var(--bsr-color-text-inverse);
 }
 /* Dots */

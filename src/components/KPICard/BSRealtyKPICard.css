@@ -6,7 +6,7 @@
   height: 106px;
   gap: var(--bsr-space-3);
   padding: var(--bsr-space-4);
-  background: var(--bsr-color-white-soft);
+  background: var(--bsr-color-white-soft-light);
   border: 1px solid var(--bsr-color-border-kpi);
   border-radius: var(--bsr-radius-lg);
   box-sizing: border-box;

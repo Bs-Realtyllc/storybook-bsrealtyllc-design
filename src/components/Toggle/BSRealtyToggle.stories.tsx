@@ -34,6 +34,11 @@ const meta = {
             description: 'Disable the toggle',
         },
 
+        selectedColor: {
+            control: 'color',
+            description: 'Track color when selected',
+        },
+
         className: {
             control: false,
         },

@@ -138,7 +138,7 @@ export const BSRealtyDropdown = ({
 
             <div
                 className={`bsr-dropdown_input-wrapper ${isOpen ? "bsr-dropdown_trigger--open" : ""
-                    }`}
+                    } ${selectedOption ? "bsr-dropdown_trigger--selected" : ""}`}
                 onClick={() => (isOpen ? close() : open())}
             >
                 <input

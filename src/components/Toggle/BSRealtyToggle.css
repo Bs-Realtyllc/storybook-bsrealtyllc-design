@@ -91,7 +91,7 @@
 }
 
 .bsr-toggle__input:checked + .bsr-toggle {
-  background-color: var(--bsr-color-primary);
+  background-color: var(--bsr-toggle-on, var(--bsr-color-normal-dark-blue));
 }
 
 .bsr-toggle__input:disabled + .bsr-toggle {

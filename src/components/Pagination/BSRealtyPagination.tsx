@@ -11,6 +11,8 @@ export interface BSRealtyPaginationProps {
     className?: string;
     /** Disable pagination */
     disabled?: boolean;
+    /** Active page color, also used on hover (any CSS color) */
+    activeColor?: string;
 }
 
 export const BSRealtyPagination = ({
@@ -19,6 +21,7 @@ export const BSRealtyPagination = ({
     onPageChange,
     className = '',
     disabled = false,
+    activeColor,
 }: BSRealtyPaginationProps) => {
     let pages: (number | string)[] = [];
 
@@ -57,6 +60,11 @@ export const BSRealtyPagination = ({
         <nav
             className={`bsr-pagination ${className}`}
             aria-label="Pagination"
+            style={
+                activeColor
+                    ? ({ '--bsr-pagination-active': activeColor } as React.CSSProperties)
+                    : undefined
+            }
         >
             {/* Previous page btn */}
             <button
