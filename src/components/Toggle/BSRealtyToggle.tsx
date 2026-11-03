@@ -16,6 +16,9 @@ export interface BSRealtyToggleProps
 
     /** Custom class name */
     className?: string;
+
+    /** Track color when selected (any CSS color) */
+    selectedColor?: string;
 }
 
 export const BSRealtyToggle = forwardRef<HTMLInputElement, BSRealtyToggleProps>(
@@ -24,6 +27,7 @@ export const BSRealtyToggle = forwardRef<HTMLInputElement, BSRealtyToggleProps>(
             size = 'medium',
             disabled = false,
             className = '',
+            selectedColor,
             ...props
         },
         ref
@@ -32,6 +36,11 @@ export const BSRealtyToggle = forwardRef<HTMLInputElement, BSRealtyToggleProps>(
             <label
                 className={`bsr-toggle-wrapper ${disabled ? 'bsr-toggle-wrapper--disabled' : ''
                     } ${className}`.trim()}
+                style={
+                    selectedColor
+                        ? ({ '--bsr-toggle-on': selectedColor } as React.CSSProperties)
+                        : undefined
+                }
             >
                 <input
                     {...props}
